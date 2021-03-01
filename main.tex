@@ -1,0 +1,48 @@
+% Description: Thesis template that matches the
+% Mid Sweden University thesis Word template.
+%
+% Author: Linus Sjöbro
+\documentclass[12pt]{report}
+\input{settings/settings.tex}
+
+\graphicspath{{./attachments/figures/images/}}
+\newcommand{\codePath}{./attachments/code/}
+\newcommand{\tikzPath}{./attachments/figures/tikz/}
+\newcommand{\tablePath}{./attachments/tables/}
+
+\newcommand{\thesisTitle}{Le title}
+\newcommand{\thesisSubtitle}{Le subtitle}
+\newcommand{\thesisAuthor}{Author}
+
+\newcommand{\examinerName}{Examiner}
+\newcommand{\supervisorName}{Supervisor}
+\newcommand{\degreeProgramme}{Degree}
+\newcommand{\courseCode}{CC}
+\newcommand{\courseCredits}{Credits}
+\newcommand{\mainFieldOfStudy}{Field}
+\newcommand{\thesisYear}{2020}
+\newcommand{\semester}{spring}
+
+\renewcommand\listingscaption{Programkod}
+
+\begin{document}
+\include{settings/infopage}
+\tableofcontents
+
+\chapter *{Terminology}
+\printglossary[title = Words, nonumberlist]
+\printglossary[title=Acronyms, type=\acronymtype, nonumberlist]
+
+\include{content/0-abstract}
+\include{content/0-foreword}
+\include{content/1-introduction}
+\include{content/2-theory}
+\include{content/3-method}
+\include{content/4-construction}
+\include{content/5-results}
+\include{content/6-conclusion}
+
+\printbibliography
+
+\input{appendices/appendices.tex}
+\end{document}
