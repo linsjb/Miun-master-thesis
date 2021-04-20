@@ -1,6 +1,6 @@
-%escription: Thesis template that matches the
+%Description: Thesis template that matches the
 % Mid Sweden University thesis Word template.
-%
+
 % Author: Linus Sjöbro
 \documentclass[12pt]{report}
 \input{settings/settings.tex}
@@ -20,29 +20,29 @@
 \newcommand{\courseCode}{DT005G}
 \newcommand{\courseCredits}{30hp}
 \newcommand{\mainFieldOfStudy}{Computer science}
-\newcommand{\thesisYear}{2020}
+\newcommand{\thesisYear}{2021}
 \newcommand{\semester}{spring}
 
 % \renewcommand\listingscaption{Programkod}
 
 \begin{document}
-\include{settings/infopage}
-\tableofcontents
+% \include{settings/infopage}
+% \tableofcontents
 
-\chapter *{Terminology}
-\printglossary[title = Words, nonumberlist]
-\printglossary[title=Acronyms, type=\acronymtype, nonumberlist]
+% \chapter *{Terminology}
+% \printglossary[title = Words, nonumberlist]
+% \printglossary[title=Acronyms, type=\acronymtype, nonumberlist]
 
-\include{content/0-abstract}
-\include{content/0-foreword}
+% \include{content/0-abstract}
+% \include{content/0-foreword}
 \include{content/1-introduction}
-\include{content/2-theory}
-\include{content/3-method}
-\include{content/4-construction}
-\include{content/5-results}
-\include{content/6-conclusion}
+\include{content/2-theory/theory}
+\include{content/3-method/method}
+% \include{content/4-construction}
+% \include{content/5-results}
+% \include{content/6-conclusion}
 
 \printbibliography
 
-\input{appendices/appendices.tex}
+% \input{appendices/appendices.tex}
 \end{document}
