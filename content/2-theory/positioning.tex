@@ -1,8 +1,99 @@
-\section{Indoor positioning}
+\section{Indoor positioning} \label{sec:theoryIndoorPositioning}
 In indoor environments GPS signals is often low or does not exist at all.
 This means that other techniques is needed to be able to position a device in these kind of environments.
-\section{Fingerprint}
-\section{Radiomap}
-ASDASD
-\section{Received Signal Strength Indication}
-\acrfull{rssi} is a measu 
+The positioning can be done in multiple different ways and with different kind of hardware and techniques.
+The techniques used to develop indoor positioning in this thesis work is described in this section.
+
+
+
+\subsection{Fingerprint}\label{sec:theoryFingerprint}
+A signal fingerprint, or position fingerprint, is a popular method to map an array of signal strengths to a specific coordinate or area.
+Fingerprint positioning can be used both for indoor and outdoor positioning.
+Indoor fingerprint positioning is based on 2D modelling where positioning via WiFi Access Points (AP) is the most popular alternative.
+For indoor positioning the fingerprints are often based on \acrshort{rssi} values from the sending devices for every location. 
+\cite{LocationFingerprintingInfrastructure2004, IndoorFingerprintPositioning2017}
+
+\bigskip
+
+Fingerprint based localization is not only used in WiFi based systems but can also be used with other hardware, such as \acrshort{ble} Beacons.
+It works the on the same way but instead of collecting WiFi \acrshort{rssi} values the values comes from the Beacons instead.
+\cite{PracticalFingerprintingLocalization2017} 
+
+\bigskip
+
+A fingerprint positioning system is built up in a two phase process.
+An offline and online phase.\cite{IndoorFingerprintPositioning2017} 
+
+\subsubsection{Offline phase}\label{sec:theoryFingerprintOffline}
+In the offline phase (also called observation phase) the fingerprints are being collected and mapped to a location in the environment.
+The mapped fingerprints are then being stored in a radio map database.
+\Cref{fig:fingerprintOfflinePhaseIllustration} shows the flow for collection the \acrshort{rssi} signals, mapping them to a location and storing them in the radio map database.
+This is often an time consuming part since all positions need to be manually scanned.\cite{IndoorFingerprintPositioning2017} 
+
+
+\fig{Fingerprint offline phase flow \cite{IndoorFingerprintPositioning2017} }{fingerprintOfflinePhaseIllustration}{1}{fingerprintOfflinePhase}
+
+\newpage
+
+\subsubsection{Online phase}\label{sec:theoryFingerprintOnline}
+The online phase is the part where a user is interacting with the stored fingerprints.
+A device is collecting \acrshort{rssi} values from nearby senders in real time and being compared with the fingerprints in the database.
+If a match between the real time \acrshort{rssi} values and the radio map occur the location is being yield back and the device can be positioned.\cite{IndoorFingerprintPositioning2017}
+\Cref{fig:fingerprintOnlinePhaseIllustration} shows an illustration of the online phase flow.
+
+\fig{Online phase positioning flow\cite{IndoorFingerprintPositioning2017} }{fingerprintOnlinePhaseIllustration}{1.0}{fingerprintOnlinePhase}
+
+
+
+\subsection{Received Signal Strength Indication}\label{sec:theoryRssi}
+\acrfull{rssi} is 2D model based position technology indication on the signal strength between a sender and receiver.
+It's a less complex method than 3D model based technologies such as Time of Arrival, Time Difference of Arrival or Angle of Arrival that require a proper time synchronization between the sender and receiver.
+This opens up for easier software implementations and can reduce the complexity of the signal measurement.
+The technology became popular because of this but also for its high accuracy, low cost and low power consumption.
+\cite{IndoorFingerprintPositioning2017} 
+
+\bigskip
+
+The technology can be divided into three categories;
+\begin{itemize}
+\item Trilateration
+\item Approximate Perception
+\item Scene Analysis \cite{IndoorFingerprintPositioning2017} 
+\end{itemize}
+
+\subsubsection{Trilateration}\label{sec:theoryRssiTrilateration}
+Trilateration is a positioning technique where three or more senders and converts the signals into spatial distances.
+This is used to create radius of circles and where all the circles intersect with each other is where the device is located. \cite{IndoorFingerprintPositioning2017} 
+
+\subsubsection{Approximate Perception}\label{sec:theoryRssiApproxPerception}
+In approximate perception the signal from the strongest base station is the positioning criterion.
+This technique has a low positioning accuracy and to make it more exact researchers has used a cluster of antennas.
+This cluster is then placed at a know location and will improve the accuracy.\cite{IndoorFingerprintPositioning2017} 
+
+\subsubsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis}
+Scene analysis is the most used technique for indoor positioning.
+It uses fingerprint matching (\cref{sec:theoryFingerprint}) and does not require any information of where the base stations is located.
+The positioning is done with the signal strength from multiple base stations at a given reference point.
+Together with a fingerprint data structure the reference point will act as a localization point for the positioning system.\cite{IndoorFingerprintPositioning2017} 
+
+\bigskip
+
+Measurements taken with \acrshort{rssi} values can be used to take signal fingerprints to build up a radio map database for indoor localization.\cite{DevelopmentMobileIndoor2017} 
+
+
+
+\subsection{K-Nearest Neighbour}\label{sec:theoryKnn}
+% Allmänt om KNN
+\acrfull{knn} is a machine learning classification algorithm...
+
+\bigskip
+
+% KNN inom positionering
+Because of the high performance and low cost of \acrshort{knn} it has been widely used for non GPS positioning, with good results.
+\acrshort{knn} is used to compare a real time fingerprint from the users device with the stored fingerprints from the radio map database.
+The algorithm starts with choosing the nearest fingerprint neighbours according to a root-mean-square error.
+After this it completes the positioning by calculating the weighted average of the k fingerprint data.
+\cite{IndoorFingerprintPositioning2017}  
+
+\subsection{Bluetooth Low Energy Beacons}\label{sec:theoryBleBeacons}
+
