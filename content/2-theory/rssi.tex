@@ -1,0 +1,42 @@
+\section{Received Signal Strength Indication}\label{sec:theoryRssi}
+\acrfull{rssi} is 2D model based position technology indication on the signal
+strength between a sender and receiver.  It's a less complex method than 3D
+model based technologies such as Time of Arrival, Time Difference of Arrival or
+Angle of Arrival that require a proper time synchronization between the sender
+and receiver.  This opens up for easier software implementations and can reduce
+the complexity of the signal measurement.  The technology became popular because
+of this but also for its high accuracy, low cost and low power consumption.
+\cite{IndoorFingerprintPositioning2017} 
+
+\bigskip
+
+The technology can be divided into three categories; \begin{itemize} \item
+Trilateration \item Approximate Perception \item Scene Analysis
+\cite{IndoorFingerprintPositioning2017} \end{itemize}
+
+\subsection{Trilateration}\label{sec:theoryRssiTrilateration} Trilateration
+is a positioning technique where three or more senders and converts the signals
+into spatial distances.  This is used to create radius of circles and where all
+the circles intersect with each other is where the device is located.
+\cite{IndoorFingerprintPositioning2017} 
+
+\subsection{Approximate Perception}\label{sec:theoryRssiApproxPerception} In
+approximate perception the signal from the strongest base station is the
+positioning criterion.  This technique has a low positioning accuracy and to
+make it more exact researchers has used a cluster of antennas.  This cluster is
+then placed at a know location and will improve the
+accuracy.\cite{IndoorFingerprintPositioning2017} 
+
+\subsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis} Scene analysis
+is the most used technique for indoor positioning.  It uses fingerprint matching
+(\cref{sec:theoryFingerprint}) and does not require any information of where the
+base stations is located.  The positioning is done with the signal strength from
+multiple base stations at a given reference point.  Together with a fingerprint
+data structure the reference point will act as a localization point for the
+positioning system.\cite{IndoorFingerprintPositioning2017} 
+
+\bigskip
+
+Measurements taken with \acrshort{rssi} values can be used to take signal
+fingerprints to build up a radio map database for indoor
+localization.\cite{DevelopmentMobileIndoor2017} 

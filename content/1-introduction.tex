@@ -1,84 +1,99 @@
-\chapter{Introduction}\label{introduction}
-\pagenumbering{arabic}
+\chapter{Introduction}\label{introduction} \pagenumbering{arabic}
 
-\section{Background and problem motivation}
-The Swedish mining company LKAB has a smartphone application, named InfoHub, that will help their mechanics and technicians.
-This application is capable to shows real time data and document for a chosen type of machinery out in their iron ore production plants.
-To choose which machine to show data from a onsite OCR code need to be manually scanned in the application.
-Due to the harsh and dirty environment in these production plants the application could face difficulties reading these codes.
-The manual scanning also means that the user must know the location of the code, which sometimes could be hard to find.
-
-\bigskip
-
-A better way to get the information for a machine is to automatically fetch the process data when the user is standing nearby.
-This could be done by knowing the users position in the production plants and display the corresponding data to the user.
-This is happening in indoor environments where there is no access to GPS signals.
-This means that the positioning need to be done with other techniques such as WiFi or \acrlong{ble} Beacons.
+\section{Background and problem motivation} The Swedish mining company LKAB has
+a smartphone application, named InfoHub, that will help their mechanics and
+technicians.  This application is capable to shows real time data and document
+for a chosen type of machinery out in their iron ore production plants.  To
+choose which machine to show data from a onsite OCR code need to be manually
+scanned in the application.  Due to the harsh and dirty environment in these
+production plants the application could face difficulties reading these codes.
+The manual scanning also means that the user must know the location of the code,
+which sometimes could be hard to find.
 
 \bigskip
 
-When a user scan a verifiable code the application will fetch the documents and real time data for the machine that matches the code.
-The application gets the data from Microsoft's Azure cloud services that is being uploaded from LKAB's local onsite systems.
-Although this solution is suitable in most cases it can cause confusion which machine the data belongs to if many machines is located in the same area.
-Automatic presentation of the data can make the confusion even bigger, since the OCR codes no longer need to be manually scanned.
+A better way to get the information for a machine is to automatically fetch the
+process data when the user is standing nearby.  This could be done by knowing
+the users position in the production plants and display the corresponding data
+to the user.  This is happening in indoor environments where there is no access
+to GPS signals.  This means that the positioning need to be done with other
+techniques such as WiFi or \acrlong{ble} Beacons.
 
 \bigskip
 
-\acrfull{ar} can help to present this data in a better, visual way.
-It could also help the users to easier identify which machine the data belongs to and visualise important data events.
-For example critical alarms.
-\acrshort{ar} could also help the users to perform various complex tasks and repairs with visual help.
-
-
-\section{Overall aim}
-The overall aim in this thesis work can be divided into two parts.
-
-\bigskip
-
-The first parts is to investigate and implement a solution for indoor non GPS positioning for LKAB's specific environments.
-The purpose with this is to be able to skip the OCR code scanning step in the application.
+When a user scan a verifiable code the application will fetch the documents and
+real time data for the machine that matches the code.  The application gets the
+data from Microsoft's Azure cloud services that is being uploaded from LKAB's
+local onsite systems.  Although this solution is suitable in most cases it can
+cause confusion which machine the data belongs to if many machines is located in
+the same area.  Automatic presentation of the data can make the confusion even
+bigger, since the OCR codes no longer need to be manually scanned.
 
 \bigskip
 
-The seconds part is how \acrfull{ar} can be implemented in LKAB's industrial environments and facilitate for a better data presentation.
-The purpose here is to present and implement a solution that shows how \acrshort{ar} can be used in the application to help the users to read the data from a chosen machine, and how to present which machine to read the data from.
+\acrfull{ar} can help to present this data in a better, visual way.  It could
+also help the users to easier identify which machine the data belongs to and
+visualise important data events.  For example critical alarms.  \acrshort{ar}
+could also help the users to perform various complex tasks and repairs with
+visual help.
 
 
-\section{Problem statement}
-The problem statement in this thesis work is stated as follow:
-How, as accurate as possible, locate handheld devices in indoor environments without any GPS signal and present specific industrial data in a representable and helpful way with \acrlong{ar}?
-
-\section{Knowledge goals}
-\begin{enumerate}
-  \item \label{knowGoals:pos} Investigate how to achieve a high indoor positioning resolution without GPS techniques in LKAB's production plants environments, where WiFi-networks has not yet been fully deployed.
-
-  \item \label{knowGoals:ar} Investigate how \acrshort{ar} can be used and facilitate for the application users when being presented with real time machine data.
-\end{enumerate}
-
-\section{Implementation goals}
-\begin{enumerate}
-\item \label{implGoals:posPoc} Develop a \acrfull{poc} Apple iOS application that implement the resulting positioning technique from knowledge goal nr. \ref{knowGoals:pos}. This implementation should result in;
-\begin{itemize}
-\item Measurable result in form of resolution and location accuracy
-\item Data on how much hardware that is needed to correctly position the user with the smartphone
-\end{itemize}
-\item Implement \acrshort{ar} in the \acrshort{poc} application that shows how it can be used in LKAB's everyday activities in their production plants.
-The implementation should include measurable comparison results for;
-\begin{itemize}
-\item Different \acrfull{ui} components
-\item Different \acrfull{ux} components
-\end{itemize}
-\end{enumerate}
-
-\section{Scope}
-The focus in the positioning area will be to only position smartphone devices at one floor plan.
-The proof of concept system will therefore not take multiple floor plans into consideration.
-The system will be tested in a office environment and not in any of LKAB's production plants due to limitations in testing areas.
+\section{Overall aim} The overall aim in this thesis work can be divided into
+two parts.
 
 \bigskip
 
-The scope in the \acrshort{ar}-part will be to make a test implementation with a limited setup of features to show how it can be used to present data and help the users.
-The implementation will therefore not be fully implemented with a full features toolbox that can cover every use case.
+The first parts is to investigate and implement a solution for indoor non GPS
+positioning for LKAB's specific environments.  The purpose with this is to be
+able to skip the OCR code scanning step in the application.
+
+\bigskip
+
+The seconds part is how \acrfull{ar} can be implemented in LKAB's industrial
+environments and facilitate for a better data presentation.  The purpose here is
+to present and implement a solution that shows how \acrshort{ar} can be used in
+the application to help the users to read the data from a chosen machine, and
+how to present which machine to read the data from.
+
+
+\section{Problem statement} The problem statement in this thesis work is stated
+as follow: How, as accurate as possible, locate handheld devices in indoor
+environments without any GPS signal and present specific industrial data in a
+representable and helpful way with \acrlong{ar}?
+
+\section{Knowledge goals} \begin{enumerate} \item \label{knowGoals:pos}
+  Investigate how to achieve a high indoor positioning resolution without GPS
+  techniques in LKAB's production plants environments, where WiFi-networks has
+  not yet been fully deployed.
+
+  \item \label{knowGoals:ar} Investigate how \acrshort{ar} can be used and
+facilitate for the application users when being presented with real time machine
+data.  \end{enumerate}
+
+\section{Implementation goals} \begin{enumerate} \item \label{implGoals:posPoc}
+  Develop a \acrfull{poc} Apple iOS application that implement the resulting
+  positioning technique from knowledge goal nr. \ref{knowGoals:pos}. This
+  implementation should result in; \begin{itemize} \item Measurable result in
+  form of resolution and location accuracy \item Data on how much hardware that
+  is needed to correctly position the user with the smartphone \end{itemize}
+\item Implement \acrshort{ar} in the \acrshort{poc} application that shows how
+  it can be used in LKAB's everyday activities in their production plants.  The
+implementation should include measurable comparison results for; \begin{itemize}
+\item Different \acrfull{ui} components \item Different \acrfull{ux} components
+\end{itemize} \end{enumerate}
+
+\section{Scope} The focus in the positioning area will be to only position
+smartphone devices at one floor plan.  The proof of concept system will
+therefore not take multiple floor plans into consideration.  The system will be
+tested in a office environment and not in any of LKAB's production plants due to
+limitations in testing areas.
+
+\bigskip
+
+The scope in the \acrshort{ar}-part will be to make a test implementation with a
+limited setup of features to show how it can be used to present data and help
+the users.  The implementation will therefore not be fully implemented with a
+full features toolbox that can cover every use case.
 
 
 \section{Outline}
