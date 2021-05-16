@@ -64,6 +64,20 @@
   langid = {english}
 }
 
+@inproceedings{BeaconBasedIndoor2016,
+  title = {Beacon Based Indoor Positioning System Using Weighted Centroid Localization Approach},
+  booktitle = {2016 {{Eighth International Conference}} on {{Ubiquitous}} and {{Future Networks}} ({{ICUFN}})},
+  author = {Subedi, Santosh and Kwon, Goo-Rak and Shin, Seokjoo and Hwang, Suk-seung and Pyun, Jae-Young},
+  date = {2016-07},
+  pages = {1016--1019},
+  issn = {2165-8536},
+  doi = {10.1109/ICUFN.2016.7536951},
+  abstract = {There has been an upward trend in the requirement of indoor positioning systems using bluetooth low energy (BLE), Wi-Fi, and visible light communication. In order to realize the indoor positioning with these communication systems, techniques such as fingerprinting, trilateration, and triangulation have been widely studied. Even though fingerprinting has been chosen as a representative approach in many literatures, it is known as tedious and time consuming method due to the long-time location learning phase. Therefore, the fingerprinting is expected to be integrated with other methods to enhance the location accuracy and reduce the location estimation procedures. In this work, we discuss one of these methods used for indoor positioning, i.e., weighted centroid localization (WCL) using received signal strength indicator (RSSI) observed from neighboring BLE beacons. The WCL is evaluated in our testbed building and analyzed to configure its parameters for indoor positioning.},
+  eventtitle = {2016 {{Eighth International Conference}} on {{Ubiquitous}} and {{Future Networks}} ({{ICUFN}})},
+  file = {/Users/linsjb/Zotero/storage/XULKBCEW/7536951.html},
+  keywords = {BLE,Bluetooth,centroid localization,Estimation,Fingerprint recognition,fingerprinting,indoor positioning,IP networks,Kalman filters,Measurement uncertainty,Weight measurement}
+}
+
 @inproceedings{BluetoothLowEnergy2018,
   title = {Bluetooth {{Low Energy Based Indoor Positioning}} on {{iOS Platform}}},
   booktitle = {2018 {{IEEE}} 12th {{International Symposium}} on {{Embedded Multicore}}/{{Many}}-Core {{Systems}}-on-{{Chip}} ({{MCSoC}})},
@@ -75,6 +89,22 @@
   eventtitle = {2018 {{IEEE}} 12th {{International Symposium}} on {{Embedded Multicore}}/{{Many}}-Core {{Systems}}-on-{{Chip}} ({{MCSoC}})},
   file = {/Users/linsjb/Zotero/storage/JH5L5M9T/Duong et al. - 2018 - Bluetooth Low Energy Based Indoor Positioning on i.pdf;/Users/linsjb/Zotero/storage/QX9D9BG2/8540214.html},
   keywords = {Apple's iBeacon,Bluetooth,Bluetooth Low Energy,Bluetooth low energy based indoor positioning,Databases,energy efficiency,Fingerprint recognition,Fingerprinting,great opportunities,iBeacon signal,indoor navigation,Indoor Positioning,Internet of Things,iOS,iOS platform,IP networks,IPS,k-Nearest Neighbor,Kalman Filter,Kalman filters,learning (artificial intelligence),main positioning technique,Noise measurement,probability,radionavigation,system results,telecommunication computing,Time measurement}
+}
+
+@book{DataMiningPractical2011,
+  title = {Data Mining: Practical Machine Learning Tools and Technique},
+  shorttitle = {Data Mining},
+  author = {{Ian H. Witten} and Frank, Eibe and Hall, Mark A.},
+  date = {2011-09-30},
+  edition = {3},
+  volume = {36},
+  publisher = {{Morgan Kaufmann}},
+  url = {https://www.bibsonomy.org/bibtex/2f317b38c79737297cecf9b9bd8ef2f3f/flint63},
+  urldate = {2021-05-12},
+  abstract = {This highly anticipated third edition of the most acclaimed work on data mining and machine learning will teach you everything you need to know about preparing inputs, interpreting outputs, evaluating results, and the algorithmic methods at the heart of successful data mining. Thorough updates reflect the technical changes and modernizations that have taken place in the field since the last edition, including new material on Data Transformations, Ensemble Learning, Massive Data Sets, Multi-instance Learning, plus a new version of the popular Weka machine learning software developed by the authors. Witten, Frank, and Hall include both tried-and-true techniques of today as well as methods at the leading edge of contemporary research. It provides a thorough grounding in machine learning concepts as well as practical advice on applying the tools and techniques to your data mining projects. It offers concrete tips and techniques for performance improvement that work by transforming the input or output in machine learning methods. It includes downloadable Weka software toolkit, a collection of machine learning algorithms for data mining tasks-in an updated, interactive interface. Algorithms in toolkit cover: data pre-processing, classification, regression, clustering, association rules, visualization.},
+  isbn = {978-0-12-374856-0},
+  langid = {english},
+  series = {Morgan {{Kaufmann Series}} in {{Data Management Systems}}}
 }
 
 @inproceedings{DevelopmentMobileIndoor2017,
@@ -165,10 +195,12 @@
   number = {6}
 }
 
-@article{GettingStartedIBeacon2014,
+@misc{GettingStartedIBeacon2014,
   title = {Getting {{Started}} with {{iBeacon}}},
+  author = {{Apple}},
   date = {2014},
-  pages = {11},
+  url = {https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf},
+  urldate = {2021-04-29},
   file = {/Users/linsjb/Zotero/storage/6LB6VQ9V/2014 - Getting Started with iBeacon.pdf},
   langid = {english}
 }
@@ -280,6 +312,22 @@
   urldate = {2021-03-17},
   file = {/Users/linsjb/Zotero/storage/LQ4AWWQV/sorting.html},
   keywords = {LKAB}
+}
+
+@article{LocationFingerprintingBluetooth2015,
+  title = {Location {{Fingerprinting With Bluetooth Low Energy Beacons}}},
+  author = {Faragher, Ramsey and Harle, Robert},
+  date = {2015-11},
+  journaltitle = {IEEE Journal on Selected Areas in Communications},
+  volume = {33},
+  pages = {2418--2428},
+  issn = {1558-0008},
+  doi = {10.1109/JSAC.2015.2430281},
+  abstract = {The complexity of indoor radio propagation has resulted in location-awareness being derived from empirical fingerprinting techniques, where positioning is performed via a previously-constructed radio map, usually of WiFi signals. The recent introduction of the Bluetooth Low Energy (BLE) radio protocol provides new opportunities for indoor location. It supports portable battery-powered beacons that can be easily distributed at low cost, giving it distinct advantages over WiFi. However, its differing use of the radio band brings new challenges too. In this work, we provide a detailed study of BLE fingerprinting using 19 beacons distributed around a 600 m2 testbed to position a consumer device. We demonstrate the high susceptibility of BLE to fast fading, show how to mitigate this, and quantify the true power cost of continuous BLE scanning. We further investigate the choice of key parameters in a BLE positioning system, including beacon density, transmit power, and transmit frequency. We also provide quantitative comparison with WiFi fingerprinting. Our results show advantages to the use of BLE beacons for positioning. For one-shot (push-to-fix) positioning we achieve {$<$}; 2.6 m error 95\% of the time for a dense BLE network (1 beacon per 30 m2), compared to {$<$}; 4.8 m for a reduced density (1 beacon per 100 m2) and {$<$}; 8.5 m for an established WiFi network in the same area.},
+  eventtitle = {{{IEEE Journal}} on {{Selected Areas}} in {{Communications}}},
+  file = {/Users/linsjb/Zotero/storage/GU9HZ2NU/Faragher and Harle - 2015 - Location Fingerprinting With Bluetooth Low Energy .pdf;/Users/linsjb/Zotero/storage/PLCZ444M/7103024.html},
+  keywords = {Advertising,Aggregates,Batteries,Bluetooth,bluetooth low energy positioning,Bluetooth Low Energy Positioning,bluetooth positioning,Bluetooth Positioning,Fading,iBeacons,IEEE 802.11 Standards,Indoor positioning,Interference,location fingerprinting,Location fingerprinting},
+  number = {11}
 }
 
 @inproceedings{LocationFingerprintingInfrastructure2004,
@@ -452,6 +500,25 @@
   abstract = {The usage of Augmented Reality (AR) in industrial and modern manufacturing is more and more growing since the fourth industrial revolution. Using AR boost the digitization of the industrial production lines, gain time and money and improve maintenance tasks as well as the human-machine interaction. This paper is a literature review of the use of AR in industries including the use cases in different type of application such as design, simulation, maintenance, remote assistance, human-robot interaction and robot programming.},
   file = {/Users/linsjb/Zotero/storage/LLB97KTZ/Gallala et al. - 2019 - Survey The Evolution of the Usage of Augmented Re.pdf},
   langid = {english}
+}
+
+@article{SurveyWirelessIndoor2019,
+  title = {Survey on {{Wireless Indoor Positioning Systems}}},
+  author = {Ali, Wisam Hasan and Kareem, Amnah Abas and Jasim, Manal},
+  date = {2019-08-20},
+  journaltitle = {Cihan University-Erbil Scientific Journal},
+  volume = {3},
+  pages = {42--47},
+  issn = {2707-6377},
+  doi = {10.24086/cuesj.v3n2y2019.pp42-47},
+  url = {https://journals.cihanuniversity.edu.iq/index.php/cuesj/article/view/111},
+  urldate = {2021-05-16},
+  abstract = {Indoor positioning has finally testified a rise in interest, thanks to the big selection of services it is provided, and ubiquitous connectivity. There are currently many systems that can locate a person, be it wireless or by mobile phone and the most common systems in outdoor environments is the GPS, the most common in indoor environments is Wi-Fi positioning technique positioning. The improvement of positioning systems in indoor environments is desirable in many areas as it provides important facilities and services, such as airports, universities, factories, hospitals, and shopping malls. This paper provides an overview of the existing methods based on wireless indoor positioning technique. We focus in this survey on the strengths of these systems mentioned in the literature discordant with the present surveys; we also assess to additionally measure various systems from the scene of energy efficiency, price, and following accuracy instead of comparing the technologies, we also to additionally discuss residual challenges to correct indoor positioning.},
+  file = {/Users/linsjb/Zotero/storage/M5KILU6D/Ali et al. - 2019 - Survey on Wireless Indoor Positioning Systems.pdf;/Users/linsjb/Zotero/storage/AHF7DDCN/111.html},
+  issue = {2},
+  keywords = {Indoor localization,Indoor positioning,Received signal strength indicator,Wi-Fi},
+  langid = {english},
+  number = {2}
 }
 
 @article{SystematicDesignMethod2020,

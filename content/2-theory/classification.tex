@@ -1,17 +1,59 @@
-\section{Unsupervised classification}\label{sec:theoryUnClass}
-
-\subsection{K-Nearest Neighbour}\label{sec:theoryUnClassKnn}
-% Allmänt om KNN
-\acrfull{knn} is a machine learning classification algorithm...
+\section{Instance-based learning}\label{sec:theoryInstanceLearning}
+Instance-based learning is a set of algorithms within data mining and machine learning and is often referred as lazy classification.
+In the training phase the algorithms does not require much work since it is being trained on already stored instances.
+\cite[p. 78]{DataMiningPractical2011} 
 
 \bigskip
 
-% KNN inom positionering
-Because of the high performance and low cost of \acrshort{knn} it has been
-widely used for non GPS positioning, with good results.  \acrshort{knn} is used
-to compare a real time fingerprint from the users device with the stored
-fingerprints from the radio map database.  The algorithm starts with choosing
-the nearest fingerprint neighbours according to a root-mean-square error.  After
-this it completes the positioning by calculating the weighted average of the k
-fingerprint data.  \cite{IndoorFingerprintPositioning2017}  
+The real work is done when a new instance is being classified.
+This new instance is compared to all other, already stored, instances. 
+The comparison between a new instance and the stored ones is being classified with a distance metric, where the closest, already stored, instance is used to assign a class to the new one.
+This classification method is called nearest-neighbour classification, and when being compared to \textit{k} neighbours it's called k-nearest-neighbour.
+\cite[p. 78]{DataMiningPractical2011} 
+
+\bigskip
+
+In instance-based learning new examples can be inserted into the training set at any time.
+Which means that the training set can be extended with new data as the number of data points groves over the lifespan its lifespan.
+\cite[p. 135]{DataMiningPractical2011} 
+
+
+\subsection{K-Nearest Neighbour}\label{sec:theoryUnClassKnn}
+In \acrfull{knn} classification a data instance is being compared to a set $k$ of its nearest neighbours.
+These neighbours are like in general instance-based learning previously stored instance that are being used to compare against.
+The method is perfectly suited when this new instance need to be classified \cite[p. 77-79]{DataMiningPractical2011}
+
+\bigskip
+
+If a set of one numeric values are being compared the computation of the distance between the two points are trivial. 
+It only computes the difference between these two values.
+With two or more values the computation is almost as straightforward.
+In these cases the Euclidian Distance method, which is the default method, is used to make the computation and comparison on the values.
+An important part is that the data need to be normalized and of equally importance.
+One of the problems in the learning phase is to determine the important values.
+\cite[p. 77-79]{DataMiningPractical2011}
+
+\bigskip
+
+\Cref{fig:knnIllustration} illustrates a representation when a new instance is being classified into an already existing set or area.
+The green and red dots are already existing instanced, and the blue dot is new and is going to be classified.
+In this case the new instance is going to be classified as red, if $k=3$.
+
+\fig{KNN classification of a new instance where $k=3$}{knnIllustration}{0.3}{knnClassification}
+
+\bigskip
+
+The K-value need to be uneven to make the classification as good as possible. 
+If $k$ is even a condition where the new instance is equally between two areas can occur.
+Which will lead up to a lower accuracy since one of the areas need to be chosen.
+
+
+% KNN inom positionering -> flytta till teori positionering istället. Här är endast allmänt om KNN
+% Because of the high performance and low cost of \acrshort{knn} it has been
+% widely used for non GPS positioning, with good results.  \acrshort{knn} is used
+% to compare a real time fingerprint from the users device with the stored
+% fingerprints from the radio map database.  The algorithm starts with choosing
+% the nearest fingerprint neighbours according to a root-mean-square error.  After
+% this it completes the positioning by calculating the weighted average of the k
+% fingerprint data.  \cite{IndoorFingerprintPositioning2017}  
 

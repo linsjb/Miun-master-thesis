@@ -1,3 +1,45 @@
-\section{Beacons}\label{sec:theoryBeacons}
-Beacons is a \acrlong{ble} technology 
+\section{Bluetooth Low Energy}\label{sec:theoryBle}
+The wireless technology \acrfull{ble} is part of the core specifications of Bluetooth 4.0 and is also referred as Bluetooth Smart.
+\acrshort{ble} focuses on short-range communication where the transmission strength often is measured in dBm.
+The closer the receiver is from the transmitter the lower the dBm is.
+The dBm is often measured from around -30 dBm to 0 dBm.
+\cite{DevelopmentMobileIndoor2017} 
+
+\bigskip
+
+The \acrshort{ble} technology is designed to be used where the devices doesn't need to transmit a lot of data.
+With this comes a low power consumption and often low cost, which makes \acrshort{ble} a good candidate for a various of different tasks.
+\cite{PracticalFingerprintingLocalization2017} 
+
+\bigskip
+
+\acrshort{ble} is operating at 2.4 GHz in the ISM frequency band and is divided into 40 different channels that are spaced 2 MHz apart.
+Three of these 40 channels is used for advertisement, which are placed to avoid interference with other existing technologies such as ZigBee and IEEE 802.11 (wifi).
+This entails that the technology can be implemented in environments that has large WiFi or other wireless networks already deployed.
+\cite{PracticalFingerprintingLocalization2017} 
+
+\subsection{iBeacons}\label{sec:theoryBleiBeacons}
+iBeacon are small battery powered devices developed by Apple that is based on the existing \acrshort{ble} technology.
+Using the iBeacon technology together with the Apple iOS platform open up for a variety of opportunities when in comes to implementing position based applications.
+Because of the small footprint and low cost of these devices they are easy to deploy in an environment where they can be used together with a smartphone application.
+\cite{BluetoothLowEnergy2018} 
+
+\bigskip
+
+The iBeacon is sending out an advertise signal that consists of three parts;
+\begin{itemize}
+\item 16-byte UUID
+\item 2-byte major value
+\item 2.byte minor value \cite{GettingStartedIBeacon2014} 
+\end{itemize}
+
+The UUID value is a fixed identifier that will identify a set of beacons.
+This value needs to be the same for all the beacons that will be used.
+The major value is used to identify a large set of beacons with the same UUID, and the minor value is used to identify a specific beacon.
+\cite{GettingStartedIBeacon2014}
+
+\bigskip
+
+An example of the iBeacon deployment mentioned in \cite{GettingStartedIBeacon2014} is a global retail store. The UUID will be the same for all stores, meanwhile the major value is used to identify a specific store and the minor value to identify a department in each of the stores.
+\cite{GettingStartedIBeacon2014} 
 

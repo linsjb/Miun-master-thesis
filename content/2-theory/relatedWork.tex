@@ -1,2 +1,70 @@
 \section{Related work}\label{sec:theoryRelatedWork}
+In this sub-section related work for related areas in the thesis work is being presented.
 
+\subsection{Development of a Smartphone-Based University Library Navigation and Information Service Employing Wi-Fi Location Fingerprinting}\label{sec:}
+In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating a indoor fingerprint based positioning systems with the help of WiFi Access Points.
+
+\bigskip
+
+The fingerprints is made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a Radiomap database.
+These database is then used to position the user with the stored fingerprints.
+In the article they mention the disadvantages with radiomap based database, which is the time it takes to perform a site survey.
+They also mention the need to update the database if new transmitters or other structural changes is being made.
+This because the \acrshort{rssi} values would no longer be the same, and therefore need to be collected once again.
+
+\bigskip
+
+As A. Leb et al. is mentioning in their work privacy and security with \acrfull{ips} is a major factor.
+Therefore the \acrshort{ips} operator should ask how the users can trust the system, which A. W.H et al. mentions in \cite{SurveyWirelessIndoor2019}.
+The best way to assure as high security level as possible is to let the device itself take care of the computation that is needed to determine the position.
+The security is hold strong since no data is leaving the device and can therefore not be used to track the device and its user.
+But with this comes a higher power consumption which is a large factor since the devices used are battery powered.
+So for a better security comes a higher power consumption.
+
+\bigskip
+
+Another factor A. Leb et al. is mentioning in their work is the cost of an \acrshort{ips} system.
+This depends on several different factors such as money available, time, infrastructure and energy.
+The time that they mentioning in the time for installation and maintenance.
+The cost is the true cost for servers, transmitters, software and system maintenance.
+Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since this a WiFi network might already be installed in the area.
+
+
+\subsection{Practical Fingerprinting Localization for Indoor Positioning System by Using Beacons}\label{sec:}
+In \cite{PracticalFingerprintingLocalization2017} P. Jae-Young et al. has investigated how a \acrshort{ips} system based on \acrshort{rssi} fingerprints and \acrshort{ble} Beacons can be implemented to reduce the number of reference points in the system.
+
+\bigskip
+
+The \acrshort{ips} system in the paper has an estimation error similar to the estimation error given by a weighted \acrshort{knn} system, which is being done in \cite{ImprovingIndoorLocalization2016}.
+To reduce the number of reference points the authors use a combination of both beacon \acrshort{rssi} fingerprints together with Weighted Centroid Localization (WCL). 
+
+\bigskip
+
+WCL is a flexible system which is easy to implement and consume less time but comes with a drawback. 
+It has a large location error, which is further mentioned by H. Suk-seung et al. in \cite{BeaconBasedIndoor2016}.
+
+\bigskip
+
+In the proposed system by P. Jae-Young et al. the fingerprint \acrshort{rssi} values together with a position coordinate is being stored in a reference point database.
+When implementing a \acrshort{ips} the \acrshort{rssi} values often comes with a lot of noise.
+So to reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften it out, which result in smoother values in the online phase that leads to less errors.
+
+\bigskip
+
+The proposed technique to combine both \acrshort{rssi} fingerprint and WCL values are being collected individually.
+Just as in a \acrshort{knn} algorithm the localization is done with $k$ nearest neighbours on the observed online value.
+After this the weight is being determined depending in their Euclidian distance against the first estimated WCL coordinate.
+
+\bigskip
+
+With $k=3$ the estimation error for the localization was the smallest, which means that the three nearest reference points are used to estimate the location.
+It's also worth to consider that the distance between the different reference points does affect the accuracy of the \acrshort{ips}, where a high space reduce the accuracy and a small space increase it.
+Meanwhile if the reference points are to close to each other the impact of the accuracy is not affected that much, since the different fingerprints are very similar to each other.
+
+\bigskip
+
+The testbed that P. Jae-Young et al. was two different building configurations, a corridor and a room.
+In the corridor configuration the lowest average error was $0.9$ meters. 
+With the papers proposed method the number of reference points could be decreased with around $42\%$.
+In the room configuration the lowest average error was just below 1 meter at $0.98$ meters.
+The number of reference points could be reduced by around $49\%$.
