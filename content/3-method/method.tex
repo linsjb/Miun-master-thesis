@@ -1,6 +1,60 @@
 \chapter{Method}\label{method}
+This chapter describes and motivates the chosen methods in this thesis work.
 
-\fig{Method overview}{methodOverview}{1}{methodFlow}
+\fig{Overview of the used model}{methodOverview}{1}{methodFlow}
 
+\Cref{fig:methodOverview} is presenting an overview of the used method in this thesis and in which order it was carried out.
+This method is based on the method described by S. Robinson et al. in the paper \textit{Secrets of successful simulation projects} \cite{SecretsSuccessfulSimulation1995}.
+The paper describes how a simulation based project should be performed for a successful result.
+This thesis project is not a simulation project, but the proposed method framework (just called \textit{the framework} from now on) can still be used since it describe general properties and outcomes.
 
-\input{content/3-method/research.tex}
+\bigskip
+
+The framework consist of four smaller phases that each of them has their own purpose.
+These has been slightly modified and renamed to better suit this thesis.
+
+\bigskip
+
+The framework start with the problem definition.
+Here the problem is being identified, experimental factors and reports is being defined, the scope and level of the model is being determined and a project specification is provided.
+To be able to make a strong foundation S.Robinson et al. mentions that a clear set of objectives is an important part. 
+Without this a project will almost never succeed.
+The authors also mentions that discussions with the customer of the project is important and needed to develop a deep understanding of the system to be modelled.
+They also says that it's important to know the experimental factors and reports for the project.
+With this being set and decided it's easier to give the right inputs so the resulting outputs is expected.
+When it comes to determine the scope and level of the model it tells what elements that's required for the model, where the scope is telling what should be included and the level tells the details.
+S. Robinson et al. also mention the importance to get the right type of data to succeed with the model. 
+A well written project specification is also important since this will tell if the problem is understood by all involved parties.
+
+\bigskip
+
+In the second, model building and testing, phase of the framework the structure and building of the model is performed.
+First the model need to be structured. 
+This will help to create the best possible model and also help with documentation.
+After this the model is being build with the languages and tools decided.
+Here the documentation is being updated consistently under the development.
+When the model is implemented it need to be validated, which is the final step of this second phase.
+Experiments will start only if the model is fully validated and related to the real world system.
+S. Robinson et al. also says that it's important to check so the model is able to meet the objectives of the project.
+
+\bigskip
+
+The third phase in the framework is the experimentation.
+Here the experiments is first and foremost executed.
+S. Robinson et al. mention previous issues when performing various model experiments.
+The first problem is the warm-up period, where it's important that the model is realistic.
+Often models does not start in a realistic state and need a warm-up period before data is being monitored and collected.
+The second problem is to take a decision how long a model should run and the third problem is to decide how many replications to perform of the experiment.
+In the last part of the third phase comes the analysing of the result and draw a conclusion.
+
+\bigskip
+
+In the fourth and last phase the project is being completed and implemented.
+Here the result need to be communicated to all involved parties.
+To round of the project the documentation need to be created and the project need to be reviewed.
+
+\bigskip
+
+The framework has been a solid foundation in this thesis work and the changes modifications will be described in the following sub sections of the method.
+
+\input{content/3-method/problemDefinition.tex}
