@@ -1,16 +1,16 @@
 \section{Related work}\label{sec:theoryRelatedWork}
-In this sub-section related work for related areas in the thesis work is being presented.
+In this sub-section related work and previous research that is related to this thesis is being presented.
 
 \subsection{Development of a Smartphone-Based University Library Navigation and Information Service Employing Wi-Fi Location Fingerprinting}\label{sec:}
 In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating a indoor fingerprint based positioning systems with the help of WiFi Access Points.
 
 \bigskip
 
-The fingerprints is made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a Radiomap database.
-These database is then used to position the user with the stored fingerprints.
-In the article they mention the disadvantages with radiomap based database, which is the time it takes to perform a site survey.
+The fingerprints is made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a radio map database.
+This database is then used to position the user with the stored fingerprints.
+In the article they mention the disadvantages with radio map based databases, which is the time it takes to perform a site survey.
 They also mention the need to update the database if new transmitters or other structural changes is being made.
-This because the \acrshort{rssi} values would no longer be the same, and therefore need to be collected once again.
+This is important to do because the \acrshort{rssi} values would no longer be valid fingerprints since they isn't the same, and therefore need to be collected once again.
 
 \bigskip
 
@@ -18,7 +18,7 @@ As A. Leb et al. is mentioning in their work privacy and security with \acrfull{
 Therefore the \acrshort{ips} operator should ask how the users can trust the system, which A. W.H et al. mentions in \cite{SurveyWirelessIndoor2019}.
 The best way to assure as high security level as possible is to let the device itself take care of the computation that is needed to determine the position.
 The security is hold strong since no data is leaving the device and can therefore not be used to track the device and its user.
-But with this comes a higher power consumption which is a large factor since the devices used are battery powered.
+But with this comes a higher power consumption since all calculations need to be done on the device.
 So for a better security comes a higher power consumption.
 
 \bigskip
@@ -27,7 +27,7 @@ Another factor A. Leb et al. is mentioning in their work is the cost of an \acrs
 This depends on several different factors such as money available, time, infrastructure and energy.
 The time that they mentioning in the time for installation and maintenance.
 The cost is the true cost for servers, transmitters, software and system maintenance.
-Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since this a WiFi network might already be installed in the area.
+Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since the network might already be deployed.
 
 
 \subsection{Practical Fingerprinting Localization for Indoor Positioning System by Using Beacons}\label{sec:}
@@ -47,8 +47,8 @@ It has a large location error, which is further mentioned by H. Suk-seung et al.
 
 In the proposed system by P. Jae-Young et al. the fingerprint \acrshort{rssi} values together with a position coordinate is being stored in a reference point database.
 When implementing a \acrshort{ips} the \acrshort{rssi} values often comes with a lot of noise.
-So to reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften it out, which result in smoother values in the online phase that leads to less errors.
-
+So to reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften it out.
+Which result in smoother values in the online phase that leads to less errors.  
 \bigskip
 
 The proposed technique to combine both \acrshort{rssi} fingerprint and WCL values are being collected individually.
@@ -63,8 +63,11 @@ Meanwhile if the reference points are to close to each other the impact of the a
 
 \bigskip
 
-The testbed that P. Jae-Young et al. was two different building configurations, a corridor and a room.
+The testbed that P. Jae-Young et al. used was two different building configurations, a corridor and a room.
 In the corridor configuration the lowest average error was $0.9$ meters. 
 With the papers proposed method the number of reference points could be decreased with around $42\%$.
 In the room configuration the lowest average error was just below 1 meter at $0.98$ meters.
 The number of reference points could be reduced by around $49\%$.
+
+\subsection{Bluetooth Low Energy based Indoor Positioning on iOS platform}\label{sec:}
+In the paper \cite{BluetoothLowEnergy2018} written by N.S. Duong et. al a \acrshort{ips} system based on \acrshort{ble} beacons is being implemented on the iOS platform by Apple.
