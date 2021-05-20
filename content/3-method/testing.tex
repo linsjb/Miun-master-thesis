@@ -1,14 +1,40 @@
 \section{Software tests}\label{sec:methodSoftwareTests}
 The third phase in the framework by S. Ribonson et al. in \cite{SecretsSuccessfulSimulation1995} is the experimentation.
-Here the experiments is first and foremost executed.
-S. Robinson et al. mention previous issues when performing various model experiments.
-The first problem is the warm-up period, where it's important that the model is realistic.
-Often models does not start in a realistic state and need a warm-up period before data is being monitored and collected.
-The second problem is to take a decision how long a model should run and the third problem is to decide how many replications to perform of the experiment.
-In the last part of the third phase comes the analysing of the result and a conclusion.
+Here the experiments is first and foremost executed and then being reviewed.
+S. Robinson et al. mention previous issues when performing various model experiments and mean that it's important to think about how the tests should be performed.
+This also applies to a project of this kind.
 
-\subsection{Test design}\label{sec:methodTestDesign}
-\subsection{Tests}\label{sec:methodTests}
+\bigskip
+
+In this thesis project the experimentation phase from S. Ribonson et al. can be translated into software tests, which can be seen in \cref{fig:methodOverview}.
+Sometimes the tests might show that the software need some changes before it can be conducted at full power or give the right result.
+In these cases the tests leads back to the software implementation to correct or change the software.
+After this new tests is being carried out.
+
+\bigskip
+
+The first part of of testing was to design the tests that included beacons placement and test parameters.
 
 
+\subsection{Hardware placement}\label{sec:methodTestHardware}
+The beacons used in the test was the RadBeacon Dot by Radius Networks \cite{RadBeaconDotDatasheet}.
+Specification of these beacons can be seen in \cref{tab:radbeaconSpecs} below.
 
+\texTable{RadBeacon Dot specification \cite{RadBeaconDotDatasheet}}{radbeaconSpecs}{radbeacon}
+
+\bigskip
+
+The beacons was arranged in two rows where the first row of four beacons was places 4 meters apart,  and the second row with three beacons was spaced 5 meters apart.
+The two rows was spaced 6 meters apart.
+The beacons arrangement can be seen in \cref{fig:beaconsPlacement}.
+
+\fig{Beacons placement}{beaconsPlacement}{1.0}{beaconsPlacement}
+
+
+\subsection{Test parameters}\label{sec:methodTestParameters}
+The following parameters was set to be tested;
+
+\begin{itemize}
+\item Number of $k$ neighbours in \acrshort{knn} classification
+\item Number of mapped fingerprints per group
+\end{itemize}

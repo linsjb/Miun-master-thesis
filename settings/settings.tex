@@ -94,6 +94,8 @@ headheight=50pt
 % Hyperlinks for URL's and table of content
 \usepackage[bookmarks]{hyperref}
 
+\usepackage{float}
+
 
 % Glossaries
 % ---------------------------
@@ -108,11 +110,13 @@ headheight=50pt
 \usepackage[toc, page]{appendix}
 % \renewcommand\appendixtocname{Bilagor}
 % \renewcommand\appendixpagename{Bilagor}
-%\AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
+% \AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
 
 
 % Better references in the document
 \usepackage[noabbrev]{cleveref}
+\AtBeginEnvironment{appendices}{\crefalias{section}{appendix}}
+
 
 % Imports from other files
 % ---------------------------

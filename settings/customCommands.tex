@@ -2,19 +2,19 @@
 % easier implementation in the document.
 
 \newcommand{\fig}[4]{%
-    \figure[h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=#3\textwidth]{#4}
         \caption{#1}\label{fig:#2}
-    \endfigure
+    \end{figure}
 }
 
 \newcommand{\framedFig}[4]{%
-    \figure[h]
+    \begin{figure}[H]
         \centering
         \framebox{\includegraphics[width=#1\textwidth]{#3}}
         \caption{#4}\label{fig:#2}
-    \endfigure
+    \end{figure}
 }
 
 % \newcommand{\code}[4]{%
@@ -26,20 +26,20 @@
 % }
 
 \newcommand{\tikzFig}[2]{%
-    \figure[H]
+    \begin{figure}[H]
         \centering
         \resizebox{1\textwidth}{!}{%
             \input{\tikzPath #1.tex}
         }%
         \caption{#2}\label{fig:#1}
-    \endfigure
+    \end{figure}
 }
 
 \newcommand{\texTable}[3]{%
-    \table[#1]
+    \table[H]
         \centering
-        \caption{#3}\label{tab:#2}
-        \input{\tablePath #2.tex}
+        \caption{#1}\label{tab:#2}
+        \input{\tablePath #3.tex}
     \endtable
 }
 

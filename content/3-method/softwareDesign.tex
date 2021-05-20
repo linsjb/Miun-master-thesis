@@ -3,12 +3,105 @@ Although software design is a iterative process that can change over time it's  
 Just as S. Robinson et al. mentions in \cite{SecretsSuccessfulSimulation1995} it's beneficial to first design the software before implementing it.
 \bigskip
 
-So to fulfil goal \ref{goal:poc} in \cref{sec:introGoals} and to follow the presented method framework (see \cref{fig:methodOverview}) the software implementation started with a software design.
+With the information from S. Robinson et al. and to follow the presented method framework (see \cref{fig:methodOverview}) a software design phase was performed before an implementation was made.
 
 \bigskip
 
-The software was designed from the accumulated knowledge based on the research analysis performed in \cref{sec:methodProblemDefinition} and is here being motivated.
+The software was designed based on two factors.
+The accumulated knowledge how to design a \acrshort{ips} based on the research analysis performed in \cref{sec:methodProblemDefinition}.
+The requirements from the research analysis in \cref{sec:methodResearchAnalysis}.
+See appendix \ref{appendix:requirements} for the resulting requirements specification.
 
-\subsection{Classification algorithm}\label{sec:methodSoftwareDesignClassification}
+
+
+\subsection{Design motivation}\label{sec:methodDesignMotivation}
+Motivation of the design choices is being presented in this sub-section.
+
+
+\subsubsection{Classification method}\label{sec:methodSoftwareDesignClassification}
+In the previous research that was conducted in this thesis, three different types of classification methods has been used to determine the location of a device.
+\acrshort{knn}, \acrfull{svm} and \acrfull{ann}.
+
+\bigskip
+
+In the paper \cite{ComprehensiveStudyBluetooth2013} by C. Gurrin et al. all three methods is used to determine the location in a \acrshort{ips}.
+\acrshort{ann} shows a good result but takes some time to train.
+\acrshort{svm} has a good accuracy and precision but takes a very long time to train, which makes it impractical to use because of this.
+\acrshort{knn} shows the best results over all these three algorithms and also takes the shortest time to train.
+Therefore \acrshort{knn} is the best choice based on the conclusion by C. Gurrin et al.
+
+\bigskip
+
+The papers \cite{BluetoothLowEnergy2018, DevelopmentSmartphoneBasedUniversity2021} uses \acrshort{knn} to classify the position and \cite{PracticalFingerprintingLocalization2017} uses a \acrshort{knn}-like classification.
+
+\bigskip
+
+With this information the choice fell to use \acrshort{knn} as the classification algorithm.
+
+\subsubsection{Fingerprint structure}\label{sec:methodSoftwareDesignFingerprint}
+In the conducted literature study all papers used \acrshort{rssi} based fingerprints in some way.
+\cite{DevelopmentSmartphoneBasedUniversity2021, IndoorPositioningSystem2010} used WiFi \acrshort{ap}´s \acrshort{rssi} values.
+\cite{BluetoothLowEnergy2018, PracticalFingerprintingLocalization2017, ComprehensiveStudyBluetooth2013} used the \acrshort{rssi} values from \acrshort{ble} beacons to create the fingerprints.
+This indicated that \acrshort{rssi} values are a good value to use when creating a \acrshort{ips}.
+\bigskip
+
+Since \acrshort{rssi} based fingerprints was used in all the papers it was also used in this thesis.
+
+
+\subsubsection{Mobile platform}\label{sec:methodSoftwareDesignMobilePlatform}
+The choice of mobile platform to develop the \acrlong{poc} application was Apple iPhone.
+This because the company the case study was being performed at (LKAB) uses iPhone's in their business.
+
+\subsubsection{Data calculations}\label{sec:methodSoftwareDesignData}
+The calculation of the data and the determination of the position can be done in two different ways.
+Either directly on the smartphone or at a external server. 
+Both of these comes with their pros and cons.
+
+\bigskip
+
+In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} by A. Leb et al. they discuss these two alternatives.
+If the computations is never leaving the system, i.e that smartphone, a higher security could be maintained. 
+The drawback with this is a higher power usage with a higher battery drainage since the smartphone will handle all the data calculations.
+
+\bigskip
+
+The opposite solution is to send the positioning data to a server instead and let it take care of the positioning determination.
+This will save battery on the devices but lower the security. 
+In a server based approach the client need to trust the system.
+Another positive factor with a server solution is that all business logic for the system is being moved to the server.
+This opens up for a more flexible system where other platforms could be integrated with ease.
+
+\bigskip
+
+Since on device calculations might be the best in some cases the choice fell on a server based approach in this thesis project since the pros outweigh the cons.
+
+
+\subsubsection{Transmitters}\label{sec:methodSoftwareDesignTransmitters}
+The transmitting technique chose in this work was \acrshort{ble} beacons where the beacons had support for Apple's iBeacon protocol (see \cref{sec:theoryBleiBeacons}).
+
+\bigskip
+
+This is the desired choice of two different reasons.
+The first reason is limitations in Apple's iOS platform.
+To be able to scan for nearby WiFi \acrfull{ap} a locked API is needed \cite{NEHotspotHelperAppleDeveloper}.
+Apple only give permission to this locked API in special application cases which being presented in \cite{TechnicalQA1942IOS}.
+One example where Apple will allow the usage of it, is if the application is made to help the users to find nearby hotspots by scanning the surrounding area.
+This makes is impossible to fetch information from other \acrshort{ap}´s than the one connected to the device, which can only be one at a time.
+With this limitation the transmitting choice fell on \acrshort{ble} beacons since these can be scanned with the Apple CoreLocation API.
+
+\bigskip
+
+The other reason was the availability to a solid and large enough WiFi-network to perform the software tests (\cref{sec:methodSoftwareTests}).
+A \acrshort{ble} Beacon network is easy and fairly cheep to implement and has a large flexibility on how to position the beacons.
+WiFi \acrshort{ap}'s is often permanent mounted and is therefore hard to remove.
+It's also hard to expand the network if needed.
+
+
+\subsection{Resulting software design}\label{sec:methodSoftwareDesignResult}
+From the design choices being presented in above section and the requirement specification (see \ref{appendix:requirements} ) a design for the \acrshort{poc} application could be made.
+This design is being presented in \cref{fig:softwareDesign} below.
+
+
+\fig{Resulting software design based on the problem definition and research analysis}{softwareDesign}{1.0}{softwareDesign}
 
 
