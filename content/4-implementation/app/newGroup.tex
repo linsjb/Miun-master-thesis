@@ -1,0 +1,51 @@
+\subsection{Create a new group}\label{sec:implAppNewGroup}
+As point \ref{req:createGroups} states in the requirement specification (appendix \ref{appendix:requirements}) a functionality of the application is to create new groups.
+When a new group is being created a set of machines should be selectable and different \acrshort{rssi} values mapped to it.
+\Cref{fig:appNewGroup} show the flow chart of the creation for a new group.
+
+\fig{New group creation flow chart}{appNewGroup}{1.0}{flowCharts/appNewGroup}
+
+
+\subsubsection{Get machines}\label{sec:implAppNewGroupGetMachines}
+To be able to choose machines for a new group they first need to be fetched from the Azure Cosmos database \cite{IntroductionAzureCosmos}. 
+The server is taking care of the database handling, which means the application will get the machines from the server with a HTTPs GET request \cite{GETHTTPMDN}.
+The API endpoint that is being called is \textit{.../machines/getAll}.
+In the application these request is handled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}.
+
+\bigskip
+
+On a successful request all machines are loaded into the application.
+These machines is then being presented to the user in a list.
+The entries in the list is selectable via a touch action, where the selected machines is mapped to the group.
+With the preference that one machine can be used in multiple groups the machine ID is stored in the group, as an array.
+
+
+\subsubsection{Set group name}\label{sec:implAppNewGroupSetName}
+For a group to be easier identifiable by a user a name is set for it.
+In the application a text field is filled with the name.
+The data form the text field is being saved and later send to the server that creates the group.
+
+
+\subsubsection{Map position}\label{sec:implAppNewGroupMapPos}
+The group is the part of the system that is being identified as a position in the undefined space and need position fingerprints tied to it.
+Nearby \acrshort{ble} iBeacon signals is picked up in the app with the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
+When a fingerprint is being mapped the data first need to be cleaned to only contain the \acrshort{rssi} values from the top three iBeacons.
+If there is less than three beacons in range a mapping is not possible, since the fingerprint consist of data from three beacons.
+
+\bigskip
+
+In the fingerprint array the first index contains the strongest iBeacon's minor value, followed by the \acrshort{rssi} values in descending order.
+\Cref{listing:beaconFingerprint} illustrate a formatted fingerprint.
+
+\fileListing{Formatted iBeacon fingerprint}{beaconFingerprint}{json}{fingerprint.json}
+
+
+Each fingerprint is mapped manually and the cleaned fingerprint data showed in \cref{listing:beaconFingerprint} is inserted into an array.
+\Cref{listing:groupFingerprints} illustrate a collection of three fingerprints.
+
+\fileListing{A set of collected fingerprints for a group}{groupFingerprints}{json}{groupFingerprints.json}
+
+\subsubsection{Send data to server}\label{sec:implAppnewGroupSend}
+When a name is set, machines selected and fingerprints mapped the group is ready and can be sent to the server as a \acrfull{json} object \cite{IntroducingJSON}.
+This is done to the server API endpoint \textit{../group/create} with HTTPs POST request \cite{POSTHTTPMDN} where the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper} takes care of the request in the application.
+See appendix \ref{appendix:newGroupData} for full data example.

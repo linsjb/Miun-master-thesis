@@ -17,13 +17,19 @@
     \end{figure}
 }
 
-% \newcommand{\code}[4]{%
-%     \begin{listing}[H]
-%         \caption{#2}
-%         \label{code:#1}
-%         \inputminted[frame=lines]{#3}{\codePath #4}
-%     \end{listing}
-% }
+\newcommand{\fileListing}[4]{%
+    \begin{listing}[H]
+        \caption{#1}
+        \label{listing:#2}
+        \inputminted[frame=lines]{#3}{\codePath #4}
+    \end{listing}
+}
+
+\newcommand{\fileListingNoCap}[2]{%
+    \begin{listing}[H]
+        \inputminted[frame=lines]{#1}{\codePath #2}
+    \end{listing}
+}
 
 \newcommand{\tikzFig}[2]{%
     \begin{figure}[H]

@@ -1,0 +1,11 @@
+"id": "a0b0cff1-7d77-4d36-afce-615cc1632ea0",
+"name": "New group name",
+"fingerprints": [
+    [12, -5, -66, -43],
+    [9, -10, -23, 88],
+    [7, -22, -56, -42]
+],
+"machines": [
+    "c2796570-3016-4a10-a50b-3d875d6d5a9f",
+    "a56ba941-1068-47c8-a2a4-cf1b59c7ced9"
+]
