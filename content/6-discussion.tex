@@ -1,0 +1,105 @@
+\chapter{Discussion} \label{sec:discussion}
+In this chapter the work is being discussed.
+
+
+\section{Indoor Positioning System}\label{sec:discussionIps}
+An implementation of a \acrfull{ips} is the core of this thesis work.
+By developing a \acrshort{ips} to a Apple iOS application indoor positioning is possible without any GPS signals.
+An advance an complex application for a specific platform is often not good to develop without any form of backend.
+With this in mind a server was implemented to decouple the application from the data calculations and handling.
+This approach opens up for a much more scaled down application and a system that is much more flexible.
+A flexible system means that it can be expanded to other platforms easily since the application doesn't take care of the data handling.
+For example the Google Android platform can be built into the system without any larger obstacles.
+This can also be a cost saving approach since the development of the application is faster.
+
+\bigskip
+
+When it comes to \acrshort{ips}'s itself it's mature enough to be implemented in real scenarios where it will be used.
+There is some obstacles with these systems such as positioning accuracy and the requirements to keep the system updated. 
+In a GPS based system this is not a factor that need to be considered.
+But to keep a \acrshort{ips} functional it need maintenance to perform in a usable way.
+The \acrshort{ips} in this thesis work was a \acrfull{poc} application to show the possibilities with a system like this, and how it can be implemented.
+The environment where this system will be implemented and used is in large industrial environments.
+These environments are changing form time to time which need to be take into consideration.
+If the environment changes to much a new site survey need to be conducted and these are often time consuming because of the manual work it requires.
+
+
+\section{Application and server development}\label{sec:discussionAppDev}
+\subsection{Application}\label{sec:}
+Since the developed application was a \acrshort{poc} application some functionalities has been left out by purpose.
+The application has no security against the developed backend server, which would need to be implemented in a real production application.
+
+\bigskip
+
+Some parts of the application is not needed in a production state accept for power users and admins.
+These functions are the ability to create new groups and to control which beacons that are being catched by the application.
+If these functions would be available for a regular user they could cause some significant damage that would need to be fixed.
+A user could for example delete a group which then would be needed to be created again.
+
+\subsection{Server}\label{sec:}
+Just like the application the server contains some parts that would not be necessary in a production environment.
+Also some parts of the server is neither best practice or optimized.
+
+\bigskip
+
+When a position is being set by a user in the application the server would be called and yield back the position with help of \acrlong{knn}.
+This \acrshort{knn} algorithms is being trained at every new request to the localization endpoint.
+If this would be implemented in a real production this would not be suitable at all.
+The \acrshort{knn} should only be trained if there is any changes to the existing data.
+Such as a new group or additions to a group.
+But in testing purpose where new groups was created often this approach was necessary.
+
+\bigskip
+
+When the different endpoints in the server is called the server will download data from the Azure Cosmos Database every time. 
+This could be avoided to instead cache all or some of the data.
+This will in save money in the long run since each request against Azure is a cost.
+
+
+\section{Test results}\label{sec:discussionResult}
+The results from the performed test was waited and not really a surprise.
+Other works done in the area showed that a super good accuracy is hard to achieve with \acrshort{ips}'s.
+In the testing the problems with an \acrshort{ips} is also shown. 
+Since \acrlong{ble} beacons was used to position the device the relation to a stable signal is a key factor.
+This is often not the case, at least if the beacons position is low where different obstacles easily can affect the signals.
+If the signals fluctuates a lot the positioning can be affected, which was shown by the accuracy in the result.
+Other work show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate.
+
+\bigskip
+
+When it comes to the testing itself the area where the tests was performed cannot really be used as a guidance how well a \acrshort{ips} works.
+The best suitable solution for testing is to perform these in the right type of environments, which was not the case.
+But it gives a pointing finger what to be expected in terms of functionality.
+
+
+\section{Project method}\label{sec:discussionMethod}
+The method used in the project has been a good choice, since it did keep it simple to follow a set path.
+
+
+
+
+
+
+\section{Ethical and social aspects}\label{sec:discussionAspects}
+In a positioning system ethical aspects is always important.
+Technically a positioning system that use positioning data from the device can be used to track the end users.
+If the developed system run all calculations on-device this is not an issue, since no data leaves the device.
+But with a system where data is sent to a remove server this is a consideration.
+If these positions is mapped to a x,y-coordinate the user can be positioned and therefore surveillance of the users can be implemented.
+With this in mind it's always important to inform the users what kind of data that is being used and in which way.
+
+\bigskip
+
+With the developed \acrshort{poc} application this is not an issue since the fingerprints are not being mapped against a coordinate.
+The application can therefore be used with a good security policy that the users can trust.
+On the other hand the application uses localization functions that might be possible to be used in the other way.
+A sender might snap up that a specific device is connected to it and can track the user that way.
+Since protecting the end users is always a high demand and makes up for a good security the system needs to be secured in good ways.
+This includes the communication between the device and the server, so the connection cannot be eavesdropped and sensitive positioning data used by third parties, which would interfere with GDPR, which is never good.
+
+\bigskip
+
+The developed system is this project does also affect social aspects in some manner.
+To maintain a system like this that need constant maintenance there will always be a trade-off between benefits and cost.
+If a person going to maintain the systems this person will be a cost that is involved with the operation of it.
+
