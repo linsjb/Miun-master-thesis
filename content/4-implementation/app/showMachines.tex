@@ -1,8 +1,28 @@
-\subsection{Display machines for a set position}\label{sec:implAppFuncMachines}
-This section describes how the application takes the current position and display its mapped data.
-This function fulfil the project requirements \ref{req:positionDevice} and \ref{req:displayData} presented in appendix \ref{appendix:requirements}.
-
-\bigskip
+\subsection{Display machines for a set position}\label{sec:implAppSetPos}
+This section describes how the application takes the current position and display its mapped data, which fulfil the project requirements \ref{req:positionDevice} and \ref{req:displayData} (appendix \ref{appendix:requirements}).
+\Cref{fig:clientGetMachines} presents a flow chart that shows how the device is being positioned and corresponding data displayed.
 
 \fig{HTTPs post request flow chart how to get machines from server based on the current position}{clientGetMachines}{1.0}{flowCharts/appGetMachines}
 
+
+\subsubsection{Reading of nearby beacons}\label{sec:implAppSetPosReadBeacons}
+As illustrated in \cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
+This is done with help of the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
+The application constant read all nearby iBeacons, but its a user decision when to map against a position, which is done manually.
+
+\bigskip
+
+When mapping the location the application first controls if there is at least three iBeacons in range, since the mapped fingerprints for a group consist of data from three iBeacons.
+If the condition is not met a modal will be shown to the user and the scanning for nearby iBeacon will continue.
+If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
+In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.
+
+
+\subsubsection{Send and retrieve data}\label{sec:implAppSetPosSendRetreiveData}
+When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}, where the \acrshort{json} data is stored in the body of the request.
+The server is processing the data, which is explained in \cref{sec:implServerSetPos} and then returning the machines for the position in the response message of the HTTPs POST request.
+
+
+\subsubsection{Data presentation}\label{sec:implAppSetPosShowData}
+For the data that is being returned in the HTTPs POST response it's tied to the group where the current fingerprint best match the stores ones.
+This data is then being presented to the user.
