@@ -51,6 +51,14 @@ Since \acrshort{rssi} based fingerprints was used in all the papers it was also 
 The choice of mobile platform to develop the \acrlong{poc} application was Apple iPhone.
 This because the company the case study was being performed at (LKAB) uses iPhone's in their business.
 
+\subsubsection{Database}\label{sec:methodSoftwareDesignDatabase}
+The database used in the \acrshort{poc} application in the Cosmos Database by Azure \cite{IntroductionAzureCosmos}.
+This is a two part motivation.
+First because LKAB use Azure to their current Infohub application described in \cref{sec:introBackground}, so to use a Azure database was the easiest choice.
+Secondly, Cosmos, which is a NoSQL database, was used because the format of the data was unknown.
+So instead of using a SQL database where the tables need to be changed if the structure changes Cosmos was used to primarily save time and hassle with a SQL database.
+
+
 \subsubsection{Data calculations}\label{sec:methodSoftwareDesignData}
 The calculation of the data and the determination of the position can be done in two different ways.
 Either directly on the smartphone or at a external server. 

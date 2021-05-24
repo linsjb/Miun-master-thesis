@@ -1,1 +1,49 @@
 \chapter{Conclusion}\label{sec:Conclusion}
+This chapter presents a summary and conclusion of the projects work.
+
+
+\section{Project summary}\label{sec:conclusionProjectSummary}
+All goals that was set up in the beginning of this project (\cref{sec:introGoals}) has all been met.
+Knowledge has been gathered how a \acrfull{ips}, according to goals \ref{goal:posInvestigation}.
+Goal \ref{goal:poc} has been fulfilled with the \acrshort{poc} application that was developed, and the sub goals has been answered with performed positioning tests.
+
+\bigskip
+
+The projects statement has been answered with this work.
+Firstly the statement is answered in the motivation of the design choices made (\cref{sec:methodSoftwareDesign}) and lastly the \acrshort{poc} application showed how this can be done.
+
+\section{Project validity}\label{sec:conclusionProjectValidity}
+
+
+\section{Future work}\label{sec:conclusionFutureWork}
+\Acrfull{ips} has a bright future and is a technology that will be adopted more and more in the future.
+The result the \acrfull{poc} application developed in this thesis work is in its simplest form.
+LKAB will probably use this technology and continue to research and test in the are of indoor positioning.
+So, this means that a future work on this work is possible and has a chance of be adopted in real production environments.
+
+\bigskip
+
+In the developed application does not take security into consideration between the device and the server.
+Here a better security and signing of devices that only belong to LKAB is a large part that need to be implemented.
+The positioning itself could also be refined to better and more accurate position the device. 
+But to achieve this the application need to be tested in a real environment.
+
+\bigskip
+
+Another part that would need to be refined is the presentation of the created groups.
+If the application going to be used the number of groups would be large.
+So to have all groups visible at all time would be a bad user experience.
+Here the groups should be filtered depending on which plant and building the device is located in.
+This could be done with the major value from the iBeacons.
+
+\bigskip
+
+When creation a new group the same problem would occur.
+All machines available will make a huge list that would be hard to search in.
+Here to the beacon major value could be used to filter out the relevant machines.
+
+\bigskip
+
+When it comes to the server this could also be refined in some places.
+How the request is made to the Azure Cosmos Database should be overseen to avoid high bills form Azure.
+Also the training of \acrfull{knn} should also be done only when new groups is created.

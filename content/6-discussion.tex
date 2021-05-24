@@ -1,7 +1,6 @@
 \chapter{Discussion} \label{sec:discussion}
 In this chapter the work is being discussed.
 
-
 \section{Indoor Positioning System}\label{sec:discussionIps}
 An implementation of a \acrfull{ips} is the core of this thesis work.
 By developing a \acrshort{ips} to a Apple iOS application indoor positioning is possible without any GPS signals.
@@ -57,10 +56,16 @@ This will in save money in the long run since each request against Azure is a co
 
 
 \section{Test results}\label{sec:discussionResult}
-The results from the performed test was waited and not really a surprise.
-Other works done in the area showed that a super good accuracy is hard to achieve with \acrshort{ips}'s.
-In the testing the problems with an \acrshort{ips} is also shown. 
-Since \acrlong{ble} beacons was used to position the device the relation to a stable signal is a key factor.
+As presented in \cref{sec:resultPos} the test where four scans per point gave a higher accuracy, which is no surprise.
+When there is only one scan per point the measurement for that point will get unstable. 
+This means that the point only has one value to relate to, except its neighbours, when the \acrshort{knn} does its prediction.
+In the case where each point has four scans \acrshort{knn} foremost has more data to predict against.
+But it does also has a more stable point since it has four values per point.
+
+\bigskip
+
+Other works done in the area showed that a high accuracy is hard to achieve with a \acrshort{ips}.
+Since \acrlong{ble} beacons was used to position the device a stable signal is a key factor.
 This is often not the case, at least if the beacons position is low where different obstacles easily can affect the signals.
 If the signals fluctuates a lot the positioning can be affected, which was shown by the accuracy in the result.
 Other work show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate.
@@ -68,14 +73,17 @@ Other work show that an implementation of a Kalman filter will make the predicti
 \bigskip
 
 When it comes to the testing itself the area where the tests was performed cannot really be used as a guidance how well a \acrshort{ips} works.
-The best suitable solution for testing is to perform these in the right type of environments, which was not the case.
-But it gives a pointing finger what to be expected in terms of functionality.
+The best suitable solution for testing is to perform these in the right type of industrial environments, which was not the case.
+The results does however gives a pointing finger what to be expected in terms of accuracy in a \acrshort{ips}.
 
 
 \section{Project method}\label{sec:discussionMethod}
 The method used in the project has been a good choice, since it did keep it simple to follow a set path.
+Since the method was also used by all papers presented in the related work it was a good method for a work of this kind.
+In the used approach, that was to first read about the subject and the implement a system form already known methods and tools, a structured work could be conducted.
 
 
+\section{Scientific discussion}\label{sec:discussionSientific}
 
 
 
