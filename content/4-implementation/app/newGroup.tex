@@ -31,15 +31,17 @@ Nearby \acrshort{ble} iBeacon signals is picked up in the application with the i
 
 \bigskip
 
-Since the fingerprints that being used by the server are based on three \acrshort{rssi} values, a criterion where at least three iBeacons must be in range to be able to map a new position to the group.
+Since the fingerprints that being used by the server are based on three \acrshort{rssi} values, a criterion is set where at least three iBeacons must be in range to be able to map a new position to the group.
 If this condition is not met a warning modal is being showed to the user and the data will not be collected.
-When the condition is met the nearby iBeacons is collected and the data is being cleaned to only consist of the iBeacon \acrshort{rssi} and minor values.
-\Cref{listing:beaconFingerprint} present an example how this collected, cleaned iBeacon data looks like.
+When the condition is met the nearby iBeacons is collected and the data is being cleaned.
+This because the only important value from the iBeacons is their \acrshort{rssi} and minor values.
+\Cref{listing:beaconFingerprint} present an example of the formatted iBeacon data.
 
 \fileListing{Formatted iBeacon fingerprint}{beaconFingerprint}{json}{fingerprint.json}
 
-This mapping is done manually and the collected data is being inserted into an array which looks like \Cref{listing:groupFingerprints}.
-
+The position mapping is being done manually within the applications user interface.
+When a new position is being mapped the cleaned and collected iBeacons data presented in \Cref{listing:beaconFingerprint} is inserted in a 2D array.
+In \Cref{listing:groupFingerprints} an example of this 2D array with different iBeacon values is being presented.
 \fileListing{A set of collected fingerprints for a group}{groupFingerprints}{json}{groupFingerprints.json}
 
 \subsubsection{Send data to server}\label{sec:implAppnewGroupSend}

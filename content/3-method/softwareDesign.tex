@@ -1,17 +1,15 @@
 \section{Software design}\label{sec:methodSoftwareDesign}
-Although software design is a iterative process that can change over time it's  an important step, as mentioned by xx in...
-Just as S. Robinson et al. mentions in \cite{SecretsSuccessfulSimulation1995} it's beneficial to first design the software before implementing it.
-\bigskip
-
-With the information from S. Robinson et al. and to follow the presented method framework (see \cref{fig:methodOverview}) a software design phase was performed before an implementation was made.
+Although software design is a iterative process that can change over time it's  an important step to conduct before the development starts. \cite{EngineeringDesignIts1989, ImportanceBusinessProcess2008}
 
 \bigskip
 
-The software was designed based on two factors.
-The accumulated knowledge how to design a \acrshort{ips} based on the research analysis performed in \cref{sec:methodProblemDefinition}.
-The requirements from the research analysis in \cref{sec:methodResearchAnalysis}.
+When the software is being designed before implemented obvious obstacles could be avoided and therefore save time, which is important in these kind of projects.
+So this was an important part to get right from the beginning because of the time frame for the project.
+
+\bigskip
+
+The software was designed based on two factors, the accumulated knowledge how to design a \acrshort{ips} based on the research analysis performed in \cref{sec:methodProblemDefinition}, and the requirements from the research analysis presented in \cref{sec:theoryRelatedWork}.
 See appendix \ref{appendix:requirements} for the resulting requirements specification.
-
 
 
 \subsection{Design motivation}\label{sec:methodDesignMotivation}
@@ -19,82 +17,59 @@ Motivation of the design choices is being presented in this sub-section.
 
 
 \subsubsection{Classification method}\label{sec:methodSoftwareDesignClassification}
-In the previous research that was conducted in this thesis, three different types of classification methods has been used to determine the location of a device.
-\acrfull{knn}, \acrfull{svm} and \acrfull{ann}.  
-\bigskip
+The classification algorithms used to position the device in this work fell on \acrshort{knn} because it showed the best result in comparisons to \acrshort{ann} and \acrshort{svm}, mentioned in \cref{sec:theoryRelatedWork}.
+It's also easier to implement and together with the benefits it was the best choice.
 
-In the paper \cite{ComprehensiveStudyBluetooth2013} by C. Gurrin et al. all three methods is used to determine the location in a \acrshort{ips}.
-\acrshort{ann} shows a good result but takes some time to train.
-\acrshort{svm} has a good accuracy and precision but takes a very long time to train, which makes it impractical to use because of this.
-\acrshort{knn} shows the best results over all these three algorithms and also takes the shortest time to train.
-Therefore \acrshort{knn} is the best choice based on the conclusion by C. Gurrin et al.
-
-\bigskip
-
-The papers \cite{BluetoothLowEnergy2018, DevelopmentSmartphoneBasedUniversity2021} uses \acrshort{knn} to classify the position and \cite{PracticalFingerprintingLocalization2017} uses a \acrshort{knn}-like classification.
-
-\bigskip
-
-With this information the choice fell to use \acrshort{knn} as the classification algorithm.
 
 \subsubsection{Fingerprint structure}\label{sec:methodSoftwareDesignFingerprint}
-In the conducted literature study all papers used \acrfull{rssi} based fingerprints in some way.
-\cite{DevelopmentSmartphoneBasedUniversity2021, IndoorPositioningSystem2010} used WiFi \acrfull{ap}´s \acrshort{rssi} values.
-\cite{BluetoothLowEnergy2018, PracticalFingerprintingLocalization2017, ComprehensiveStudyBluetooth2013} used the \acrshort{rssi} values from \acrshort{ble} beacons to create the fingerprints.
-This indicated that \acrshort{rssi} values are a good value to use when creating a \acrshort{ips}.
-\bigskip
-
-Since \acrshort{rssi} based fingerprints was used in all the papers it was also used in this thesis.
+In the conducted literature study presented in \cref{sec:theoryRelatedWork} all the reviewed papers used \acrfull{rssi} based fingerprints to position the devices.
+This together with it's high accuracy in an \acrshort{ips} the choice in this project fell on \acrshort{rssi} fingerprints.
 
 
 \subsubsection{Mobile platform}\label{sec:methodSoftwareDesignMobilePlatform}
 The choice of mobile platform to develop the \acrlong{poc} application was Apple iPhone.
 This because the company the case study was being performed at (LKAB) uses iPhone's in their business.
 
+
 \subsubsection{Database}\label{sec:methodSoftwareDesignDatabase}
 The database used in the \acrshort{poc} application in the Cosmos Database by Azure \cite{IntroductionAzureCosmos}.
 This is a two part motivation.
-First because LKAB use Azure to their current Infohub application described in \cref{sec:introBackground}, so to use a Azure database was the easiest choice.
-Secondly, Cosmos, which is a NoSQL database, was used because the format of the data was unknown.
-So instead of using a SQL database where the tables need to be changed if the structure changes Cosmos was used to primarily save time and hassle with a SQL database.
+
+\bigskip
+
+First because LKAB use Azure to their current Infohub application described in \cref{sec:introBackground}.
+So to mimic their current architecture the choice fell on an Azure based database.
+
+\bigskip
+
+Secondly, Cosmos, which is a NoSQL database, was used to save time since a table structure nor table relations needed to be taken into consideration.
+This was well suited in this project since both the relation between the data and what each data collection was going to include was hard to decide pre-hand.
 
 
-\subsubsection{Data calculations}\label{sec:methodSoftwareDesignData}
+\subsubsection{Data processing}\label{sec:methodSoftwareDesignData}
 The calculation of the data and the determination of the position can be done in two different ways.
-Either directly on the smartphone or at a external server. 
-Both of these comes with their pros and cons.
+Either in a centralized manner where all the data is being processed directly on the device, or at a decentralized server.
+As being presented in \cref{sec:theoryRelatedWork} different approached has been taken in different \acrshort{ips} implementations.
 
 \bigskip
 
-In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} by A. Leb et al. they discuss these two alternatives.
-If the computations is never leaving the system, i.e that smartphone, a higher security could be maintained. 
-The drawback with this is a higher power usage with a higher battery drainage since the smartphone will handle all the data calculations.
-
-\bigskip
-
-The opposite solution is to send the positioning data to a server instead and let it take care of the positioning determination.
-This will save battery on the devices but lower the security. 
-In a server based approach the client need to trust the system.
-Another positive factor with a server solution is that all business logic for the system is being moved to the server.
-This opens up for a more flexible system where other platforms could be integrated with ease.
-
-\bigskip
-
-Since on device calculations might be the best in some cases the choice fell on a server based approach in this thesis project since the pros outweigh the cons.
+In this thesis the choice fell for a decentralized strategy that use a server to perform all data processing.
+This opens up for a more flexible system since the server takes care of the data and the device just send data to, and retrieve data from the server.
 
 
 \subsubsection{Transmitters}\label{sec:methodSoftwareDesignTransmitters}
 The transmitting technique chose in this work was \acrshort{ble} beacons where the beacons had support for Apple's iBeacon protocol (see \cref{sec:theoryBleiBeacons}).
+This choice depended on two different factors.
 
 \bigskip
 
-This is the desired choice of two different reasons.
 The first reason is limitations in Apple's iOS platform.
-To be able to scan for nearby WiFi \acrshort{ap}'s a locked API is needed \cite{NEHotspotHelperAppleDeveloper}.
-Apple only give permission to this locked API in special application cases which being presented in \cite{TechnicalQA1942IOS}.
-One example where Apple will allow the usage of it, is if the application is made to help the users to find nearby hotspots by scanning the surrounding area.
-This makes is impossible to fetch information from other \acrshort{ap}´s than the one connected to the device, which can only be one at a time.
-With this limitation the transmitting choice fell on \acrshort{ble} beacons since these can be scanned with the Apple CoreLocation API.
+A developed application can only read data from the WiFi the device is connected to.
+Reading of all nearby WiFi's can only be done if the application has access to a closed internal iOS API \cite{NEHotspotHelperAppleDeveloper}.
+To gain access to this API Apple need to be contacted for permission.
+Access is only given for application in special cases, such as the application will help a user to find nearby WiFi hotspots \cite{TechnicalQA1942IOS}.
+This makes is impossible to fetch information from other WiFi \acrshort{ap}´s than the one connected to the device, which can only be one at a time.
+With this hardware limitation the transmitting choice fell on \acrshort{ble} beacons since these can be scanned without any special permission with the iOS API \textit{CoreLocation}.
 
 \bigskip
 

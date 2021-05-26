@@ -12,7 +12,7 @@ The application constant read all nearby iBeacons, but its a user decision when 
 
 \bigskip
 
-When mapping the location the application first controls if there is at least three iBeacons in range, since the mapped fingerprints for a group consist of data from three iBeacons.
+Since the mapped fingerprints stored in the groups is made on the values from three iBeacons the application needs to control that at least three iBeacons are in range.
 If the condition is not met a modal will be shown to the user and the scanning for nearby iBeacon will continue.
 If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
 In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \Cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.

@@ -4,24 +4,27 @@ When a new group is created with the application the server API endpoint \textit
 
 \fig{New group creation flow chart}{serverNewGroupFlowChart}{1.0}{flowCharts/serverNewGroup}
 
+
 \subsubsection{Data preparation}\label{sec:implServerGroupCreationDataPrep}
 Since the server takes care of the group creation against the Azure Cosmos Database \cite{IntroductionAzureCosmos} the ID is not created by the application.
 A \acrfull{uuid} \cite{CommonsIdUUID} is created by the server when the API endpoint mentioned above is called.
 
+
 \subsubsection{Fingerprint processing}\label{sec:implServerGroupCreationFingerprint}
 \fig{Format of group fingerprint}{fingerprintIllustration}{0.4}{fingerprintIllustration}
 
-In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \Cref{listing:unformattedBeaconData}.
-For the data to take the form as presented in \Cref{fig:fingerprintIllustration} the data need to be sorted and cleaned.
+In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \Cref{listing:beaconFingerprint}, located in \cref{sec:implAppNewGroup}.
+This data is as mentioned in \cref{sec:implAppNewGroup} cleaned and formatted.
+But to form a fingerprint this data need further processing where it is being cleaned and sorted into an integer array with the format presented in \Cref{fig:fingerprintIllustration}.
 
-\fileListing{Unformatted iBeacon data from application}{unformattedBeaconData}{json}{fingerprint.json}
+\bigskip
 
-Only the minor value from the strongest iBeacon is saved together with the top three strongest \acrshort{rssi} values. After this operation a single fingerprint looks like \cref{listing:singleFingerprint}.
+Only the minor value from the strongest iBeacon is saved together with the top three strongest \acrshort{rssi} values. After this operation the values from \Cref{listing:beaconFingerprint} looks like \cref{listing:singleFingerprint} below.
 
 \fileListing{Single fingerprint after cleaning and sorting}{singleFingerprint}{json}{singleFormatedFingerprint.json}
 
 In the sorting operation each iBeacon data object is inserted in a fingerprint array with the form presented in \Cref{listing:singleFingerprint} above.
-When all the data is processed the array looks like \Cref{listing:multipleFingerprints} below.
+When all the data presented in \Cref{listing:groupFingerprints} located in \cref{sec:implAppNewGroup} has been processed the final fingerprints for the groups looks like the example presented in \Cref{listing:multipleFingerprints}.
 
 \fileListing{Multiple processed fingerprints to be stored in the new group}{multipleFingerprints}{json}{multipleFormatedFingerprints.json}
 

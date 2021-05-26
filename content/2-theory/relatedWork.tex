@@ -1,8 +1,9 @@
 \section{Related work}\label{sec:theoryRelatedWork}
 In this sub-section related work and previous research that is related to this thesis is being presented.
 
+
 \subsection{Development of a Smartphone-Based University Library Navigation and Information Service Employing Wi-Fi Location Fingerprinting}\label{sec:}
-In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating a indoor fingerprint based positioning systems with the help of WiFi Access Points.
+In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating a indoor fingerprint based positioning systems with the help of WiFi Access Points (AP).
 
 \bigskip
 
@@ -16,7 +17,7 @@ This is important to do because the \acrshort{rssi} values would no longer be va
 
 As A. Leb et al. is mentioning in their work privacy and security with \acrfull{ips} is a major factor.
 Therefore the \acrshort{ips} operator should ask how the users can trust the system, which A. W.H et al. mentions in \cite{SurveyWirelessIndoor2019}.
-The best way to assure as high security level as possible is to let the device itself take care of the computation that is needed to determine the position.
+The best way to assure as high security level as possible is to let  device itself take care of the computation that is needed to determine the position.
 The security is hold strong since no data is leaving the device and can therefore not be used to track the device and its user.
 But with this comes a higher power consumption since all calculations need to be done on the device.
 So for a better security comes a higher power consumption.
@@ -28,6 +29,12 @@ This depends on several different factors such as money available, time, infrast
 The time that they mentioning in the time for installation and maintenance.
 The cost is the true cost for servers, transmitters, software and system maintenance.
 Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since the network might already be deployed.
+
+\bigskip
+
+The relation between this article and this thesis work is the way the positioning is done where \acrshort{rssi} values are being collected in a fingerprint database.
+In the article is also a decentralized based system with a server and the benefits with this.
+This has been used when designing the software implemented in this thesis.
 
 
 \subsection{Practical Fingerprinting Localization for Indoor Positioning System by Using Beacons}\label{sec:}
@@ -49,6 +56,7 @@ In the proposed system by P. Jae-Young et al. the fingerprint \acrshort{rssi} va
 When implementing a \acrshort{ips} the \acrshort{rssi} values often comes with a lot of noise.
 So to reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften it out.
 Which result in smoother values in the online phase that leads to less errors.  
+
 \bigskip
 
 The proposed technique to combine both \acrshort{rssi} fingerprint and WCL values are being collected individually.
@@ -69,8 +77,33 @@ With the papers proposed method the number of reference points could be decrease
 In the room configuration the lowest average error was just below 1 meter at $0.98$ meters.
 The number of reference points could be reduced by around $49\%$.
 
+\bigskip
+
+Similarities between this paper and this thesis is the use of fingerprints and \acrshort{rssi} values.
+In this paper they are also using \acrshort{ble} beacons instead of WiFi to position the devices.
+This shows that a \acrshort{ble} beacon approach is possible, which has been used in this thesis.
+It does also use WCL together with \acrshort{rssi} and can show how these work together.
+This has been a good knowledge to gather in the planning phase of the project to oversee which techniques to use.
+
+
 \subsection{Bluetooth Low Energy based Indoor Positioning on iOS platform}\label{sec:}
 In the paper \cite{BluetoothLowEnergy2018} written by N.S. Duong et. al an \acrshort{ips} based on \acrshort{ble} beacons is being implemented on the Apple iOS platform.
+To give a higher accuracy they use Kalman filter on the collected \acrshort{rssi} values to smooth out the values and remove the fluctuations.
+
+\bigskip
+
+The fingerprints is build with a structure where the minor value from the strongest beacon is used in the fingerprints, together with the three strongest \acrshort{rssi} values.
+Their Kalman filter is in both the offline and online phase.
+
+\bigskip
+
+In their result they get an localization accuracy without the Kalman filter of 20\% and with Kalman the accuracy of 60\%.
+
+\bigskip
+
+In this paper the relation between this thesis implementation and the paper lies in the used platform.
+Also how the fingerprints is being designed, that has been used also in this thesis.
+Their implemented Kalman filter also shows how the accuracy could be raised.
 
 
 \subsection{A Comprehensive Study of Bluetooth Fingerprinting-based Algorithms For 
@@ -85,5 +118,17 @@ The result of the testing done by C. Gurrin et al. shows that the \acrshort{knn}
 After \acrshort{knn} comes \acrshort{ann} and last comes \acrshort{svm}  which takes almost 3 hours to train.
 Beside form the training time of \acrshort{svm}  it has a good accuracy and precision but fails because of the long time to train it.  \acrshort{ann} is average in all aspects and \acrshort{knn} achieves the best precision of the three.
 
-\subsection{Indoor Positioning System Using Artificial Neural Network}\label{sec:}
 
+\subsection{Indoor Positioning System Using Artificial Neural Network}\label{sec:}
+In \cite{IndoorPositioningSystem2010} by H. Mehmood et al. a \acrshort{ips} has been conducted where \acrlong{ann} is used to classify the positioning.
+They use WiFi \acrshort{ap}'s as transmitting devices and is creating the fingerprints with the \acrshort{ap} \acrshort{rssi} values.
+
+\bigskip
+
+Their result with the fingerprint based \acrshort{ann} \acrshort{ips} showed a accuracy of 30\% within 1 meter and 50\% accuracy within 1-2 meters.
+
+\bigskip
+
+This article was interesting in the manner that they did comparisons between different classification methods.
+This helped to decide what to use in the thesis, but also to know what other techniques that could be used.
+It did also help to motivate the chosen method.

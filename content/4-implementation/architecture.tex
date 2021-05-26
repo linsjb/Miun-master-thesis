@@ -1,11 +1,53 @@
 \section{Architecture}\label{sec:implArchitecture}
-The fully understand the implementation of this project some architectural descriptions is needed.
+To fully understand the implementation of this project some architectural descriptions is needed.
 This section will present different techniques and architectures used in this implementation.
 
-\subsection{Group}\label{sec:implArchitectureGroup}
 
 \subsection{Machine}\label{sec:implArchitectureMachine}
+A machine is being defines as some kind of equipment places around a industrial hall in a manufacturing environment.
+This could for example be a waterpump or electrical engine that drives a stone crusher.
+A machine in this work it only a set of data collections in a database and not a real physical machine.
+
+
+\subsection{Group}\label{sec:implArchitectureGroup}
+A group in the system is what's being located with the positioning.
+The system sets up invisible boundaries in a undefined spaced out in a production hall.
+When a device is being located by the system a group will be yield back instead of a physical exact position.
+Machines are tied to these created groups where the machines data will be shown when the group is positioned.
+
+
 \subsection{Device}\label{sec:implArchitectureDevice}
+A device refer to a mobile hand held device that's in this work is a Apple iPhone 12 pro.
+This device is running the developed application.
+
+
+\subsection{Beacons}\label{sec:implArchitectureBeacons}
+A beacon, also mentioned as iBeacon is the transmitting hardware used to position a device with de developed system.
+
+
 \subsection{Server}\label{sec:implArchitectureServer}
+All calculations is being taken care of by a server.
+This server is not being hosted to any cloud service or a physical server in a data center, instead it is running on a local computer where the device will communicate with the server only in the same LAN.
+
+
 \subsection{Frontend vs. backend}\label{sec:implArchitectureFrontBack}
+In the developed \acrshort{ips} there is two major parts, a front- and backend.
+The application is defined as the frontend of the system since this is the part that a user will interact with and get data presented to it. 
+The backend in the developed server software that takes care of all calculations and data predictions, and delivers this to the frontend which is being presented to the user.
+
+
+\subsection{API}\label{sec:implArchitectureApi}
+An API is the data connection between a device and a server.
+Data it sent form the device to the server via specific API \textit{endpoints} that is being defined in the application and created in the server.
+The developed API works in two different types of requests, POST and GET.
+
+\bigskip
+
+In a POST request from the device to the server the device is giving some kind of data to the server, that is being processed by it.
+When the server is done processing a response is being yield back to the device with either some resulting data or just a success message.
+
+\bigskip
+
+In a GET request the server is only asked to give data back to the device without any data being sent to the server.
+When these different endpoints is being called form the device the server will perform various processes depending on how the API is developed.
 

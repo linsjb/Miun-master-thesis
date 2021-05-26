@@ -26,14 +26,23 @@
 
 \begin{document}
 \include{settings/infopage}
+\include{content/0-abstract}
+\include{content/0-acknowledgements}
+
 \tableofcontents
 
-% \chapter *{Terminology}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\chapter *{Terminology}
+\addcontentsline{toc}{chapter}{Terminology}
+\printglossary[nonumberlist]
 % \printglossary[title = Words, nonumberlist]
 % \printglossary[title=Acronyms, type=\acronymtype, nonumberlist]
 
-% \include{content/0-abstract}
-% \include{content/0-foreword}
 \include{content/1-introduction}
 \include{content/2-theory/theory}
 \include{content/3-method/method}

@@ -11,30 +11,30 @@ Before this data can be used to classify the position with help of \acrfull{knn}
 In this preparation the data is being transformed to match the style of the fingerprints being stored in the created groups.
 \Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
 
-\fileListing{Raw collected iBeacons data from the application}{deviceRawBeaconData}{json}{fingerprint.json}
+\fileListing{Raw collected iBeacons data from the application}{deviceRawBeaconData}{json}{posBeaconsData.json}
 
-\fileListing{Processed data to match group finterprints}{processedBeaconData}{json}{singleFormatedFingerprint.json}
+\fileListing{Processed data to match group finterprints}{processedBeaconData}{json}{posSingleFormatedFingerprint.json}
 
 In the processed data presented in \Cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
 
 
-\subsubsection{KNN training}\label{sec:implServerSetPosKnnTraining}
-\fig{KNN training flow chart}{knnTrainingFlowChart}{1.0}{flowCharts/serverTrainKnn}
+\subsubsection{KNN testing}\label{sec:implServerSetPosKnnTesting}
+\fig{K-NN testing flow chart}{knnTestingFlowChart}{1.0}{flowCharts/serverTrainKnn}
 
-Before \acrshort{knn} can predict any groups it needs to be trained with the correct type of data.
+Before \acrshort{knn} can predict any groups it needs to be tested on already existing data.
 This data is every mapped fingerprints in every created group.
-In \Cref{fig:knnTrainingFlowChart} the process of training the \acrshort{knn} classifier with the correct data is presented.
+In \Cref{fig:knnTestingFlowChart} the process of testing a \acrshort{knn} classifier with the correct data is presented.
 
 \bigskip
 
 First the data is being collected form the Azure Cosmos Database \cite{IntroductionAzureCosmos} group container. 
-After this the data is prepared so it can be used in the training.
+After this the data is prepared so it can be used in the \acrshort{knn} testing.
 For every fingerprint the corresponding group ID and the fingerprint itself is being stored in an array, illustrated in \Cref{fig:illustratedKnnTrainingData}.
 
-\fig{Illustration of KNN training data}{illustratedKnnTrainingData}{0.2}{knnTrainingDataIllustration}
+\fig{Illustration of K-NN test data}{illustratedKnnTrainingData}{0.2}{knnTrainingDataIllustration}
 
 This data is then being divided in two different arrays, one with only the IDs and one with all the fingerprints.
-In this format \acrshort{knn} can be trained with the fingerprints and the true values is stored in the other array.
+In this format \acrshort{knn} can be tested with the fingerprints where the true values is stored in the other array.
 
 
 \subsubsection{KNN classification}\label{sec:implServerSetPosKnnClassification}

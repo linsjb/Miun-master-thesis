@@ -1,7 +1,8 @@
-\chapter{Discussion} \label{sec:discussion}
+\chapter{Discussion} \label{discussion}
 This chapter presents the discussion for the whole work.
 It starts with a discussion about the implemented \acrfull{ips} in general.
 Following this the implementation of the Apple iOS application and the server is being discussed, which then leads to the result and is being topped of with ethical and social aspects.
+
 
 \section{Indoor Positioning System}\label{sec:discussionIps}
 An implementation of a \acrshort{ips} is the core of this thesis work.
@@ -25,8 +26,7 @@ These environments are changing form time to time which need to be take into con
 If the environment changes to much a new site survey need to be conducted and these are often time consuming because of the manual work it requires.
 
 
-\section{Application and server development}\label{sec:discussionAppDev}
-\subsection{Application}\label{sec:}
+\section{Application development}\label{sec:}
 Since the developed application was a \acrshort{poc} application some functionalities has been left out by purpose.
 The application has no security against the developed backend server, which would need to be implemented in a real production application.
 
@@ -37,7 +37,13 @@ These functions are the ability to create new groups and to control which beacon
 If these functions would be available for a regular user they could cause some significant damage that would need to be fixed.
 A user could for example delete a group which then would be needed to be created again.
 
-\subsection{Server}\label{sec:}
+\bigskip
+
+The developed user interface that's presented in the result if a good start for an application like this.
+It does however need some more work to make a better user experience and to show relevant information.
+
+
+\section{Server development}\label{sec:}
 Just like the application the server contains some parts that would not be necessary in a production environment.
 Also some parts of the server is neither best practice or optimized.
 
@@ -63,6 +69,9 @@ When there is only one scan per point the measurement for that point will get un
 This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
 In the case where each point has four scans \acrshort{knn} foremost has more data to predict against.
 But it does also has a more stable point since each point has four different fingerprints.
+
+The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate the group far away.
+This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons.
 
 \bigskip
 

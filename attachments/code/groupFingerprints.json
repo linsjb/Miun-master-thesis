@@ -5,13 +5,13 @@
         {"rssi": -44, "minor": 14}
     ], 
     [
-        {"rssi": -80, "minor": 12},
-        {"rssi": -22, "minor": 9},
-        {"rssi": -44, "minor": 14}
+        {"rssi": -41, "minor": 5},
+        {"rssi": -11, "minor": 9},
+        {"rssi": -68, "minor": 14}
     ],
     [
-        {"rssi": -80, "minor": 12},
-        {"rssi": -22, "minor": 9},
-        {"rssi": -44, "minor": 14}
+        {"rssi": -12, "minor": 7},
+        {"rssi": -4, "minor": 4},
+        {"rssi": -10, "minor": 1}
     ]
 ]
