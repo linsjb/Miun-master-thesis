@@ -6,7 +6,7 @@ This section describes how the application takes the current position and displa
 
 
 \subsubsection{Reading of nearby beacons}\label{sec:implAppSetPosReadBeacons}
-As illustrated in \cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
+As illustrated in \Cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
 This is done with help of the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
 The application constant read all nearby iBeacons, but its a user decision when to map against a position, which is done manually.
 
@@ -15,7 +15,7 @@ The application constant read all nearby iBeacons, but its a user decision when 
 When mapping the location the application first controls if there is at least three iBeacons in range, since the mapped fingerprints for a group consist of data from three iBeacons.
 If the condition is not met a modal will be shown to the user and the scanning for nearby iBeacon will continue.
 If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
-In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.
+In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \Cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.
 
 
 \subsubsection{Send and retrieve data}\label{sec:implAppSetPosSendRetreiveData}

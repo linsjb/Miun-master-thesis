@@ -1,12 +1,16 @@
 \chapter{Introduction}\label{sec:intro} \pagenumbering{arabic}
 
 \section{Background and problem motivation}\label{sec:introBackground}
-The Swedish mining company LKAB has devveloped
+The Swedish mining company LKAB has developed
 a smartphone application, named InfoHub, that will help their mechanics and
-technicians.  This application is capable to shows real time data and documents
-for a chosen type of machinery out in their iron ore production plants.  To
-choose which machine to show data from a onsite OCR code need to be manually
-scanned in the application.  Due to the harsh and dirty environment in these
+technicians.This application is capable to show real time data and documents
+for a chosen type of machinery out in their iron ore production plants.
+These documents could for example be blueprints for the machine or real time flow data for a pump.
+
+\bigskip
+
+To show data for a specific machine a onsite OCR code need to be manually scanned with the application.
+Due to the harsh and dirty environment in these
 production plants the application could face difficulties reading these codes.
 The manual scanning also means that the user must know the location of the code,
 which sometimes could be hard to find.
@@ -22,7 +26,7 @@ techniques such as WiFi or \acrlong{ble} Beacons.
 
 \bigskip
 
-When a user scan a verifiable code the application will fetch the documents and
+When a user scans a verifiable code the application will fetch the documents and
 real time data for the machine that matches the code.  The application gets the
 data from Microsoft's Azure cloud services that is being uploaded from LKAB's
 local onsite systems.

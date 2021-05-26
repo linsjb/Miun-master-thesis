@@ -1,41 +1,58 @@
 \section{Software tests}\label{sec:methodSoftwareTests}
-The third phase in the framework by S. Ribonson et al. in \cite{SecretsSuccessfulSimulation1995} is the experimentation.
-Here the experiments is first and foremost executed and then being reviewed.
-S. Robinson et al. mention previous issues when performing various model experiments and mean that it's important to think about how the tests should be performed.
-This also applies to a project of this kind.
+% The third phase in the framework by S. Ribonson et al. in \cite{SecretsSuccessfulSimulation1995} is the experimentation.
+% Here the experiments is first and foremost executed and then being reviewed.
+% S. Robinson et al. mention previous issues when performing various model experiments and mean that it's important to think about how the tests should be performed.
+% This also applies to a project of this kind.
 
-\bigskip
+% \bigskip
 
-In this thesis project the experimentation phase from S. Ribonson et al. can be translated into software tests, which can be seen in \cref{fig:methodOverview}.
-Sometimes the tests might show that the software need some changes before it can be conducted at full power or give the right result.
-In these cases the tests leads back to the software implementation to correct or change the software.
-After this new tests is being carried out.
 
-\bigskip
+% In this thesis project the experimentation phase from S. Ribonson et al. can be translated into software tests, which can be seen in \cref{fig:methodOverview}.
+% Sometimes the tests might show that the software need some changes before it can be conducted at full power or give the right result.
+% In these cases the tests leads back to the software implementation to correct or change the software.
+% After this new tests is being carried out.
 
-In the first part of testing a test design was developed where the number of beacons and the placement of those where decided.
-After that test parameters was decided.
+% \bigskip
+
+Why testing was needed in this project was to be able to see how well the developed system performed and how well it could be implemented.
+Therefore the testing phase of the project was to investigate how well the implemented system could position a device in a set test environment, which are being described more in detail in \cref{sec:methodTestLayout}.
+Apart from a defined test layout some kind of variance was needed to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
+If only one test case was conducted the test wouldn't tell how well the actually performs.
+Simply because it would not be known if it's working or not.
+To be able to test the system some hardware was needed to be places in the test layout. In \cref{sec:methodTestHardware} the used hardware is being described and introduced.
 
 
 \subsection{Hardware}\label{sec:methodTestHardware}
 The beacons used in the test was the RadBeacon Dot by Radius Networks \cite{RadBeaconDotDatasheet}.
-Specification of these beacons can be seen in \cref{tab:radbeaconSpecs} below.
+Specification of these beacons can be seen in \Cref{tab:radbeaconSpecs} below.
 
 \texTable{RadBeacon Dot specification \cite{RadBeaconDotDatasheet}}{radbeaconSpecs}{radbeacon}
 
-\subsection{Test layout}\label{sec:methodTestLayout}
-The beacons was arranged in two rows where the first row of four beacons was places 4 meters apart,  and the second row with three beacons was spaced 5 meters apart.
-The two rows was spaced 6 meters apart.
 
+\subsection{Test layout}\label{sec:methodTestLayout}
+\fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
+
+The beacons was arranged in two rows where the first row of four beacons was places 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
+The two rows was spaced 6 meters apart.
 
 \bigskip
 
-Three areas was set to be tested where each of the areas had nine points each to be mapped.
-Te blue and yellow area was 3 meters by 2.5 meters and the brown areas was 3 meters by 3 meters.
+Three areas, blue, brown and yellow, was set to be tested where each of the areas had nine points each to be mapped.
+The blue and yellow area was 3 meters by 2.5 meters and the brown areas was 3 meters by 3 meters.
 \Cref{fig:testSetup} presents the test setup with the placement of the iBeacons as well as the three areas.
 The black dots in each group was the points to be mapped in each group.
 
-\fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
+\bigskip
+
+The test the layout was intended to mimic a real implementation scenario in a industrial environment but in an apartment.
+That's why the beacons was places against the both longer walls around the apartment to mimic a big industrial hall environments.
+In where these beacons would, possible, be places at the longer edges of the hall.
+For a setup like this, if the beacons are places high enough, it would give the best signal coverage, apart for some cases where big obstacles would prevent the signals from reaching out.
+
+\bigskip
+
+Other layout where the beacons was being places around the marked groups was considered.
+But as mentioned above this would give the best overall coverage if the environments was a large industrial hall.
 
 
 \subsection{Test parameters}\label{sec:methodTestParameters}
@@ -44,8 +61,14 @@ The following parameters was set to be tested;
 \begin{itemize}
 \item Number of mapped fingerprints per location point
 	\begin{itemize}
-	\item 1 scan per point
-	\item 4 scans per point
+		\item 1 fingerprints per point
+		\item 4 fingerprints per point
 	\end{itemize}
 \end{itemize}
+
+These parameters is being tested to see which effect the number of mapped fingerprints to a group did.
+With one fingerprint the mapping would only be done in one direction.
+In this case the signal strength may change and give a different result.
+With four fingerprints per point the fingerprints would be scanned 360 degrees around the point. 
+This would give a better coverage and prevent any blocking of the signal depending on how the point is being read in the test.
 

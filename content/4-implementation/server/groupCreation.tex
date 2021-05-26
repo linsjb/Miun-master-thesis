@@ -11,8 +11,8 @@ A \acrfull{uuid} \cite{CommonsIdUUID} is created by the server when the API endp
 \subsubsection{Fingerprint processing}\label{sec:implServerGroupCreationFingerprint}
 \fig{Format of group fingerprint}{fingerprintIllustration}{0.4}{fingerprintIllustration}
 
-In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \cref{listing:unformattedBeaconData}.
-For the data to take the form as presented in \cref{fig:fingerprintIllustration} the data need to be sorted and cleaned.
+In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \Cref{listing:unformattedBeaconData}.
+For the data to take the form as presented in \Cref{fig:fingerprintIllustration} the data need to be sorted and cleaned.
 
 \fileListing{Unformatted iBeacon data from application}{unformattedBeaconData}{json}{fingerprint.json}
 
@@ -20,8 +20,8 @@ Only the minor value from the strongest iBeacon is saved together with the top t
 
 \fileListing{Single fingerprint after cleaning and sorting}{singleFingerprint}{json}{singleFormatedFingerprint.json}
 
-In the sorting operation each iBeacon data object is inserted in a fingerprint array with the form presented in \cref{listing:singleFingerprint} above.
-When all the data is processed the array looks like \cref{listing:multipleFingerprints} below.
+In the sorting operation each iBeacon data object is inserted in a fingerprint array with the form presented in \Cref{listing:singleFingerprint} above.
+When all the data is processed the array looks like \Cref{listing:multipleFingerprints} below.
 
 \fileListing{Multiple processed fingerprints to be stored in the new group}{multipleFingerprints}{json}{multipleFormatedFingerprints.json}
 

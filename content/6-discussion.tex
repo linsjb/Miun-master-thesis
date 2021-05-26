@@ -1,8 +1,10 @@
 \chapter{Discussion} \label{sec:discussion}
-In this chapter the work is being discussed.
+This chapter presents the discussion for the whole work.
+It starts with a discussion about the implemented \acrfull{ips} in general.
+Following this the implementation of the Apple iOS application and the server is being discussed, which then leads to the result and is being topped of with ethical and social aspects.
 
 \section{Indoor Positioning System}\label{sec:discussionIps}
-An implementation of a \acrfull{ips} is the core of this thesis work.
+An implementation of a \acrshort{ips} is the core of this thesis work.
 By developing a \acrshort{ips} to a Apple iOS application indoor positioning is possible without any GPS signals.
 An advance an complex application for a specific platform is often not good to develop without any form of backend.
 With this in mind a server was implemented to decouple the application from the data calculations and handling.
@@ -56,36 +58,41 @@ This will in save money in the long run since each request against Azure is a co
 
 
 \section{Test results}\label{sec:discussionResult}
-As presented in \cref{sec:resultPos} the test where four scans per point gave a higher accuracy, which is no surprise.
+As presented in \cref{sec:resultPos} the test showed that four fingerprints per point gave the highest accuracy.
 When there is only one scan per point the measurement for that point will get unstable. 
-This means that the point only has one value to relate to, except its neighbours, when the \acrshort{knn} does its prediction.
+This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
 In the case where each point has four scans \acrshort{knn} foremost has more data to predict against.
-But it does also has a more stable point since it has four values per point.
+But it does also has a more stable point since each point has four different fingerprints.
 
 \bigskip
 
 Other works done in the area showed that a high accuracy is hard to achieve with a \acrshort{ips}.
-Since \acrlong{ble} beacons was used to position the device a stable signal is a key factor.
-This is often not the case, at least if the beacons position is low where different obstacles easily can affect the signals.
-If the signals fluctuates a lot the positioning can be affected, which was shown by the accuracy in the result.
-Other work show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate.
+To be able to get a high accuracy a stable signal is a very important factor.
+With \acrshort{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
+If the signals fluctuates a lot the positioning can be affected, which was shown by the accuracy in this thesis result.
+Related work that was investigated show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate since the unstable \acrshort{rssi} signals is being smoothed out.
+It was also shown in the relates work that they got a higher accuracy than in this project.
+This can depend on the model of Beacons used, differences in the implemented systems and the testing setup.
+The most of these related work did test in an open environment such as a large hall or library.
+In these environments there is less obstacles that can affect the transmitting signals.
 
 \bigskip
 
-When it comes to the testing itself the area where the tests was performed cannot really be used as a guidance how well a \acrshort{ips} works.
-The best suitable solution for testing is to perform these in the right type of industrial environments, which was not the case.
+The area where the tests was being conducted cannot really be used as a guidance how well a \acrshort{ips} works, since it differs so much from the real environments where this technique would be used.
+The best suitable solution for testing is to perform these in the right type of industrial environments, which was not possible in this thesis due to the Covid pandemic.
 The results does however gives a pointing finger what to be expected in terms of accuracy in a \acrshort{ips}.
 
 
-\section{Project method}\label{sec:discussionMethod}
-The method used in the project has been a good choice, since it did keep it simple to follow a set path.
-Since the method was also used by all papers presented in the related work it was a good method for a work of this kind.
-In the used approach, that was to first read about the subject and the implement a system form already known methods and tools, a structured work could be conducted.
+% \section{Project method}\label{sec:discussionMethod}
+% The used method in the project has been straightforward and general for any kind of software project.
 
 
-\section{Scientific discussion}\label{sec:discussionSientific}
+% The method used in the project has been a good choice, since it did keep it simple to follow a set path.
+% Since the method was also used by all papers presented in the related work it was a good method for a work of this kind.
+% In the used approach, that was to first read about the subject and the implement a system form already known methods and tools, a structured work could be conducted.
 
 
+% \section{Scientific discussion}\label{sec:discussionSientific}
 
 
 \section{Ethical and social aspects}\label{sec:discussionAspects}

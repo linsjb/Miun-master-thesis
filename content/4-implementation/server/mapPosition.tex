@@ -9,13 +9,13 @@ As mentioned in \cref{sec:implAppSetPos} the application collects all nearby iBe
 These signals is being sent to the server when above mentioned API endpoint is called, where the body of the request contain the signals data.
 Before this data can be used to classify the position with help of \acrfull{knn} it need to be prepared.
 In this preparation the data is being transformed to match the style of the fingerprints being stored in the created groups.
-\Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \cref{listing:processedBeaconData} show the processed data.
+\Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
 
 \fileListing{Raw collected iBeacons data from the application}{deviceRawBeaconData}{json}{fingerprint.json}
 
 \fileListing{Processed data to match group finterprints}{processedBeaconData}{json}{singleFormatedFingerprint.json}
 
-In the processed data presented in \cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
+In the processed data presented in \Cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
 
 
 \subsubsection{KNN training}\label{sec:implServerSetPosKnnTraining}
@@ -23,13 +23,13 @@ In the processed data presented in \cref{listing:processedBeaconData} above the 
 
 Before \acrshort{knn} can predict any groups it needs to be trained with the correct type of data.
 This data is every mapped fingerprints in every created group.
-In \cref{fig:knnTrainingFlowChart} the process of training the \acrshort{knn} classifier with the correct data is presented.
+In \Cref{fig:knnTrainingFlowChart} the process of training the \acrshort{knn} classifier with the correct data is presented.
 
 \bigskip
 
 First the data is being collected form the Azure Cosmos Database \cite{IntroductionAzureCosmos} group container. 
 After this the data is prepared so it can be used in the training.
-For every fingerprint the corresponding group ID and the fingerprint itself is being stored in an array, illustrated in \cref{fig:illustratedKnnTrainingData}.
+For every fingerprint the corresponding group ID and the fingerprint itself is being stored in an array, illustrated in \Cref{fig:illustratedKnnTrainingData}.
 
 \fig{Illustration of KNN training data}{illustratedKnnTrainingData}{0.2}{knnTrainingDataIllustration}
 

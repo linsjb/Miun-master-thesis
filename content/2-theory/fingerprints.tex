@@ -1,9 +1,10 @@
-\section{Positioning fingerprint}\label{sec:theoryFingerprint} A position fingerprint is a popular method for indoor positioning systems. 
+\section{Positioning fingerprint}\label{sec:theoryFingerprint}
+Fingerprints is a popular method to use in positioning systems that does not rely on GPS-signals.
+These fingerprints are often based on \acrshort{rssi} values collected from the transmitters used in the \acrfull{ips}.
 Fingerprint positioning can be used both for indoor and outdoor positioning.
-Indoor positioning is based on 2D modelling where positioning via WiFi \acrlong{ap} is the most popular alternative.
-For indoor positioning the fingerprints are often based on \acrshort{rssi} values from the sending devices for every location.
+In a \acrshort{ips} WiFi \acrfull{ap} transmitters is the most popular alternative.
 \cite{LocationFingerprintingInfrastructure2004,
-IndoorFingerprintPositioning2017}
+IndoorFingerprintPositioning2017}.
 
 \bigskip
 
@@ -16,16 +17,16 @@ also be used with other hardware, such as \acrlong{ble} Beacons (\cref{sec:theor
 A fingerprint positioning system is built up in a two phase process.  An offline
 and online phase.\cite{IndoorFingerprintPositioning2017} 
 
-\subsection{Offline phase}\label{sec:theoryFingerprintOffline} In the offline
-phase (also called observation phase) the fingerprints are being collected and
+
+\subsection{Offline phase}\label{sec:theoryFingerprintOffline}
+In the offline phase (also called observation phase) the fingerprints are being collected and
 mapped to a location in the environment.
 The mapped fingerprints are then being stored in a radio map database.
-\Cref{fig:fingerprintOfflinePhaseIllustration} shows the flow for collecting the \acrshort{rssi} signals, mapping them to a location and storing them in the radio map database.  This is often an time consuming part since all positions need to be manually
-scanned.\cite{IndoorFingerprintPositioning2017} 
+\Cref{fig:fingerprintOfflinePhaseIllustration} shows the flow for collecting the \acrshort{rssi} signals, mapping them to a location and storing them in the database.
+% This is often an time consuming part since all positions need to be manually scanned.
+\cite{IndoorFingerprintPositioning2017} 
 
-
-\fig{Fingerprint offline phase flow \cite{IndoorFingerprintPositioning2017}
-}{fingerprintOfflinePhaseIllustration}{0.9}{fingerprintOfflinePhase}
+\fig{Fingerprint offline phase flow \cite{IndoorFingerprintPositioning2017}}{fingerprintOfflinePhaseIllustration}{0.9}{fingerprintOfflinePhase}
 
 
 \subsection{Online phase}\label{sec:theoryFingerprintOnline} The online phase
