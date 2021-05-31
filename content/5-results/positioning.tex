@@ -1,38 +1,79 @@
 \section{Positioning}\label{sec:resultPos}
-In this section the results from the positioning tests is being presented.
-The test is conducted in two steps and the condition for these are being explained in \cref{sec:methodSoftwareTests}.
+The positioning test is conducted in two steps and the condition for these are being explained in \cref{sec:methodSoftwareTests}.
 
 \bigskip
 
-When testing to position the device each point in each group was being positioned three times.
-In \Cref{fig:twoVsFour} the accuracy result from the positioning test is being presented, as well as the total accuracy for the testing with one and four fingerprints per point.
+\Cref{fig:twoVsFour} presents the accuracy of the testing for each group with one fingerprint/point and four fingerprints/point, as well as the overall accuracy.
 
 \fig{Total accuracy per group for one and four mappings}{twoVsFour}{1}{results/twoVsFour}
 
-When the three groups were mapped with four fingerprints instead of one the accuracy is getting higher in all groups, accept the yellow one, as seen in \Cref{fig:twoVsFour}.
-The overall prediction with one mapping for each point is $55\%$ correct and for four mappings it's $75\%$ correct.
+As seen in \Cref{fig:twoVsFour} the accuracy of four fingerprints (75\%) is higher than one fingerprint (44\%).
+These differences is a result on how well the system can predict the location of the device.
+With one fingerprint/point the position is sensitive to signal changes, since there is only one mapped fingerprint at each point in the created groups.
+The \acrshort{knn} classification also has less data to test on which will make the prediction more uncertain.
+
+\bigskip
+
+With four fingerprints/point the accuracy is higher, since the prediction is not as sensitive to signal fluctuation because there is more fingerprints to test against.
+This also means that the \acrshort{knn} classification has more fingerprints to test against, and will therefore be able to make better predictions.
 
 
-\subsection{One fingerprint measurement}\label{sec:resultsPosOneFingerprint}
-The positioning result for one fingerprint per point in each group is being presented in this sub-section.
+\subsection{Measurement results per point}\label{sec:resultsPosOneFingerprint}
+This sub-section presents to which group each measurement has been classified.
+Each point is being classified with the majority result from the three test sets, where each set had ten measurements for each point in each group.
+In the presented results the measurements for one fingerprint per point and four fingerprints per point is being compared.
+See \cref{sec:methodEvaluation} for more information about this.
+
+\bigskip
+
 Each group has its own name as the correct group to be positioned in.
-\Cref{fig:bluePointResult1p} present the result for the blue group, \Cref{fig:yellowPointResult1p} the yellow group and \Cref{fig:brownPointResult1p} for the brown group.
-In appendix \ref{appendix:resultingPointsTable1p} \Cref{tab:1pResults} the results is presented in table form.
+\Cref{fig:bluePointsResult} present the result for the blue group, \Cref{fig:yellowPointsResult} the yellow group and \Cref{fig:brownPointsResult} for the brown group.
+The result presented in these figures shows that the group prediction with one fingerprint per point fluctuate a lot.
+This has to do with that only one fingerprint is stores for each point.
+Because of this the signal is sensitive to fluctuation of the \acrshort{rssi} signals from the beacons and has problems to predict the correct groups.
 
-\fig{Measurement result with one fingerprint per point for blue group}{bluePointResult1p}{1}{results/pointsBlue1p}
+\bigskip
 
-\fig{Measurement result with one fingerprint per point for yellow group}{yellowPointResult1p}{1}{results/pointsYellow1p}
+With four fingerprints the results is more stable and makes more correct predictions since the fluctuation doesn't make as big impact because of more fingerprints for each point.
 
-\fig{Measurement result with one fingerprint per point for brown group}{brownPointResult1p}{1}{results/pointsBrown1p}
+\fig{Measurement result per point for blue group}{bluePointsResult}{1}{results/pointsBlue}
 
+In \Cref{fig:bluePointsResult} it's shown that the blue group does get predicted most of the time for both one and four fingerprints/point.
+It's also shown that the brown group is almost never predicted.
+This can be explained by the location of the yellow group, which is closer than the brown group.
+Between the area of the blue group and the yellow and brown there was a large concrete wall.
+Beacons far away would be more affected by going through this wall than nearby beacons would, which is the case for the yellow group.
 
-\subsection{Four fingerprint measurement}\label{sec:resultPosFourFingerprints}
-This sub-section present the resulting positions for the points in each of the three groups, where four fingerprints is mapped for each point.
-\Cref{fig:bluePointResult4p} is presenting the result for the blue group, \Cref{fig:yellowPointResult4p} for the yellow group and \Cref{fig:brownPointResult4p} for the brown group. 
-\Cref{tab:4pResults} in appendix \ref{appendix:resultingPointsTable4p} present the measurements in table form.
+\bigskip
 
-\fig{Measurement result with four fingerprints per point for blue group}{bluePointResult4p}{1}{results/pointsBlue4p}
+In the cases the yellow group is being predicted it can be explained by the beacons placement.
+At certain points beacons far away from the blue group, and closer to the yellow groups, has a clear line of sight than nearby beacons.
+These beacons does in these case has stronger \acrshort{rssi} values even if they are further away from the point.
+This explanation is true for both one and four points since the beacons has the same arrangement.
 
-\fig{Measurement result with four fingerprints per point for yellow group}{yellowPointResult4p}{1}{results/pointsYellow4p}
+\bigskip
 
-\fig{Measurement result with four fingerprints per point for brown group}{brownPointResult4p}{1}{results/pointsBrown4p}
+Why the brown group get predicted at all has its explanation in signal fluctuation.
+If the signal of nearby beacons fluctuates a lot it will make a false prediction, that can be of a group further away.
+
+\fig{Measurement result per point for yellow group}{yellowPointsResult}{1}{results/pointsYellow}
+
+In the yellow group the fluctuation is low with the majority calculated groups which is shown in \Cref{fig:yellowPointsResult}.
+This is a result of a more open space where the signals is not being reflected by any walls, as well as more beacons are in range with a clear sign of view, which will give a better prediction accuracy.
+
+\bigskip
+
+Since the brown and yellow group is close to each other minor fluctuations in the \acrshort{rssi} signals can cause the \acrshort{knn} classification to predict the wrong group in some cases, as seen in \Cref{fig:yellowPointsResult}.
+
+\fig{Measurement result per point for brown group}{brownPointsResult}{1}{results/pointsBrown}
+
+In the predicted points for the brown group presented in \Cref{fig:brownPointsResult} the result is not as self explaining.
+As seen in the figure the blue group get predicted at two points.
+This has to do with similar \acrshort{rssi} values of the beacons, where beacons near the blue group, and beacons in or near the brown group has similar values.
+A result from this makes the prediction more unstable with the different mapped fingerprints in the groups.
+
+\bigskip
+
+With one fingerprint/point the prediction is only correct in the first point.
+This has the same explanation as in the beginning of this sub-section, that the \acrshort{rssi} values can fluctuate so much that the outcome of the prediction changes.
+The prediction is stabilizing with four fingerprints/point because there is more data to predict against, and signal fluctuations doesn't have as large impact.

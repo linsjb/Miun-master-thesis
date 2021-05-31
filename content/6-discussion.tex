@@ -1,45 +1,43 @@
 \chapter{Discussion} \label{discussion}
-This chapter presents the discussion for the whole work.
+This chapter presents the discussion around this thesis project.
 It starts with a discussion about the implemented \acrfull{ips} in general.
 Following this the implementation of the Apple iOS application and the server is being discussed, which then leads to the result and is being topped of with ethical and social aspects.
 
 
 \section{Indoor Positioning System}\label{sec:discussionIps}
-An implementation of a \acrshort{ips} is the core of this thesis work.
-By developing a \acrshort{ips} to a Apple iOS application indoor positioning is possible without any GPS signals.
-An advance an complex application for a specific platform is often not good to develop without any form of backend.
-With this in mind a server was implemented to decouple the application from the data calculations and handling.
-This approach opens up for a much more scaled down application and a system that is much more flexible.
-A flexible system means that it can be expanded to other platforms easily since the application doesn't take care of the data handling.
-For example the Google Android platform can be built into the system without any larger obstacles.
-This can also be a cost saving approach since the development of the application is faster.
+An implementation of an \acrshort{ips} is the core of this thesis work.
+By developing an \acrshort{ips} application indoor positioning is possible without any GPS signals.
+To develop an advance and complex application without any form of backend is in most cases not a good idea, since the system gets locked down to the chosen platform.
+If a new platform going to be implemented into the system the application would need a lot of work because of its complexity.
+It would also means a higher cost since it takes longer time to develop.
+A backend based system would reduce the application complexity and make the adoption for new platforms easier.
 
 \bigskip
 
-When it comes to \acrshort{ips}'s itself it's mature enough to be implemented in real scenarios where it will be used.
-There is some obstacles with these systems such as positioning accuracy and the requirements to keep the system updated. 
-In a GPS based system this is not a factor that need to be considered.
-But to keep a \acrshort{ips} functional it need maintenance to perform in a usable way.
+When it comes to \acrshort{ips}'s itself it's mature enough to be implemented in real scenarios.
+There is some obstacles with these systems such as positioning accuracy and the requirements to keep the system updated with both maintained hardware and radio maps.
 The \acrshort{ips} in this thesis work was a \acrfull{poc} application to show the possibilities with a system like this, and how it can be implemented.
 The environment where this system will be implemented and used is in large industrial environments.
-These environments are changing form time to time which need to be take into consideration.
-If the environment changes to much a new site survey need to be conducted and these are often time consuming because of the manual work it requires.
+These environments are changing form time to time and means that new site surveys need to be carried out to keep the radio map updated.
+This is factors to take into consideration when implementing a system like this.
 
 
 \section{Application development}\label{sec:}
 Since the developed application was a \acrshort{poc} application some functionalities has been left out by purpose.
 The application has no security against the developed backend server, which would need to be implemented in a real production application.
+This to protect the API's from unauthorized access and make sure the data transmitted between the server and devices is safe.
 
 \bigskip
 
-Some parts of the application is not needed in a production state accept for power users and admins.
+Also, some parts of the application is not needed in a production state, accept for power users and admins.
 These functions are the ability to create new groups and to control which beacons that are being catched by the application.
 If these functions would be available for a regular user they could cause some significant damage that would need to be fixed.
-A user could for example delete a group which then would be needed to be created again.
+A user could for example delete a group by accident.
+The deleted group would then need to be recreated again with all its work. 
 
 \bigskip
 
-The developed user interface that's presented in the result if a good start for an application like this.
+The developed user interface that's presented in the result is a good start.
 It does however need some more work to make a better user experience and to show relevant information.
 
 
@@ -49,45 +47,44 @@ Also some parts of the server is neither best practice or optimized.
 
 \bigskip
 
-When a position is being set by a user in the application the server would be called and yield back the position with help of \acrlong{knn}.
+When a position is being set by a user in the application the server would be called and return the position with help of \acrfull{knn}.
 This \acrshort{knn} algorithms is being trained at every new request to the localization endpoint.
-If this would be implemented in a real production this would not be suitable at all.
-The \acrshort{knn} should only be trained if there is any changes to the existing data.
-Such as a new group or additions to a group.
+If this would be implemented in a real production this would not be suitable solution.
+The \acrshort{knn} should only be trained if there is any changes to the existing data, such as a new group or additions to a already existing one.
 But in testing purpose where new groups was created often this approach was necessary.
 
 \bigskip
 
 When the different endpoints in the server is called the server will download data from the Azure Cosmos Database every time. 
 This could be avoided to instead cache all or some of the data.
-This will in save money in the long run since each request against Azure is a cost.
+This would save money in the long run since each request against Azure is a cost.
 
 
 \section{Test results}\label{sec:discussionResult}
 As presented in \cref{sec:resultPos} the test showed that four fingerprints per point gave the highest accuracy.
-When there is only one scan per point the measurement for that point will get unstable. 
+When there is only one fingerprint per point the measurement for that point will get unstable because of signal fluctuation.
 This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
-In the case where each point has four scans \acrshort{knn} foremost has more data to predict against.
-But it does also has a more stable point since each point has four different fingerprints.
-
+In the case where each point has four fingerprints \acrshort{knn} foremost has more data to predict against.
+But it can also accept fluctuations in the \acrshort{rssi} values when positioning, since there is more fingerprints to compare against.
 The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate the group far away.
-This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons.
+This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons, but also how the signal is being interfered but different obstacles.
 
 \bigskip
 
 Other works done in the area showed that a high accuracy is hard to achieve with a \acrshort{ips}.
 To be able to get a high accuracy a stable signal is a very important factor.
 With \acrshort{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
-If the signals fluctuates a lot the positioning can be affected, which was shown by the accuracy in this thesis result.
+If it does the positioning can be affected, which was shown by the accuracy in this thesis result.
 Related work that was investigated show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate since the unstable \acrshort{rssi} signals is being smoothed out.
 It was also shown in the relates work that they got a higher accuracy than in this project.
 This can depend on the model of Beacons used, differences in the implemented systems and the testing setup.
 The most of these related work did test in an open environment such as a large hall or library.
-In these environments there is less obstacles that can affect the transmitting signals.
+In these environments there is less obstacles that can affect the \acrshort{rssi} signals.
 
 \bigskip
 
-The area where the tests was being conducted cannot really be used as a guidance how well a \acrshort{ips} works, since it differs so much from the real environments where this technique would be used.
+The area where the tests was being conducted cannot really be used as a guidance how well a \acrshort{ips} works.
+Since it differs so much from the real environments where this technique would be used.
 The best suitable solution for testing is to perform these in the right type of industrial environments, which was not possible in this thesis due to the Covid pandemic.
 The results does however gives a pointing finger what to be expected in terms of accuracy in a \acrshort{ips}.
 
@@ -108,7 +105,7 @@ The results does however gives a pointing finger what to be expected in terms of
 In a positioning system ethical aspects is always important.
 Technically a positioning system that use positioning data from the device can be used to track the end users.
 If the developed system run all calculations on-device this is not an issue, since no data leaves the device.
-But with a system where data is sent to a remove server this is a consideration.
+But with a system where data is sent to a remote server this is a consideration.
 If these positions is mapped to a x,y-coordinate the user can be positioned and therefore surveillance of the users can be implemented.
 With this in mind it's always important to inform the users what kind of data that is being used and in which way.
 
@@ -119,11 +116,11 @@ The application can therefore be used with a good security policy that the users
 On the other hand the application uses localization functions that might be possible to be used in the other way.
 A sender might snap up that a specific device is connected to it and can track the user that way.
 Since protecting the end users is always a high demand and makes up for a good security the system needs to be secured in good ways.
-This includes the communication between the device and the server, so the connection cannot be eavesdropped and sensitive positioning data used by third parties, which would interfere with GDPR, which is never good.
+This includes the communication between the device and the server, so the connection cannot be eavesdropped and sensitive positioning data used by third parties, which would then interfere with GDPR.
 
 \bigskip
 
 The developed system is this project does also affect social aspects in some manner.
 To maintain a system like this that need constant maintenance there will always be a trade-off between benefits and cost.
-If a person going to maintain the systems this person will be a cost that is involved with the operation of it.
+If a person going to maintain the systems this person will be a cost that is involved with the operation of the system.
 

@@ -13,61 +13,77 @@
 % After this new tests is being carried out.
 
 % \bigskip
+Tests were conducted to investigate and measure how well the implemented system could position a device in a set test environment.
+This environment was supposed to be a real-world industrial hall, but due to limited test areas it was instead performed in an apartment that tried to mimic the environment.
+See \cref{sec:methodTestLayout} for details about the test layout.
 
-Why testing was needed in this project was to be able to see how well the developed system performed and how well it could be implemented.
-Therefore the testing phase of the project was to investigate how well the implemented system could position a device in a set test environment, which are being described more in detail in \cref{sec:methodTestLayout}.
+\bigskip
+
 Apart from a defined test layout some kind of variance was needed to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
-If only one test case was conducted the test wouldn't tell how well the actually performs.
+If only one test case was conducted the test wouldn't tell how well the actual \acrshort{ips} performs.
 Simply because it would not be known if it's working or not.
 To be able to test the system some hardware was needed to be places in the test layout. In \cref{sec:methodTestHardware} the used hardware is being described and introduced.
 
 
 \subsection{Hardware}\label{sec:methodTestHardware}
 The beacons used in the test was the RadBeacon Dot by Radius Networks \cite{RadBeaconDotDatasheet}.
-Specification of these beacons can be seen in \Cref{tab:radbeaconSpecs} below.
+Specification of these beacons can be seen in \Cref{tab:radbeaconSpecs} below, and \Cref{tab:beaconConfig} presents the used configuration.
 
 \texTable{RadBeacon Dot specification \cite{RadBeaconDotDatasheet}}{radbeaconSpecs}{radbeacon}
 
+\texTable{Configuration of used beacons}{beaconConfig}{beaconsConfig}
+
 
 \subsection{Test layout}\label{sec:methodTestLayout}
-\fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
+In a real-world scenario a broad signal coverage of the industrial hall would be required to be able to position devices around the whole area.
+This would be easiest to fulfil if the beacons were places at both the longest walls of the hall and as heigh as possible.
+The idea is to cover the whole hall with a signal, and to make it equally strong closest on the opposite side.
+A stronger signal means fewer beacons to place out which in turn means less hardware and a lower cost.
+
+\bigskip
+
+The apartment used in testing was not large enough to conduct a full scale test and the beacons was therefore places closer to each other than they would normally be to maximize the area.
+The number of used beacons opened up for more signal variance in the layout, which in turn creates fingerprints based on different beacons for each group.
+The height for the beacons in the test was set to around 1 meter.
+
+\bigskip
 
 The beacons was arranged in two rows where the first row of four beacons was places 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
 The two rows was spaced 6 meters apart.
 
 \bigskip
 
-Three areas, blue, brown and yellow, was set to be tested where each of the areas had nine points each to be mapped.
-The blue and yellow area was 3 meters by 2.5 meters and the brown areas was 3 meters by 3 meters.
-\Cref{fig:testSetup} presents the test setup with the placement of the iBeacons as well as the three areas.
-The numbers was the points to be mapped for each group.
 
-\bigskip
+Three groups, blue, brown and yellow, was set to be tested where each of the groups had nine points each to be mapped for the fingerprint offline phase.
+The blue and yellow groups was 3 meters by 2.5 meters and the brown group was 3 meters by 3 meters.
+\Cref{fig:testSetup} presents the test setup with the placement of the iBeacons as well as the three groups.
+The numbers represent the point name for each group.
 
-The test the layout was intended to mimic a real implementation scenario in a industrial environment but in an apartment.
-That's why the beacons was places against the both longer walls around the apartment to mimic a big industrial hall environments, in where these beacons would, possible, be places at the longer edges of the hall.
-For a setup like this, if the beacons are places high enough, it would give the best signal coverage, apart for some cases where big obstacles would prevent the signals from reaching out.
+\fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
 
-\bigskip
+Another layout where the beacons were placed around the marked groups was considered.
+An layout like this would benefit in a real scenario if the groups is created before the hardware is being places.
+This would create a wider signal coverage around the created groups.
+But, it would require more hardware to cover the whole hall since more obstacles would weaken the signals.
+Due to the limited space in testing this approach was not the chosen one since it wouldn't make any difference of the number of beacons in range, because of the small area.
 
-Other layout where the beacons was being places around the marked groups was considered.
-But as mentioned above this would give the best overall coverage if the environments was a large industrial hall.
-
+\newpage
 
 \subsection{Test parameters}\label{sec:methodTestParameters}
 The following parameters was set to be tested;
 
 \begin{itemize}
-\item Number of mapped fingerprints per location point
+\item Number of mapped offline fingerprints per location point
 	\begin{itemize}
 		\item 1 fingerprints per point
 		\item 4 fingerprints per point
 	\end{itemize}
 \end{itemize}
 
-These parameters is being tested to see which effect the number of mapped fingerprints did to a group.
-With one fingerprint the mapping would only be done in one direction.
-In this case the signal strength may change and give a different result.
+These parameters was being tested to see which effect the number of mapped fingerprints for each point had on the created groups.
+With one fingerprint the mapping for each point would only be done in one direction.
+Here the human body can interfere the signal from the beacons and give a lower accuracy while testing the system.
+A result from this means that the position of the user can make the prediction harder, if the user is not position in the same way when creating the groups.
 With four fingerprints per point the fingerprints would be scanned 360 degrees around the point. 
-This would give a better coverage and prevent any blocking of the signal depending on how the point is being read in the test.
-
+This prevents the human body to interfere the signal in a negative way and therefore increase the positioning accuracy.
+It would also give more fingerprints to predict against.

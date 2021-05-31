@@ -1,11 +1,28 @@
 \section{Evaluation}\label{sec:methodEvaluation}
-The tests was evaluated by measure the accuracy of the yield back groups when the device is being positioned by the system.
-As described in \cref{sec:methodTestLayout} a set of points was tested.
-If the result is the same as the current group the device is located and the position is a success.
-If the resulting group does not correspond with the current group the positioning is not a success.
-To give a better result each point in each of the three groups has been tested three times.
-These results are then being compared with each other to give a group accuracy as well as a total accuracy of the system.
+Evaluation of the tests was conducted by measuring which answer the developed \acrshort{ips} was predicting on each of the given points, being presented in \Cref{fig:testSetup} at \cref{sec:methodTestLayout}.
+This answer is which group the device is being located in.
+The testing does not include an exact point positioning accuracy, since the exact position isn't important because of the systems groups approach.
 
 \bigskip
 
-The resulting positions are also plotted to show at which group the tested points are being located to.
+To reduce \acrshort{rssi} noise and fluctuation when positioning the device ten measurements was taken at each point in the groups.
+With these ten measurements the majority of the predicted groups decided which group the device belongs to.
+Each group was also tested three times to further smooth out the results of the prediction.
+From this an accuracy, $A$, could be calculated for each group with help of \Cref{eq:evaluation}.
+\Cref{tab:eqExplanation} explains the equation variables.
+This accuracy presents how well the system can position the device in the correct group.
+
+\begin{equation}\label{eq:evaluation}	
+	A = \frac{C_g}{N}
+\end{equation}
+
+\texTable{Equation variable explanation}{eqExplanation}{eqExplanation}
+
+The accuracy was being calculated for both of the test parameters presented in \cref{sec:methodTestParameters} and could then be compared with each other for each group, which is being presented in \cref{sec:resultPos}.
+This was to see how well different number of fingerprints could affect the prediction.
+A total accuracy was also calculated with the results from all three groups to get a combined performance of how well the system worked.
+
+\bigskip
+
+Besides from the prediction accuracy the majority resulting group was being plotted for each point to show in which group the point did locate the device.
+See \cref{sec:resultsPosOneFingerprint}.

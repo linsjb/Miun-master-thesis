@@ -77,3 +77,9 @@ The other reason was the availability to a solid and large enough WiFi-network t
 A \acrshort{ble} Beacon network is easy and fairly cheep to implement and has a large flexibility on how to position the beacons.
 WiFi \acrshort{ap}'s is often permanent mounted and is therefore hard to remove.
 It's also hard to expand the network if needed.
+
+
+\subsubsection{Defined localization space}\label{sec:methodSoftwareDesignDefinedSpace} The defined space that was to be located in the system is a group.
+These groups are being created together with a set of mapped fingerprints as well as a set of machines.
+When the \acrshort{ips} positions the device the group is what's being located, and the machines tied to the group is being presented to the user.
+Groups are used to be able to position two or more machines at the same location without the need to map each machine separately, which is required according to point \ref{req:createGroups} in the requirement specification, located in \cref{appendix:requirements}.
