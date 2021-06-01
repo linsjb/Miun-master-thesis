@@ -3,21 +3,21 @@ In this sub-section related work and previous research that is related to this t
 
 
 \subsection{Development of a Smartphone-Based University Library Navigation and Information Service Employing Wi-Fi Location Fingerprinting}\label{sec:}
-In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating a indoor fingerprint based positioning systems with the help of WiFi Access Points (AP).
+In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating an indoor fingerprint based positioning systems with the help of WiFi Access Points (AP).
 
 \bigskip
 
-The fingerprints is made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a radio map database.
+The fingerprints are made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a radio map database.
 This database is then used to position the user with the stored fingerprints.
 In the article they mention the disadvantages with radio map based databases, which is the time it takes to perform a site survey.
 They also mention the need to update the database if new transmitters or other structural changes is being made.
-This is important to do because the \acrshort{rssi} values would no longer be valid fingerprints since they isn't the same, and therefore need to be collected once again.
+This is important to do because the \acrshort{rssi} values would no longer be valid fingerprints since they aren't the same, and therefore need to be collected once again.
 
 \bigskip
 
 As A. Leb et al. is mentioning in their work privacy and security with \acrfull{ips} is a major factor.
-Therefore the \acrshort{ips} operator should ask how the users can trust the system, which A. W.H et al. mentions in \cite{SurveyWirelessIndoor2019}.
-The best way to assure as high security level as possible is to let  device itself take care of the computation that is needed to determine the position.
+Therefore, the \acrshort{ips} operator should ask how the users can trust the system, which A. W.H et al. mentions in \cite{SurveyWirelessIndoor2019}.
+The best way to assure as high security level as possible is to let the device itself take care of the computation that is needed to determine the position.
 The security is hold strong since no data is leaving the device and can therefore not be used to track the device and its user.
 But with this comes a higher power consumption since all calculations need to be done on the device.
 So for a better security comes a higher power consumption.
@@ -26,7 +26,7 @@ So for a better security comes a higher power consumption.
 
 Another factor A. Leb et al. is mentioning in their work is the cost of an \acrshort{ips} system.
 This depends on several different factors such as money available, time, infrastructure and energy.
-The time that they mentioning in the time for installation and maintenance.
+The time that they're mentioning in the time for installation and maintenance.
 The cost is the true cost for servers, transmitters, software and system maintenance.
 Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since the network might already be deployed.
 
@@ -38,11 +38,11 @@ This has been used when designing the software implemented in this thesis.
 
 
 \subsection{Practical Fingerprinting Localization for Indoor Positioning System by Using Beacons}\label{sec:}
-In \cite{PracticalFingerprintingLocalization2017} P. Jae-Young et al. has investigated how a \acrshort{ips} system based on \acrshort{rssi} fingerprints and \acrshort{ble} Beacons can be implemented to reduce the number of reference points in the system.
+In \cite{PracticalFingerprintingLocalization2017} P. Jae-Young et al. has investigated how an \acrshort{ips} system based on \acrshort{rssi} fingerprints and \acrshort{ble} Beacons can be implemented to reduce the number of reference points in the system.
 
 \bigskip
 
-The \acrshort{ips} system in the paper has an estimation error similar to the estimation error given by a weighted \acrshort{knn} system, which is being done in \cite{ImprovingIndoorLocalization2016}.
+The \acrshort{ips} system in the paper has an estimation error similar to the  error given by a weighted \acrshort{knn} system, which is being done in \cite{ImprovingIndoorLocalization2016}.
 To reduce the number of reference points the authors use a combination of both beacon \acrshort{rssi} fingerprints together with Weighted Centroid Localization (WCL). 
 
 \bigskip
@@ -53,25 +53,24 @@ It has a large location error, which is further mentioned by H. Suk-seung et al.
 \bigskip
 
 In the proposed system by P. Jae-Young et al. the fingerprint \acrshort{rssi} values together with a position coordinate is being stored in a reference point database.
-When implementing a \acrshort{ips} the \acrshort{rssi} values often comes with a lot of noise.
-So to reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften it out.
-Which result in smoother values in the online phase that leads to less errors.  
+When implementing an \acrshort{ips} the \acrshort{rssi} values often comes with a lot of noise.
+To reduce the estimation errors in the system a Gaussian filter is being applied to the values to soften them out, which result in smoother values in the online phase that leads to fewer errors.  
 
 \bigskip
 
 The proposed technique to combine both \acrshort{rssi} fingerprint and WCL values are being collected individually.
 Just as in a \acrshort{knn} algorithm the localization is done with $k$ nearest neighbours on the observed online value.
-After this the weight is being determined depending in their Euclidian distance against the first estimated WCL coordinate.
+After this the weight is being determined depending on their Euclidean distance against the first estimated WCL coordinate.
 
 \bigskip
 
 With $k=3$ the estimation error for the localization was the smallest, which means that the three nearest reference points are used to estimate the location.
 It's also worth to consider that the distance between the different reference points does affect the accuracy of the \acrshort{ips}, where a high space reduce the accuracy and a small space increase it.
-Meanwhile if the reference points are to close to each other the impact of the accuracy is not affected that much, since the different fingerprints are very similar to each other.
+Meanwhile, if the reference points are to close to each other the impact of the accuracy is not affected that much, since the different fingerprints are very similar to each other.
 
 \bigskip
 
-The testbed that P. Jae-Young et al. used was two different building configurations, a corridor and a room.
+The test bed that P. Jae-Young et al. used was two different building configurations, a corridor and a room.
 In the corridor configuration the lowest average error was $0.9$ meters. 
 With the papers proposed method the number of reference points could be decreased with around $42\%$.
 In the room configuration the lowest average error was just below 1 meter at $0.98$ meters.
@@ -88,29 +87,27 @@ This has been a good knowledge to gather in the planning phase of the project to
 
 \subsection{Bluetooth Low Energy based Indoor Positioning on iOS platform}\label{sec:}
 In the paper \cite{BluetoothLowEnergy2018} written by N.S. Duong et. al an \acrshort{ips} based on \acrshort{ble} beacons is being implemented on the Apple iOS platform.
-To give a higher accuracy they use Kalman filter on the collected \acrshort{rssi} values to smooth out the values and remove the fluctuations.
+To give a higher accuracy they use Kalman filtering on the collected \acrshort{rssi} values to smooth out the values and remove the fluctuations.
 
 \bigskip
 
-The fingerprints is build with a structure where the minor value from the strongest beacon is used in the fingerprints, together with the three strongest \acrshort{rssi} values.
+The fingerprints are build with a structure where the minor value from the strongest beacon is used in the fingerprints, together with the three strongest \acrshort{rssi} values.
 Their Kalman filter is in both the offline and online phase.
 
 \bigskip
 
-In their result they get an localization accuracy without the Kalman filter of 20\% and with Kalman the accuracy of 60\%.
+In their result they get a localization accuracy without the Kalman filter of 20\% and with Kalman the accuracy of 60\%.
 
 \bigskip
 
-In this paper the relation between this thesis implementation and the paper lies in the used platform.
-Also how the fingerprints is being designed, that has been used also in this thesis.
-Their implemented Kalman filter also shows how the accuracy could be raised.
+In this paper the relation between this thesis implementation and the paper lies in the used platform, and how the fingerprints is being designed with the iBeacons data.
 
 
 \subsection{A Comprehensive Study of Bluetooth Fingerprinting-based Algorithms For 
 Localization}\label{sec:}
 In the study \cite{ComprehensiveStudyBluetooth2013} by C. Gurrin et al. three different fingerprint based algorithms is compared to each other.
 These algorithms are different \acrshort{knn} types, \acrfull{ann} and \acrfull{svm}.
-In the paper they use \acrshort{ble} beacons as transmitters where the fingerprints is based on their \acrshort{rssi} values.
+In the paper they use \acrshort{ble} beacons as transmitters where the fingerprints are based on their \acrshort{rssi} values.
 
 \bigskip
 
@@ -120,12 +117,12 @@ Beside form the training time of \acrshort{svm}  it has a good accuracy and prec
 
 
 \subsection{Indoor Positioning System Using Artificial Neural Network}\label{sec:}
-In \cite{IndoorPositioningSystem2010} by H. Mehmood et al. a \acrshort{ips} has been conducted where \acrlong{ann} is used to classify the positioning.
+In \cite{IndoorPositioningSystem2010} by H. Mehmood et al. an \acrshort{ips} has been conducted where \acrlong{ann} is used to classify the positioning.
 They use WiFi \acrshort{ap}'s as transmitting devices and is creating the fingerprints with the \acrshort{ap} \acrshort{rssi} values.
 
 \bigskip
 
-Their result with the fingerprint based \acrshort{ann} \acrshort{ips} showed a accuracy of 30\% within 1 meter and 50\% accuracy within 1-2 meters.
+Their result with the fingerprint based \acrshort{ann} \acrshort{ips} showed an accuracy of 30\% within 1 meter and 50\% accuracy within 1-2 meters.
 
 \bigskip
 

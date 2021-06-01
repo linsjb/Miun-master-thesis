@@ -1,11 +1,10 @@
 \section{Received Signal Strength Indication}\label{sec:theoryRssi}
-\acrfull{rssi} is a indication on the signal strength between a sender and receiver.
+\acrfull{rssi} is an indication of the signal strength between a sender and receiver.
 It's a less complex method than other technologies such as Time of Arrival, Time Difference of Arrival or
 Angle of Arrival that require a proper time synchronization between the sender and receiver.
 The benefits with \acrshort{rssi} based measurements is that it will reduce the complexity of the signal measurement, and opens up for easier software implementations.
-It does also has a high accuracy, low power consumption and a low cost due to the less complex systems required.
-Because of these benefits it became a popular choice to use in non GPS-based positioning.
-\cite{IndoorFingerprintPositioning2017} 
+It does also have a high accuracy, low power consumption and a low cost due to the less complex systems required.
+It became a popular choice to use in non GPS-based positioning because of these benefits.\cite{IndoorFingerprintPositioning2017} 
 
 \bigskip
 
@@ -31,15 +30,11 @@ then placed at a know location and will improve the
 accuracy.\cite{IndoorFingerprintPositioning2017} 
 
 \subsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis} Scene analysis
-is the most used technique for indoor positioning.  It uses fingerprint matching
-(\cref{sec:theoryFingerprint}) and does not require any information of where the
-base stations is located.  The positioning is done with the signal strength from
-multiple base stations at a given reference point.  Together with a fingerprint
-data structure the reference point will act as a localization point for the
-positioning system.\cite{IndoorFingerprintPositioning2017} 
+is the most used technique for indoor positioning.
+It uses fingerprint matching (\cref{sec:theoryFingerprint}) and does not require any information of where the base stations is located.
+The positioning is done with the signal strength from multiple base stations at a given reference point.
+Together with a fingerprint data structure the reference point will act as a localization point for the positioning system.\cite{IndoorFingerprintPositioning2017} 
 
 \bigskip
 
-Measurements taken with \acrshort{rssi} values can be used to make signal
-fingerprints to build up a radio map database for indoor
-localization.\cite{DevelopmentMobileIndoor2017} 
+Measurements taken with \acrshort{rssi} values can be used to make signal fingerprints to build up a radio map database for indoor localization.\cite{DevelopmentMobileIndoor2017} 

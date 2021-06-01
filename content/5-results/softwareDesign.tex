@@ -5,8 +5,8 @@ This section present and shortly explain the resulting software design.
 \subsection{Group creation}\label{sec:resultsSoftwareDesignGroup}
 \fig{Resulting software design to create a new group}{newGroupSoftwareDesign}{0.7}{softwareDesignNewGroup}
 
-In \Cref{fig:newGroupSoftwareDesign} the data flow how a new groups is created is presented.
-As explained in \cref{sec:implAppNewGroup} a new group is created in the application.
+\Cref{fig:newGroupSoftwareDesign} present the data flow how a new group is created.
+As explained in \cref{sec:implAppNewGroup}, a new group is created in the iOS application.
 In this group a set of chosen machines is selected as well as a name.
 In the application a number of data points based on iBeacons data is mapped against the group.
 These data points is in the server converted to fingerprints and stored in an Azure Cosmos Database.
@@ -17,13 +17,13 @@ These groups are then being used to show a set of machines mapped to them in the
 
 \bigskip
 
-Details about the server implementation for a new groups is being presented in \cref{sec:implServerGroupCreation}.
+Details about the server implementation for a new group is being presented in \cref{sec:implServerGroupCreation}.
 
 
 \subsection{Show machines for position}\label{sec:resultsSoftwareDesignPos}
 \fig{Resulting software design to position a device in a group}{mapPositionSoftwareDesign}{0.8}{softwareDesignMapPos}
 
-When a set of groups is created and mapped in an environment the developed iOS application can be used to determine if the device is either near or in one of the previously created groups.
+When a set of groups is created and mapped in an environment, the developed iOS application can be used to determine if the device is either near or in one of the previously created groups.
 In \Cref{fig:mapPositionSoftwareDesign} the data flow how a device is mapped against a group and then showing the data related to this group is presented.
 Details and explanation of the implementation is presented in \cref{sec:implAppSetPos}.
 

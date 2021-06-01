@@ -1,36 +1,26 @@
 \chapter{Introduction}\label{sec:intro} \pagenumbering{arabic}
 
 \section{Background and problem motivation}\label{sec:introBackground}
-The Swedish mining company LKAB has developed
-a smartphone application, named InfoHub, that will help their mechanics and
-technicians.This application is capable to show real time data and documents
-for a chosen type of machinery out in their iron ore production plants.
-These documents could for example be blueprints for the machine or real time flow data for a pump.
+The Swedish mining company LKAB has developed a smartphone application, named InfoHub, that will help their mechanics and technicians.
+This application is capable to show real-time data and documents for a chosen type of machinery out in their iron ore production plants.
+These documents could for example be blueprints for the machine or real-time flow data for a pump.
 
 \bigskip
 
-To show data for a specific machine a onsite OCR code need to be manually scanned with the application.
-Due to the harsh and dirty environment in these
-production plants the application could face difficulties reading these codes.
-The manual scanning also means that the user must know the location of the code,
-which sometimes could be hard to find.
+To show data for a specific machine an on-site OCR code need to be manually scanned with the application.
+Due to the harsh and dirty environment in these production plants the application could face difficulties reading these codes.
+The manual scanning also means that the user must know the location of the code, which sometimes could be hard to find.
 
 \bigskip
 
-A better way to get the information for a machine is to automatically fetch the
-process data when the user is standing nearby.  This could be done by knowing
-the users position in the production plants and display the corresponding data
-to the user.  This is happening in indoor environments where there is no access
-to GPS signals.  This means that the positioning need to be done with other
-techniques such as WiFi or \acrlong{ble} Beacons.
+A better way to get the information for a machine is to automatically fetch the process data when the user is standing nearby. 
+This could be done by knowing the users position in the production plants and display the corresponding data to the user.
+This is happening in indoor environments where there is no access to GPS signals, which means that the positioning need to be done with other techniques such as WiFior \acrlong{ble} Beacons.
 
 \bigskip
 
-When a user scans a verifiable code the application will fetch the documents and
-real time data for the machine that matches the code.  The application gets the
-data from Microsoft's Azure cloud services that is being uploaded from LKAB's
-local onsite systems.
-
+When a user scans a verifiable code, the application will fetch the documents and real-time data for the machine that matches the code.
+The application gets the data from Microsoft’s Azure cloud services that is being uploaded from LKAB’s local on-site systems.
 
 \section{Overall aim}\label{sec:introOverallAim}
 The overall aim in this thesis work is to investigate and implement a proof of concept solution for indoor non GPS positioning for LKAB's specific needs and environment.
@@ -38,13 +28,12 @@ The purpose with the positioning is to be able to skip the manual OCR code scann
 
 
 \section{Problem statement}\label{sec:introProblemStatement}
-The problem statement in this thesis work is stated as follow: How, as accurate as possible, locate handheld devices in indoor environments without any GPS signal?
-
+The problem statement in this thesis work is stated as follows: How, as accurate as possible, locate handheld devices in indoor environments without any GPS signal?
 
 \section{Verifiable goals}\label{sec:introGoals}
 \begin{enumerate}
 	\item \label{goal:fieldInvestigation}
-	Investigate how a \acrfull{ips} works by studying the field
+	Investigate how an \acrfull{ips} works by studying the field
 
 	\item \label{goal:systemDesign}
 	Design a system that can position a device without GPS-signals
@@ -60,7 +49,7 @@ The problem statement in this thesis work is stated as follow: How, as accurate 
 \section{Scope}
 The focus in the positioning area will be to only position smartphone devices at one floor plan.
 The proof of concept system will therefore not take multiple floor plans into consideration.
-The system will be tested in a office environment and not in any of LKAB's production plants due to
+The system will be tested in an office environment and not in any of LKAB's production plants due to
 limitations in testing areas.
 
 
@@ -72,7 +61,7 @@ In \Cref{method} the methods is being described in detail.
 Here arguments for the developed software and tests being motivated as well as presented.
 \Cref{impl} describes how the software in this project has been implemented and presents details for this.
 In \Cref{results} the result from the tests and the developed software is being presented.
-\Cref{discussion} presents a deeper discussion about the measured result, the implemented system and ethical aspecs.
+\Cref{discussion} presents a deeper discussion about the measured result, the implemented system and ethical aspects.
 Lastly in \Cref{conclusion} the conclusion of the thesis is being discussed as a project summary and how well the goals was fulfilled.
-Here is also the validity of the work summarised and future work is being discussed.
+Here is also the validity of the work summarized, and future work is being discussed.
 

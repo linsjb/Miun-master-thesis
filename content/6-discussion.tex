@@ -8,30 +8,30 @@ Following this the implementation of the Apple iOS application and the server is
 An implementation of an \acrshort{ips} is the core of this thesis work.
 By developing an \acrshort{ips} application indoor positioning is possible without any GPS signals.
 To develop an advance and complex application without any form of backend is in most cases not a good idea, since the system gets locked down to the chosen platform.
-If a new platform going to be implemented into the system the application would need a lot of work because of its complexity.
-It would also means a higher cost since it takes longer time to develop.
+In cases where new platforms is going to be implemented into the system the application would need a lot of work because of its complexity.
+It would also lead to  higher costs since it takes longer time to develop.
 A backend based system would reduce the application complexity and make the adoption for new platforms easier.
 
 \bigskip
 
-When it comes to \acrshort{ips}'s itself it's mature enough to be implemented in real scenarios.
-There is some obstacles with these systems such as positioning accuracy and the requirements to keep the system updated with both maintained hardware and radio maps.
+When it comes to \acrshort{ips}'s itself, it's mature enough to be implemented in real scenarios.
+There are some obstacles with these systems such as positioning accuracy and the requirements to keep the system updated with both maintained hardware and radio maps.
 The \acrshort{ips} in this thesis work was a \acrfull{poc} application to show the possibilities with a system like this, and how it can be implemented.
 The environment where this system will be implemented and used is in large industrial environments.
-These environments are changing form time to time and means that new site surveys need to be carried out to keep the radio map updated.
+These environments are changing from time to time and means that new site surveys need to be carried out to keep the radio map updated.
 This is factors to take into consideration when implementing a system like this.
 
 
 \section{Application development}\label{sec:}
-Since the developed application was a \acrshort{poc} application some functionalities has been left out by purpose.
+Since the developed application was a \acrshort{poc} application, some functionalities has been left out by purpose.
 The application has no security against the developed backend server, which would need to be implemented in a real production application.
 This to protect the API's from unauthorized access and make sure the data transmitted between the server and devices is safe.
 
 \bigskip
 
-Also, some parts of the application is not needed in a production state, accept for power users and admins.
+Also, some parts of the application is not needed in a production state, axcept for power users and admins.
 These functions are the ability to create new groups and to control which beacons that are being catched by the application.
-If these functions would be available for a regular user they could cause some significant damage that would need to be fixed.
+If these functions were available for a regular user they could cause some significant damage that would need to be fixed.
 A user could for example delete a group by accident.
 The deleted group would then need to be recreated again with all its work. 
 
@@ -42,36 +42,36 @@ It does however need some more work to make a better user experience and to show
 
 
 \section{Server development}\label{sec:}
-Just like the application the server contains some parts that would not be necessary in a production environment.
-Also some parts of the server is neither best practice or optimized.
+Just like the application, the server contains some parts that would not be necessary in a production environment.
+Also, some parts of the server is neither best practice nor optimized.
 
 \bigskip
 
 When a position is being set by a user in the application the server would be called and return the position with help of \acrfull{knn}.
 This \acrshort{knn} algorithms is being trained at every new request to the localization endpoint.
-If this would be implemented in a real production this would not be suitable solution.
-The \acrshort{knn} should only be trained if there is any changes to the existing data, such as a new group or additions to a already existing one.
+If this were implemented in a real production, it would not be a suitable solution.
+The \acrshort{knn} should only be trained if there are any changes to the existing data, such as a new group or additions to an already existing one.
 But in testing purpose where new groups was created often this approach was necessary.
 
 \bigskip
 
-When the different endpoints in the server is called the server will download data from the Azure Cosmos Database every time. 
+When the different endpoints in the server is called, the server will download data from the Azure Cosmos Database every time. 
 This could be avoided to instead cache all or some of the data.
 This would save money in the long run since each request against Azure is a cost.
 
 
 \section{Test results}\label{sec:discussionResult}
-As presented in \cref{sec:resultPos} the test showed that four fingerprints per point gave the highest accuracy.
-When there is only one fingerprint per point the measurement for that point will get unstable because of signal fluctuation.
+As presented in \cref{sec:resultPos}, the test showed that four fingerprints per point gave the highest accuracy.
+When there is only one fingerprint per point, the measurement for that point will get unstable because of signal fluctuation.
 This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
-In the case where each point has four fingerprints \acrshort{knn} foremost has more data to predict against.
+In the case where each point has four fingerprints, \acrshort{knn} foremost has more data to predict against.
 But it can also accept fluctuations in the \acrshort{rssi} values when positioning, since there is more fingerprints to compare against.
 The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate the group far away.
 This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons, but also how the signal is being interfered but different obstacles.
 
 \bigskip
 
-Other works done in the area showed that a high accuracy is hard to achieve with a \acrshort{ips}.
+Other works done in the area showed that a high accuracy is hard to achieve with an \acrshort{ips}.
 To be able to get a high accuracy a stable signal is a very important factor.
 With \acrshort{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
 If it does the positioning can be affected, which was shown by the accuracy in this thesis result.
@@ -79,14 +79,13 @@ Related work that was investigated show that an implementation of a Kalman filte
 It was also shown in the relates work that they got a higher accuracy than in this project.
 This can depend on the model of Beacons used, differences in the implemented systems and the testing setup.
 The most of these related work did test in an open environment such as a large hall or library.
-In these environments there is less obstacles that can affect the \acrshort{rssi} signals.
+In these environments there are fewer obstacles that can affect the \acrshort{rssi} signals.
 
 \bigskip
 
-The area where the tests was being conducted cannot really be used as a guidance how well a \acrshort{ips} works.
-Since it differs so much from the real environments where this technique would be used.
-The best suitable solution for testing is to perform these in the right type of industrial environments, which was not possible in this thesis due to the Covid pandemic.
-The results does however gives a pointing finger what to be expected in terms of accuracy in a \acrshort{ips}.
+The area where the tests was being conducted cannot really be used as a guidance how well an \acrshort{ips} works, since it differs so much from the real environments where this technique would be used.
+The best suitable solution for testing is to perform these in the right type of industrial environments, which was not possible in this thesis due to the Covid-19 pandemic.
+The results do however give a pointing finger what to be expected in terms of accuracy in an \acrshort{ips}.
 
 
 % \section{Project method}\label{sec:discussionMethod}
@@ -106,7 +105,7 @@ In a positioning system ethical aspects is always important.
 Technically a positioning system that use positioning data from the device can be used to track the end users.
 If the developed system run all calculations on-device this is not an issue, since no data leaves the device.
 But with a system where data is sent to a remote server this is a consideration.
-If these positions is mapped to a x,y-coordinate the user can be positioned and therefore surveillance of the users can be implemented.
+If these positions is mapped to an x, y-coordinate the user can be positioned and therefore surveillance of the users can be implemented.
 With this in mind it's always important to inform the users what kind of data that is being used and in which way.
 
 \bigskip
@@ -122,5 +121,5 @@ This includes the communication between the device and the server, so the connec
 
 The developed system is this project does also affect social aspects in some manner.
 To maintain a system like this that need constant maintenance there will always be a trade-off between benefits and cost.
-If a person going to maintain the systems this person will be a cost that is involved with the operation of the system.
+If a person going to maintain the system, this person will be a cost that is involved with the operation of the system.
 

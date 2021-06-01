@@ -8,11 +8,12 @@ This section describes how the application takes the current position and displa
 \subsubsection{Reading of nearby beacons}\label{sec:implAppSetPosReadBeacons}
 As illustrated in \Cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
 This is done with help of the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
-The application constant read all nearby iBeacons, but its a user decision when to map against a position, which is done manually.
+The application constant read all nearby iBeacons, but it's a user decision when to manually map against a position.
 
 \bigskip
 
-Since the mapped fingerprints stored in the groups is made on the values from three iBeacons the application needs to control that at least three iBeacons are in range.
+The mapped fingerprints stored in the groups is made on the values from three iBeacons.
+Because of this, the application needs to control that at least three iBeacons are in range.
 If the condition is not met a modal will be shown to the user and the scanning for nearby iBeacon will continue.
 If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
 In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \Cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.
@@ -20,9 +21,7 @@ In this cleaning step the \acrshort{rssi} and minor values is being stored in a 
 
 \subsubsection{Send and retrieve data}\label{sec:implAppSetPosSendRetreiveData}
 When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}, where the \acrshort{json} data is stored in the body of the request.
-The server is processing the data, which is explained in \cref{sec:implServerSetPos} and then returning the machines for the position in the response message of the HTTPs POST request.
+The server is processing the data, which is explained in \cref{sec:implServerSetPos} and then returning the machines for the positioned group in the response message of the HTTPs POST request.
+A list presentation of these machines is then being presented to the user.
 
 
-\subsubsection{Data presentation}\label{sec:implAppSetPosShowData}
-For the data that is being returned in the HTTPs POST response it's tied to the group where the current fingerprint best match the stores ones.
-This data is then being presented to the user.

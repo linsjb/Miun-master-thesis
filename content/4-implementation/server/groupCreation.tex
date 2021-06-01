@@ -6,7 +6,7 @@ When a new group is created with the application the server API endpoint \textit
 
 
 \subsubsection{Data preparation}\label{sec:implServerGroupCreationDataPrep}
-Since the server takes care of the group creation against the Azure Cosmos Database \cite{IntroductionAzureCosmos} the ID is not created by the application.
+Since the server takes care of the group creation against the Azure Cosmos Database \cite{IntroductionAzureCosmos}, the ID is not created by the application.
 A \acrfull{uuid} \cite{CommonsIdUUID} is created by the server when the API endpoint mentioned above is called.
 
 
@@ -15,20 +15,20 @@ A \acrfull{uuid} \cite{CommonsIdUUID} is created by the server when the API endp
 
 In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \Cref{listing:beaconFingerprint}, located in \cref{sec:implAppNewGroup}.
 This data is as mentioned in \cref{sec:implAppNewGroup} cleaned and formatted.
-But to form a fingerprint this data need further processing where it is being cleaned and sorted into an integer array with the format presented in \Cref{fig:fingerprintIllustration}.
+But to form a fingerprint this data need further processing where it's being cleaned and sorted into an integer array with the format presented in \Cref{fig:fingerprintIllustration}.
 
 \bigskip
 
-Only the minor value from the strongest iBeacon is saved together with the top three strongest \acrshort{rssi} values. After this operation the values from \Cref{listing:beaconFingerprint} looks like \cref{listing:singleFingerprint} below.
+Only the minor value from the strongest iBeacon is saved together with the top three strongest \acrshort{rssi} values. After this operation, the values from \Cref{listing:beaconFingerprint} looks like \cref{listing:singleFingerprint} below.
 
 \fileListing{Single fingerprint after cleaning and sorting}{singleFingerprint}{json}{singleFormatedFingerprint.json}
 
 In the sorting operation each iBeacon data object is inserted in a fingerprint array with the form presented in \Cref{listing:singleFingerprint} above.
-When all the data presented in \Cref{listing:groupFingerprints} located in \cref{sec:implAppNewGroup} has been processed the final fingerprints for the groups looks like the example presented in \Cref{listing:multipleFingerprints}.
+When all the data presented in \Cref{listing:groupFingerprints}  has been processed, the final fingerprints for the groups looks like the example presented in \Cref{listing:multipleFingerprints}.
 
 \fileListing{Multiple processed fingerprints to be stored in the new group}{multipleFingerprints}{json}{multipleFormatedFingerprints.json}
 
 
 \subsubsection{Database}\label{sec:implServerGroupCreationDatabase}
 When all data is being prepared and processed it's inserted into the Azure Cosmos Database as a new record.
-How the data is formatted when it's being sent to the server see appendix \ref{appendix:newGroupData}.
+How the data is formatted when it's being sent to the server see appendix \ref{appendix:newGroupData}, that present a whole group data object.

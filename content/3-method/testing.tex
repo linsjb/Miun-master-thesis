@@ -1,28 +1,15 @@
 \section{Software tests}\label{sec:methodSoftwareTests}
-% The third phase in the framework by S. Ribonson et al. in \cite{SecretsSuccessfulSimulation1995} is the experimentation.
-% Here the experiments is first and foremost executed and then being reviewed.
-% S. Robinson et al. mention previous issues when performing various model experiments and mean that it's important to think about how the tests should be performed.
-% This also applies to a project of this kind.
-
-% \bigskip
-
-
-% In this thesis project the experimentation phase from S. Ribonson et al. can be translated into software tests, which can be seen in \cref{fig:methodOverview}.
-% Sometimes the tests might show that the software need some changes before it can be conducted at full power or give the right result.
-% In these cases the tests leads back to the software implementation to correct or change the software.
-% After this new tests is being carried out.
-
-% \bigskip
 Tests were conducted to investigate and measure how well the implemented system could position a device in a set test environment.
 This environment was supposed to be a real-world industrial hall, but due to limited test areas it was instead performed in an apartment that tried to mimic the environment.
 See \cref{sec:methodTestLayout} for details about the test layout.
 
 \bigskip
 
-Apart from a defined test layout some kind of variance was needed to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
-If only one test case was conducted the test wouldn't tell how well the actual \acrshort{ips} performs.
+Apart from a defined test layout, some kind of variance was needed to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
+If only one test case was conducted, the test wouldn't tell how well the actual \acrshort{ips} performs.
 Simply because it would not be known if it's working or not.
-To be able to test the system some hardware was needed to be places in the test layout. In \cref{sec:methodTestHardware} the used hardware is being described and introduced.
+To be able to test the system transmitting hardware was needed to be placed in the test layout.
+In \cref{sec:methodTestHardware} the used hardware is being described and introduced.
 
 
 \subsection{Hardware}\label{sec:methodTestHardware}
@@ -36,19 +23,19 @@ Specification of these beacons can be seen in \Cref{tab:radbeaconSpecs} below, a
 
 \subsection{Test layout}\label{sec:methodTestLayout}
 In a real-world scenario a broad signal coverage of the industrial hall would be required to be able to position devices around the whole area.
-This would be easiest to fulfil if the beacons were places at both the longest walls of the hall and as heigh as possible.
+This would be easiest to fulfil if the beacons were placed at both the longest walls of the hall and as high as possible.
 The idea is to cover the whole hall with a signal, and to make it equally strong closest on the opposite side.
 A stronger signal means fewer beacons to place out which in turn means less hardware and a lower cost.
 
 \bigskip
 
-The apartment used in testing was not large enough to conduct a full scale test and the beacons was therefore places closer to each other than they would normally be to maximize the area.
+The apartment used in testing was not large enough to conduct a full-scale test and the beacons was therefore places closer to each other than they would normally be to maximize the area.
 The number of used beacons opened up for more signal variance in the layout, which in turn creates fingerprints based on different beacons for each group.
 The height for the beacons in the test was set to around 1 meter.
 
 \bigskip
 
-The beacons was arranged in two rows where the first row of four beacons was places 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
+The beacons was arranged in two rows where the first row of four beacons was placed 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
 The two rows was spaced 6 meters apart.
 
 \bigskip
@@ -62,7 +49,7 @@ The numbers represent the point name for each group.
 \fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
 
 Another layout where the beacons were placed around the marked groups was considered.
-An layout like this would benefit in a real scenario if the groups is created before the hardware is being places.
+A layout like this would benefit in a real scenario if the groups is created before the hardware is being placed.
 This would create a wider signal coverage around the created groups.
 But, it would require more hardware to cover the whole hall since more obstacles would weaken the signals.
 Due to the limited space in testing this approach was not the chosen one since it wouldn't make any difference of the number of beacons in range, because of the small area.
@@ -80,7 +67,7 @@ The following parameters was set to be tested;
 	\end{itemize}
 \end{itemize}
 
-These parameters was being tested to see which effect the number of mapped fingerprints for each point had on the created groups.
+These parameters were being tested to see which effect the number of mapped fingerprints for each point had on the created groups.
 With one fingerprint the mapping for each point would only be done in one direction.
 Here the human body can interfere the signal from the beacons and give a lower accuracy while testing the system.
 A result from this means that the position of the user can make the prediction harder, if the user is not position in the same way when creating the groups.

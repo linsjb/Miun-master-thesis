@@ -5,9 +5,9 @@ A position is set when a call is made to the server HTTPs POST API endpoint \tex
 \fig{Flow chart of the process to set a position and return the corresponding machines}{serverSetPositionFlowChart}{1.0}{flowCharts/serverSetPosition}
 
 \subsubsection{Data processing}\label{sec:implServerSetPosDataProcessing}
-As mentioned in \cref{sec:implAppSetPos} the application collects all nearby iBeacon signals.
-These signals is being sent to the server when above mentioned API endpoint is called, where the body of the request contain the signals data.
-Before this data can be used to classify the position with help of \acrfull{knn} it need to be prepared.
+As mentioned in \cref{sec:implAppSetPos}, the application collects all nearby iBeacon signals.
+These signals are being sent to the server when above mentioned API endpoint is called, where the body of the request contain the signal's data.
+Before this data can be used to classify the position with help of \acrfull{knn}, it needs to be prepared.
 In this preparation the data is being transformed to match the style of the fingerprints being stored in the created groups.
 \Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
 
@@ -15,41 +15,38 @@ In this preparation the data is being transformed to match the style of the fing
 
 \fileListing{Processed data to match group finterprints}{processedBeaconData}{json}{posSingleFormatedFingerprint.json}
 
-In the processed data presented in \Cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
+In this processed data presented in \Cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
 
 
 \subsubsection{KNN testing}\label{sec:implServerSetPosKnnTesting}
 \fig{K-NN testing flow chart}{knnTestingFlowChart}{1.0}{flowCharts/serverTrainKnn}
 
-Before \acrshort{knn} can predict any groups it needs to be tested on already existing data.
-This data is every mapped fingerprints in every created group.
+\Acrshort{knn} need to test on already existing data before it can predict any groups. 
+This data is all mapped fingerprints in every created group.
 In \Cref{fig:knnTestingFlowChart} the process of testing a \acrshort{knn} classifier with the correct data is presented.
 
 \bigskip
 
-First the data is being collected form the Azure Cosmos Database \cite{IntroductionAzureCosmos} group container. 
-After this the data is prepared so it can be used in the \acrshort{knn} testing.
+First the data is being collected from the Azure Cosmos Database \cite{IntroductionAzureCosmos} group container. 
+After this the data is prepared, so it can be used in the \acrshort{knn} testing.
 For every fingerprint the corresponding group ID and the fingerprint itself is being stored in an array, illustrated in \Cref{fig:illustratedKnnTrainingData}.
 
 \fig{Illustration of K-NN test data}{illustratedKnnTrainingData}{0.2}{knnTrainingDataIllustration}
 
-This data is then being divided in two different arrays, one with only the IDs and one with all the fingerprints.
-In this format \acrshort{knn} can be tested with the fingerprints where the true values is stored in the other array.
+After the data has been collected, it's divided in two separate arrays.
+One with only the IDs and one with all the fingerprints.
+In this format \acrshort{knn} can be tested with the fingerprints and matched with their true groups.
 
 
 \subsubsection{KNN classification}\label{sec:implServerSetPosKnnClassification}
-When the data is processed and in the same format as the group fingerprints it can be used in a \acrshort{knn} algorithm.
-\acrshort{knn} is the classification that does the actual decision in which group the device is located.
-
-\bigskip
-
-When the \acrshort{knn} has predicted in which group the device is located it yields back the ID of the group. 
+When the data is processed according to the data preparation step above, it can be used in the \acrshort{knn} classifier that predict the position.
+The prediction returns the ID of the group.
 
 \subsubsection{Filter machines}\label{sec:implServerSetPosFilterMachines}
-First all machines are being collected from a Azure Cosmos Database container \cite{IntroductionAzureCosmos}.
-After this all machines are being filtered with the resulting ID from the \acrshort{knn} prediction.
+First, all machines are being collected from a Azure Cosmos Database container \cite{IntroductionAzureCosmos}.
+After this, all machines are being filtered on the resulting group ID from the \acrshort{knn} prediction.
 
 \subsubsection{Response data}\label{sec:implServerSetPosResponse}
-When all machines is filtered a collection of the data is being sent back to the application, which is being done in the HTTPs POST response.
-The answer is taken care of by the application which is being described in \cref{sec:implAppSetPos}.
+When all machines are filtered a collection of the data is being sent back to the application, which is  done in the HTTPs POST response.
+The application then takes care of the data presentation, described in \cref{sec:implAppSetPos}.
 

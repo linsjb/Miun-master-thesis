@@ -1,13 +1,13 @@
 \subsection{Create a new group}\label{sec:implAppNewGroup}
 \fig{New group creation flow chart}{appNewGroup}{1.0}{flowCharts/appNewGroup}
 
-As point \ref{req:createGroups} states in the requirement specification (appendix \ref{appendix:requirements}) a functionality of the application is to create new groups.
+Point \ref{req:createGroups} in the requirement specification (appendix \ref{appendix:requirements}) states that one functionality of the application is to create new groups.
 When a new group is being created a set of machines should be selectable and different \acrshort{rssi} values mapped to it.
-\Cref{fig:appNewGroup} show the flow chart of the creation for a new group.
+\Cref{fig:appNewGroup} show the flow chart for the creation of a new group.
 
 
 \subsubsection{Get machines}\label{sec:implAppNewGroupGetMachines}
-To be able to choose machines for a new group they first need to be fetched from a Azure Cosmos database container \cite{IntroductionAzureCosmos}.
+To be able to choose machines for a new group they first need to be grabbed from an Azure Cosmos database container \cite{IntroductionAzureCosmos}.
 The server is taking care of the database handling, which means the application will get the machines from the server with a HTTPs GET request \cite{GETHTTPMDN}.
 The API endpoint that is being called is \textit{.../api/machines/all}.
 In the application these request is handled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}.
@@ -17,11 +17,11 @@ In the application these request is handled with the iOS API \textit{ResourceUrl
 On a successful request all machines are loaded into the application.
 These machines is then being presented to the user in a list.
 The entries in the list is selectable via a touch action, where the selected machines is mapped to the group.
-Since one machine can be used in multiple groups the machine ID's is stored in the group.
+One machine can be used in multiple groups, so the machine ID's is stored in the group.
 
 
 \subsubsection{Set group name}\label{sec:implAppNewGroupSetName}
-For a group to be easier identifiable by a user a name is set for it.
+For a group to be easier identifiable by a user, a name is set for it.
 In the application a text field is filled with the name and then being sent to the server with the rest of the data.
 
 
@@ -39,7 +39,7 @@ This because the only important value from the iBeacons is their \acrshort{rssi}
 
 \fileListing{Formatted iBeacon fingerprint}{beaconFingerprint}{json}{fingerprint.json}
 
-The position mapping is being done manually within the applications user interface.
+The position mapping is being done manually within the application's user interface.
 When a new position is being mapped the cleaned and collected iBeacons data presented in \Cref{listing:beaconFingerprint} is inserted in a 2D array.
 In \Cref{listing:groupFingerprints} an example of this 2D array with different iBeacon values is being presented.
 \fileListing{A set of collected fingerprints for a group}{groupFingerprints}{json}{groupFingerprints.json}

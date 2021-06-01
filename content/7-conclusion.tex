@@ -5,7 +5,7 @@ This is followed by the validity of the project and ends with some thought about
 
 \section{Project summary}\label{sec:conclusionProjectSummary}
 Knowledge has been gathered how an \acrfull{ips} works, according to goals \ref{goal:fieldInvestigation}, which made the goal fulfilled.
-With this knowledge a \acrshort{ips} could be designed to met goal \ref{goal:systemDesign} which then would be implemented.
+With this knowledge an \acrshort{ips} could be designed to met goal \ref{goal:systemDesign} which then would be implemented.
 
 \bigskip
 
@@ -14,7 +14,7 @@ This goal has therefore been met successfully.
 
 \bigskip
 
-To see how well the implemented \acrshort{ips} and the \acrshort{poc} application performed the system needed to be tested.
+To see how well the implemented \acrshort{ips} and the \acrshort{poc} application performed, the system needed to be tested.
 With this test the performance could be evaluated, which means that goal \ref{goal:systemEvaluation} has been met.
 
 \bigskip
@@ -23,19 +23,19 @@ This means that all goals in this thesis project has been fulfilled with a good 
 
 \bigskip
 
-The projects statement that was set at the beginning of the project has also been able to be fulfilled.
+The project's statement that was set at the beginning of the project has also been able to be fulfilled.
 Firstly the statement is answered in the motivation of the design choices made (\cref{sec:methodSoftwareDesign}) and lastly the \acrshort{poc} application implemented in \cref{impl} showed how this was done.
 
 
 \section{Project validity}\label{sec:conclusionProjectValidity}
 The validity of the project can be set to class two out of a total of three.
-So it's at a intermediate level with the following explanation.
+So it's at an intermediate level with the following explanation.
 
 \bigskip
 
-Due to the way the tests was performed the results form them can give a pointing finger how the implemented system works.
-Fully knowledge about this would be to test the system in a real industrial environment that has both the larger areas as well as the industrial obstacles.
-Only then could the accuracy and the real result be seen in a full picture.
+Due to the way the tests was performed the results from them can give a pointing finger how the implemented system works.
+Fully knowledge about this would be to test the system in a real industrial environment, that has both  larger areas and industrial obstacles.
+Only then could the accuracy and the real result be seen in its full picture.
 
 \bigskip
 
@@ -44,9 +44,9 @@ When it comes to the implemented system it could be implemented in a real produc
 
 \section{Future work}\label{sec:conclusionFutureWork}
 \Acrlong{ips} has a bright future and is a technology that will be adopted more and more in the future.
-The result the \acrlong{poc} application developed in this thesis work is in its simplest form.
+The result of the \acrlong{poc} application developed in this thesis work is in its simplest form.
 LKAB will probably use this technology and continue to research and test in the area of indoor positioning.
-So, this means that a future work on this work is possible and has a chance of be adopted in real production environments.
+So, this means that a future work on this work is possible and has a chance to be adopted in real production environments.
 
 \bigskip
 
@@ -58,19 +58,23 @@ But to achieve this the application first need to be tested in a real environmen
 \bigskip
 
 Another part that would need to be refined is the presentation of the created groups.
-If the application going to be used the number of groups would be large.
+If the application going to be used, the number of groups would be large.
 So to have all groups visible at all time would be a bad user experience.
 Here the groups should be filtered depending on which plant and building the device is located in.
 This could be done with the major value from the iBeacons.
 
 \bigskip
 
-When creation a new group the same problem would occur.
+The same problem would occur when creating a new group.
 All machines available will make a huge list that would be hard to search in.
 Here the beacon major value could also be used to filter out the relevant machines.
 
 \bigskip
 
-When it comes to the server this could also be further developed in some places.
-How the request is made to the Azure Cosmos Database should be overseen to avoid high bills form Azure.
-Also the training of \acrlong{knn} should also be done only when new groups is created.
+When it comes to the server, it could be further developed.
+One thing that would need to be overseen is how requests is made to the Azure database, since each server request trigger a database query.
+This would end up in high bills since Azure is charging for every query.
+How \acrfull{knn} is tested would also need to be changed.
+\acrshort{knn} is being tested on each server request to the API endpoint that predict the device location.
+Instead, it should only be tested when new groups are being created, or already existing ones is being changed.
+
