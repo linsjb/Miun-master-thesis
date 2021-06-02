@@ -29,7 +29,7 @@ This to protect the API's from unauthorized access and make sure the data transm
 
 \bigskip
 
-Also, some parts of the application is not needed in a production state, axcept for power users and admins.
+Also, some parts of the application is not needed in a production state, except for power users and admins.
 These functions are the ability to create new groups and to control which beacons that are being catched by the application.
 If these functions were available for a regular user they could cause some significant damage that would need to be fixed.
 A user could for example delete a group by accident.
@@ -66,8 +66,8 @@ When there is only one fingerprint per point, the measurement for that point wil
 This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
 In the case where each point has four fingerprints, \acrshort{knn} foremost has more data to predict against.
 But it can also accept fluctuations in the \acrshort{rssi} values when positioning, since there is more fingerprints to compare against.
-The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate the group far away.
-This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons, but also how the signal is being interfered but different obstacles.
+The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate a group far away.
+This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons, but also how the signal is being interfered by different obstacles.
 
 \bigskip
 
@@ -75,10 +75,10 @@ Other works done in the area showed that a high accuracy is hard to achieve with
 To be able to get a high accuracy a stable signal is a very important factor.
 With \acrshort{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
 If it does the positioning can be affected, which was shown by the accuracy in this thesis result.
-Related work that was investigated show that an implementation of a Kalman filter will make the prediction of the positioning better and more accurate since the unstable \acrshort{rssi} signals is being smoothed out.
-It was also shown in the relates work that they got a higher accuracy than in this project.
+Related work  showed that an implementation of a Kalman or Gaussian filter will make the prediction of the positioning better, and more accurate since the unstable \acrshort{rssi} signals are being smoothed out.
+It was also shown in the related work that they got a higher accuracy than in this project.
 This can depend on the model of Beacons used, differences in the implemented systems and the testing setup.
-The most of these related work did test in an open environment such as a large hall or library.
+Most of the related work did test in an open environment such as a large hall or library.
 In these environments there are fewer obstacles that can affect the \acrshort{rssi} signals.
 
 \bigskip

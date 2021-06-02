@@ -7,7 +7,7 @@ This section describes how the application takes the current position and displa
 
 \subsubsection{Reading of nearby beacons}\label{sec:implAppSetPosReadBeacons}
 As illustrated in \Cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
-This is done with help of the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
+This is done with help of the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
 The application constant read all nearby iBeacons, but it's a user decision when to manually map against a position.
 
 \bigskip
@@ -20,7 +20,7 @@ In this cleaning step the \acrshort{rssi} and minor values is being stored in a 
 
 
 \subsubsection{Send and retrieve data}\label{sec:implAppSetPosSendRetreiveData}
-When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}, where the \acrshort{json} data is stored in the body of the request.
+When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS \textit{ResourceUrl} API \cite{ResourceURLAppleDeveloper}, where the \acrshort{json} data is stored in the body of the request.
 The server is processing the data, which is explained in \cref{sec:implServerSetPos} and then returning the machines for the positioned group in the response message of the HTTPs POST request.
 A list presentation of these machines is then being presented to the user.
 

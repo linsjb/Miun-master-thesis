@@ -14,8 +14,8 @@ The \acrshort{knn} classification also has fewer fingerprints to test on which w
 
 \bigskip
 
-With four fingerprints/point the accuracy is higher, since the prediction is not as sensitive to signal fluctuation because, there are more fingerprints to test against.
-This also means that the \acrshort{knn} classification has more fingerprints to test against, and will therefore be able to make better predictions.
+With four fingerprints/point the accuracy is higher, since the prediction is not as sensitive to signal fluctuation because there are more fingerprints to test against.
+This means that the \acrshort{knn} classification is able to make better predictions. 
 
 
 \subsection{Measurement results per point}\label{sec:resultsPosOneFingerprint}
@@ -34,7 +34,8 @@ Because of this the signal is sensitive to fluctuation of the \acrshort{rssi} si
 
 \bigskip
 
-With four fingerprints the results is more stable and makes more correct predictions since the fluctuation doesn't make as big impact because of more fingerprints for each point.
+With four fingerprints the results is more stable and makes more correct predictions.
+This is because the fluctuation doesn't make as big impact because of the more fingerprints for each point.
 
 \fig{Measurement result per point for blue group}{bluePointsResult}{1}{results/pointsBlue}
 
@@ -47,8 +48,8 @@ Beacons far away would be more affected by going through this wall than nearby b
 \bigskip
 
 In the cases where the yellow group is being predicted it can be explained by the beacons placement.
-At certain points beacons far away from the blue group, and closer to the yellow groups, has a clear line of sight than nearby beacons.
-These beacons do in these case has stronger \acrshort{rssi} values even if they are further away from the point.
+At certain points beacons far away from the blue group, and closer to the yellow groups, has a clear line of sight.
+A result from this is that nearby beacons have a weaker signal than beacons far away.
 This explanation is true for both one and four points since the beacons has the same arrangement.
 
 \bigskip
@@ -59,7 +60,7 @@ If the signal of nearby beacons fluctuates a lot it will make a false prediction
 \fig{Measurement result per point for yellow group}{yellowPointsResult}{1}{results/pointsYellow}
 
 In the yellow group the fluctuation is low with the majority calculated groups which is shown in \Cref{fig:yellowPointsResult}.
-This is a result of a more open space where the signals are not being reflected by any walls, as well as more beacons are in range with a clear sign of view, which will give a better prediction accuracy.
+This is a result of a more open space where the signals are not being reflected by any walls, as well as more beacons are in range with a clear line of sight, which will give a better prediction accuracy.
 
 \bigskip
 

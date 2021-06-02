@@ -33,18 +33,18 @@ This server is not being hosted to any cloud service or a physical server in a d
 \subsection{Frontend vs. backend}\label{sec:implArchitectureFrontBack}
 In the developed \acrshort{ips} there are two major parts, a front- and backend.
 The application is defined as the frontend of the system since this is the part that a user will interact with and get data presented to it. 
-The backend in the developed server software that takes care of all calculations and data predictions, and delivers this to the frontend which is being presented to the user.
+The backend is the developed server software that takes care of all calculations and data predictions, and delivers this to the frontend.
 
 
 \subsection{API}\label{sec:implArchitectureApi}
 An API is the data connection between a device and a server.
 Data it sent from the device to the server via specific API \textit{endpoints} that is being defined in the application and created in the server.
-The developed API works in two different types of requests, POST and GET.
+The developed API works with two different types of requests, POST and GET.
 
 \bigskip
 
-In a POST request from the device to the server the device is giving some kind of data to the server, that is being processed by it.
-When the server is done processing a response is being yield back to the device with either some resulting data or just a success message.
+In a POST request the device is giving some kind of data to the server that will be processed.
+When the server is done processing a response is being yield back to the device with either some resulting data, or just a success message.
 
 \bigskip
 

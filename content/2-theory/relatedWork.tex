@@ -3,11 +3,12 @@ In this sub-section related work and previous research that is related to this t
 
 
 \subsection{Development of a Smartphone-Based University Library Navigation and Information Service Employing Wi-Fi Location Fingerprinting}\label{sec:}
-In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating an indoor fingerprint based positioning systems with the help of WiFi Access Points (AP).
+In the paper \cite{DevelopmentSmartphoneBasedUniversity2021} A. Leb et al. is creating an indoor fingerprint based positioning systems with the help of WiFi Access Points (\acrshort{ap}).
 
 \bigskip
 
-The fingerprints are made with \acrshort{rssi} values from the nearby WiFi Access Points and is then being stored in a radio map database.
+The fingerprints are made with \acrshort{rssi} values from the nearby WiFi \acrshort{ap}'s
+and is then being stored in a radio map database.
 This database is then used to position the user with the stored fingerprints.
 In the article they mention the disadvantages with radio map based databases, which is the time it takes to perform a site survey.
 They also mention the need to update the database if new transmitters or other structural changes is being made.
@@ -37,7 +38,7 @@ Transmitters in a WiFi based \acrshort{ips} can in some cases be overseen since 
 \bigskip
 
 The relation between this article and this thesis work is the way the positioning is done where \acrshort{rssi} values are being collected in a fingerprint database.
-In the article is also a decentralized based system with a server and the benefits with this.
+In the article is also a decentralized based system with a server described, and the benefits with this.
 This has been used when designing the software implemented in this thesis.
 
 
@@ -117,8 +118,11 @@ In the paper they use \acrshort{ble} beacons as transmitters where the fingerpri
 
 The result of the testing done by C. Gurrin et al. shows that the \acrshort{knn} algorithms takes the shortest time to train.
 After \acrshort{knn} comes \acrshort{ann} and last comes \acrshort{svm}  which takes almost 3 hours to train.
-Beside form the training time of \acrshort{svm}  it has a good accuracy and precision but fails because of the long time to train it.  \acrshort{ann} is average in all aspects and \acrshort{knn} achieves the best precision of the three.
+Beside from the training time of \acrshort{svm}  it has a good accuracy and precision but fails because of the long time to train it.  \acrshort{ann} is average in all aspects and \acrshort{knn} achieves the best precision of the three.
 
+\bigskip
+
+This paper has helped to decide which classification algorithm to use in this thesis project.
 
 \subsection{Indoor Positioning System Using Artificial Neural Network}\label{sec:}
 In \cite{IndoorPositioningSystem2010} by H. Mehmood et al. an \acrshort{ips} has been conducted where \acrlong{ann} is used to classify the positioning.

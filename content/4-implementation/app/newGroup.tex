@@ -17,8 +17,7 @@ In the application these request is handled with the iOS API \textit{ResourceUrl
 On a successful request all machines are loaded into the application.
 These machines is then being presented to the user in a list.
 The entries in the list is selectable via a touch action, where the selected machines is mapped to the group.
-One machine can be used in multiple groups, so the machine ID's is stored in the group.
-
+A machine can be used in several groups, so the machines' IDs are stored in the group. 
 
 \subsubsection{Set group name}\label{sec:implAppNewGroupSetName}
 For a group to be easier identifiable by a user, a name is set for it.
@@ -27,7 +26,8 @@ In the application a text field is filled with the name and then being sent to t
 
 \subsubsection{Map position}\label{sec:implAppNewGroupMapPos}
 A group is the part of the system that is being identified as a position in the undefined space and need position fingerprints tied to it.
-Nearby \acrshort{ble} iBeacon signals is picked up in the application with the iOS API \textit{CoreLocation} \cite{CoreLocationApple}.
+Nearby \acrshort{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
+
 
 \bigskip
 
@@ -46,5 +46,5 @@ In \Cref{listing:groupFingerprints} an example of this 2D array with different i
 
 \subsubsection{Send data to server}\label{sec:implAppnewGroupSend}
 When a name is set, machines selected and iBeacons data mapped the group is ready and can be sent to the server as a \acrfull{json} object \cite{IntroducingJSON}.
-This is done against the server API endpoint \textit{.../api/group/create} with a HTTPs POST request \cite{POSTHTTPMDN}, where the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper} takes care of the request in the application.
+This is done against the server API endpoint \textit{.../api/group/create} with a HTTPs POST request \cite{POSTHTTPMDN}, where the iOS \textit{ResourceUrl} API \cite{ResourceURLAppleDeveloper} takes care of the request in the application.
 Appendix \ref{appendix:newGroupData} presents an example on a full data example of a new group.

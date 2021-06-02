@@ -5,11 +5,8 @@ See \cref{sec:methodTestLayout} for details about the test layout.
 
 \bigskip
 
-Apart from a defined test layout, some kind of variance was needed to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
-If only one test case was conducted, the test wouldn't tell how well the actual \acrshort{ips} performs.
-Simply because it would not be known if it's working or not.
-To be able to test the system transmitting hardware was needed to be placed in the test layout.
-In \cref{sec:methodTestHardware} the used hardware is being described and introduced.
+Apart from a defined test layout, some kind of variance was introduced to see how well the system behaves to changes. The different test parameters is being described in \cref{sec:methodTestParameters} below.
+In \cref{sec:methodTestHardware} the used transmitters is being described and introduced.
 
 
 \subsection{Hardware}\label{sec:methodTestHardware}
@@ -43,10 +40,10 @@ The two rows was spaced 6 meters apart.
 
 Three groups, blue, brown and yellow, was set to be tested where each of the groups had nine points each to be mapped for the fingerprint offline phase.
 The blue and yellow groups was 3 meters by 2.5 meters and the brown group was 3 meters by 3 meters.
-\Cref{fig:testSetup} presents the test setup with the placement of the iBeacons as well as the three groups.
+\Cref{fig:testSetup} illustrates an estimation of the test setup with the placement of the iBeacons as well as the three groups.
 The numbers represent the point name for each group.
 
-\fig{Test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
+\fig{Estimated test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
 
 Another layout where the beacons were placed around the marked groups was considered.
 A layout like this would benefit in a real scenario if the groups is created before the hardware is being placed.
@@ -67,7 +64,7 @@ The following parameters was set to be tested;
 	\end{itemize}
 \end{itemize}
 
-These parameters were being tested to see which effect the number of mapped fingerprints for each point had on the created groups.
+These parameters were being tested to see which effect the number of mapped fingerprints for each point had on the positioning of the created groups.
 With one fingerprint the mapping for each point would only be done in one direction.
 Here the human body can interfere the signal from the beacons and give a lower accuracy while testing the system.
 A result from this means that the position of the user can make the prediction harder, if the user is not position in the same way when creating the groups.
