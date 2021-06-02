@@ -22,19 +22,28 @@ into spatial distances.  This is used to create radius of circles and where all
 the circles intersect with each other is where the device is located.
 \cite{IndoorFingerprintPositioning2017} 
 
-\subsection{Approximate Perception}\label{sec:theoryRssiApproxPerception} In
-approximate perception the signal from the strongest base station is the
-positioning criterion.  This technique has a low positioning accuracy and to
-make it more exact researchers has used a cluster of antennas.  This cluster is
-then placed at a know location and will improve the
-accuracy.\cite{IndoorFingerprintPositioning2017} 
+\bigskip
 
-\subsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis} Scene analysis
-is the most used technique for indoor positioning.
-It uses fingerprint matching (\cref{sec:theoryFingerprint}) and does not require any information of where the base stations is located.
+The radio frequency can easily be affected because of the complexity of the indoor space, which will impact the signals from the transmitters.
+In the conversion from signal strength to spatial distances it can therefore introduce errors that will lower the accuracy of the positioning.
+A solution to assist the technique is path loss models that will increase the accuracy.
+Since spatial distances is used to position a device, the exact position of the WiFi \acrfull{ap} need to be known. 
+Together with this exact position and the path loss models the technique is not practical to use, and also has a low positioning accuracy of around 40 meters.\cite{IndoorFingerprintPositioning2017}
+
+
+\subsection{Approximate Perception}\label{sec:theoryRssiApproxPerception}
+In approximate perception the signal from the strongest base station is the positioning criterion.
+Positioning with this technique requires information of the base stations location as well as the area they cover. 
+This technique has a low positioning accuracy, or around 100 meters, and to make it more precise researchers has used a cluster of antennas.
+This cluster is then placed at a know location and will improve the accuracy.
+\cite{IndoorFingerprintPositioning2017} 
+
+\subsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis}
+Scene analysis is the most used technique for indoor positioning.
+It uses fingerprint matching (\cref{sec:theoryFingerprint}) and does not require any information of where the base stations is located, which is needed in both trilateration and approximate perception.
 The positioning is done with the signal strength from multiple base stations at a given reference point.
-Together with a fingerprint data structure the reference point will act as a localization point for the positioning system.\cite{IndoorFingerprintPositioning2017} 
+Together with a fingerprint data structure, the reference point will act as a localization point for the positioning system.\cite{IndoorFingerprintPositioning2017} 
 
 \bigskip
 
-Measurements taken with \acrshort{rssi} values can be used to make signal fingerprints to build up a radio map database for indoor localization.\cite{DevelopmentMobileIndoor2017} 
+Measurements based on transmitters \acrshort{rssi} values can be used to make signal fingerprints to build up a radio map database that will position the device.\cite{DevelopmentMobileIndoor2017} 
