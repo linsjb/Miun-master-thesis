@@ -8,14 +8,18 @@ A position is set when a call is made to the server HTTPs POST API endpoint \tex
 As mentioned in \cref{sec:implAppSetPos}, the application collects all nearby iBeacon signals.
 These signals are being sent to the server when above mentioned API endpoint is called, where the body of the request contain the signal's data.
 Before this data can be used to classify the position with help of \acrfull{knn}, it needs to be prepared.
-In this preparation the data is being transformed to match the style of the fingerprints being stored in the created groups.
+In this preparation the data is being transformed to match the style of the offline stored fingerprints.
 \Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
 
 \fileListing{Raw collected iBeacons data from the application}{deviceRawBeaconData}{json}{posBeaconsData.json}
 
-\fileListing{Processed data to match group finterprints}{processedBeaconData}{json}{posSingleFormatedFingerprint.json}
+\fileListing{Precessed data to match offline fingerprints}{processedBeaconData}{json}{posSingleFormatedFingerprint.json}
 
 In this processed data presented in \Cref{listing:processedBeaconData} above the major value of the iBeacon with the strongest \acrshort{rssi} value is saved followed by the three strongest \acrshort{rssi} values.
+
+\bigskip
+
+This formatted data is now the online fingerprints that will be classified with the help of the offline fingerprints stored in the groups.
 
 
 \subsubsection{KNN testing}\label{sec:implServerSetPosKnnTesting}
@@ -39,11 +43,13 @@ In this format \acrshort{knn} can be tested with the fingerprints and matched wi
 
 
 \subsubsection{KNN classification}\label{sec:implServerSetPosKnnClassification}
-When the data is processed according to the data preparation step above, it can be used in the \acrshort{knn} classifier that predict the position.
-The prediction returns the ID of the group.
+When the data is processed, according to the data preparation step above, and are in the fingerprint form it can be used to predict the position of the device.
+The prediction is made with the \acrshort{knn} classifier that control the online fingerprint with the three nearest offline fingerprints, that will say $k=3$.
+From the classification, the offline fingerprints that is closest to the online fingerprint will set which group the device is being predicted to.
+The prediction then returns the ID of the group.
 
 \subsubsection{Filter machines}\label{sec:implServerSetPosFilterMachines}
-First, all machines are being collected from a Azure Cosmos Database container \cite{IntroductionAzureCosmos}.
+First, all machines are being collected from an Azure Cosmos Database container \cite{IntroductionAzureCosmos}.
 After this, all machines are being filtered on the resulting group ID from the \acrshort{knn} prediction.
 
 \subsubsection{Response data}\label{sec:implServerSetPosResponse}

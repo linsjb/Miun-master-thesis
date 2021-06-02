@@ -2,7 +2,7 @@
 \fig{New group creation flow chart}{appNewGroup}{1.0}{flowCharts/appNewGroup}
 
 Point \ref{req:createGroups} in the requirement specification (appendix \ref{appendix:requirements}) states that one functionality of the application is to create new groups.
-When a new group is being created a set of machines should be selectable and different \acrshort{rssi} values mapped to it.
+When a new group is being created a set of machines should be selectable and different \acrfull{rssi} values mapped to it.
 \Cref{fig:appNewGroup} show the flow chart for the creation of a new group.
 
 
@@ -26,22 +26,23 @@ In the application a text field is filled with the name and then being sent to t
 
 \subsubsection{Map position}\label{sec:implAppNewGroupMapPos}
 A group is the part of the system that is being identified as a position in the undefined space and need position fingerprints tied to it.
-Nearby \acrshort{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
+This mapping is the offline phase in a fingerprint based system.
+Nearby \acrfull{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
 
 
 \bigskip
 
+The positions is being manually mapped within the application's user interface.
 Since the fingerprints that being used by the server are based on three \acrshort{rssi} values, a criterion is set where at least three iBeacons must be in range to be able to map a new position to the group.
-If this condition is not met a warning modal is being showed to the user and the data will not be collected.
-When the condition is met the nearby iBeacons is collected and the data is being cleaned.
-This because the only important value from the iBeacons is their \acrshort{rssi} and minor values.
+If this condition is not met, a warning modal is being showed to the user and the data will not be collected.
+When the condition is met a snapshot of the nearby iBeacons is collected and the data is being cleaned.
+In the cleaning only the \acrshort{rssi} and minor values from the iBeacons is saved.
 \Cref{listing:beaconFingerprint} present an example of the formatted iBeacon data.
 
 \fileListing{Formatted iBeacon fingerprint}{beaconFingerprint}{json}{fingerprint.json}
 
-The position mapping is being done manually within the application's user interface.
-When a new position is being mapped the cleaned and collected iBeacons data presented in \Cref{listing:beaconFingerprint} is inserted in a 2D array.
-In \Cref{listing:groupFingerprints} an example of this 2D array with different iBeacon values is being presented.
+For each collected snapshot the data is being inserted in a 2D array, which is being presented in \Cref{listing:groupFingerprints}.
+
 \fileListing{A set of collected fingerprints for a group}{groupFingerprints}{json}{groupFingerprints.json}
 
 \subsubsection{Send data to server}\label{sec:implAppnewGroupSend}

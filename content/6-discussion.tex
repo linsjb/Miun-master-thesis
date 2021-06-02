@@ -65,7 +65,7 @@ As presented in \cref{sec:resultPos}, the test showed that four fingerprints per
 When there is only one fingerprint per point, the measurement for that point will get unstable because of signal fluctuation.
 This means that the point only has one value to relate to, except its neighbours, when \acrshort{knn} does its prediction.
 In the case where each point has four fingerprints, \acrshort{knn} foremost has more data to predict against.
-But it can also accept fluctuations in the \acrshort{rssi} values when positioning, since there is more fingerprints to compare against.
+But it can also accept fluctuations in the \acrfull{rssi} values when positioning, since there is more fingerprints to compare against.
 The results also shows that even when a point is being scanned far away from another group the prediction can be wrong and locate a group far away.
 This does mostly depend on the fluctuates of the \acrshort{rssi} signals from the iBeacons, but also how the signal is being interfered by different obstacles.
 
@@ -73,7 +73,7 @@ This does mostly depend on the fluctuates of the \acrshort{rssi} signals from th
 
 Other works done in the area showed that a high accuracy is hard to achieve with an \acrshort{ips}.
 To be able to get a high accuracy a stable signal is a very important factor.
-With \acrshort{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
+With \acrlong{ble} beacons, which are low powered devices, the signal can fluctuates a lot because of its limited power.
 If it does the positioning can be affected, which was shown by the accuracy in this thesis result.
 Related work  showed that an implementation of a Kalman or Gaussian filter will make the prediction of the positioning better, and more accurate since the unstable \acrshort{rssi} signals are being smoothed out.
 It was also shown in the related work that they got a higher accuracy than in this project.

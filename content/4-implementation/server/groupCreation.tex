@@ -23,10 +23,13 @@ Only the minor value from the strongest iBeacon is saved together with the top t
 
 \fileListing{Single fingerprint after cleaning and sorting}{singleFingerprint}{json}{singleFormatedFingerprint.json}
 
-In the sorting operation each iBeacon data object is inserted in a fingerprint array with the form presented in \Cref{listing:singleFingerprint} above.
+In the sorting operation each iBeacon data object is inserted in a fingerprint array with the format presented in \Cref{listing:singleFingerprint} above.
 When all the data presented in \Cref{listing:groupFingerprints}  has been processed, the final fingerprints for the groups looks like the example presented in \Cref{listing:multipleFingerprints}.
 
 \fileListing{Multiple processed fingerprints to be stored in the new group}{multipleFingerprints}{json}{multipleFormatedFingerprints.json}
+
+These fingerprints are being stored for later use in the online phase of the system, where the positioning is conducted.
+
 
 
 \subsubsection{Database}\label{sec:implServerGroupCreationDatabase}
