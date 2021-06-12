@@ -1,0 +1,50 @@
+\section{Method}
+
+
+\begin{notedFrame}{Framework}{method/framework.tex}
+	\figNoCap{1}{methodFlow}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Software design}{method/design.tex}
+	\begin{itemize}
+		\item Groups
+    		\begin{itemize}
+            	\item Require lower accuracy in the system
+            	\item Many machines in one group
+    		\end{itemize}
+    	\item Fingerprints	
+    	\begin{itemize}
+    	    \item Based on multiple transmitter signals
+    	\end{itemize}
+		\item Bluetooth Low Energy Beacons as transmitters
+		\item Backend server that takes care of the positioning
+		\item K Nearest Neighbour (KNN) algorithm for classification 
+	\end{itemize}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Testing}{method/testing.tex}
+	\begin{itemize}
+		\item Test performance of the positioning system
+		\item Test layout
+		\item Different test parameters
+	\end{itemize}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Test layout}{method/testingLayout.tex}
+	\figNoCap{0.8}{testSetup}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Evaluation}{method/evaluation.tex}
+	\begin{itemize}
+		\item Evaluation of the test results
+		\item 10 measurements/point
+		\item 3 test runs
+		\item Predicted groups from majority of measurements
+		\item Accuracy and resulting group
+	\end{itemize}
+\end{notedFrame}
+

@@ -1,0 +1,41 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme[progressbar=frametitle]{metropolis} 
+
+\input{settings/settings.tex}
+
+\setbeamertemplate{note page} 
+{ 
+\insertslideintonotes{0.01} 
+\rule{\textwidth}{0.1pt} 
+\insertnote 
+}
+
+\showNotes
+
+\title{Automatic presentation of data for industrial machines with hand held devices \\ \large{Positioning in indoor environments without GPS-signals}}
+\date{June 9th 2021}
+\author{Linus Sjöbro \\ \tiny{lisj1502@student.miun.se}}
+\institute{Mid Sweden University \figNoCap{0.2}{miunLogo}}
+
+\begin{document}
+  \maketitle
+  
+  \begin{frame}{Outline}
+  \tableofcontents
+  \end{frame}
+
+  \input{content/introduction.tex}
+  \input{content/method.tex}
+  \input{content/result.tex}
+  \input{content/discussion.tex}
+  \input{content/conclusions.tex}
+
+  
+  \begin{frame}[standout]
+  Thank you for listening!
+
+  \small{Linus Sjöbro
+  
+  lisj1502@student.miun.se}
+  \end{frame}
+\end{document}
