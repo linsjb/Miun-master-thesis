@@ -1,16 +1,16 @@
 \subsection{Create a new group}\label{sec:implAppNewGroup}
-\fig{New group creation flow chart}{appNewGroup}{1.0}{flowCharts/appNewGroup}
-
 Point \ref{req:createGroups} in the requirement specification (appendix \ref{appendix:requirements}) states that one functionality of the application is to create new groups.
 When a new group is being created a set of machines should be selectable and different \acrfull{rssi} values mapped to it.
 \Cref{fig:appNewGroup} show the flow chart for the creation of a new group.
 
+\fig{New group creation flow chart}{appNewGroup}{1.0}{flowCharts/appNewGroup}
+
 
 \subsubsection{Get machines}\label{sec:implAppNewGroupGetMachines}
-To be able to choose machines for a new group they first need to be grabbed from an Azure Cosmos database container \cite{IntroductionAzureCosmos}.
-The server is taking care of the database handling, which means the application will get the machines from the server with a HTTPs GET request \cite{GETHTTPMDN}.
+To be able to choose machines for a new group they first need to be grabbed from an Azure Cosmos database container.
+The server is taking care of the database handling, which means the application will get the machines from the server with a HTTPs GET request.
 The API endpoint that is being called is \textit{.../api/machines/all}.
-In the application these request is handled with the iOS API \textit{ResourceUrl} \cite{ResourceURLAppleDeveloper}.
+In the application these request is handled with the iOS \textit{ResourceUrl} API.
 
 \bigskip
 
@@ -18,6 +18,7 @@ On a successful request all machines are loaded into the application.
 These machines is then being presented to the user in a list.
 The entries in the list is selectable via a touch action, where the selected machines is mapped to the group.
 A machine can be used in several groups, so the machines' IDs are stored in the group. 
+
 
 \subsubsection{Set group name}\label{sec:implAppNewGroupSetName}
 For a group to be easier identifiable by a user, a name is set for it.
@@ -27,7 +28,7 @@ In the application a text field is filled with the name and then being sent to t
 \subsubsection{Map position}\label{sec:implAppNewGroupMapPos}
 A group is the part of the system that is being identified as a position in the undefined space and need position fingerprints tied to it.
 This mapping is the offline phase in a fingerprint based system.
-Nearby \acrfull{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
+Nearby \acrfull{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API.
 
 
 \bigskip
@@ -45,7 +46,8 @@ For each collected snapshot the data is being inserted in a 2D array, which is b
 
 \fileListing{A set of collected fingerprints for a group}{groupFingerprints}{json}{groupFingerprints.json}
 
+
 \subsubsection{Send data to server}\label{sec:implAppnewGroupSend}
-When a name is set, machines selected and iBeacons data mapped the group is ready and can be sent to the server as a \acrfull{json} object \cite{IntroducingJSON}.
-This is done against the server API endpoint \textit{.../api/group/create} with a HTTPs POST request \cite{POSTHTTPMDN}, where the iOS \textit{ResourceUrl} API \cite{ResourceURLAppleDeveloper} takes care of the request in the application.
+When a name is set, machines selected and iBeacons data mapped the group is ready and can be sent to the server as a \acrfull{json} object.
+This is done against the server API endpoint \textit{.../api/group/create} with a HTTPs POST request, where the iOS \textit{ResourceUrl} API takes care of the request in the application.
 Appendix \ref{appendix:newGroupData} presents an example on a full data example of a new group.

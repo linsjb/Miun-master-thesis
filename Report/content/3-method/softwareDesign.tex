@@ -8,7 +8,7 @@ So this was an important part to get right from the beginning because of the tim
 
 \bigskip
 
-The software was designed based on two factors, the accumulated knowledge how to design an \acrshort{ips} based on the research analysis performed in \cref{sec:methodProblemDefinition}, and the requirements from the research analysis presented in \cref{sec:theoryRelatedWork}.
+\mt{The software was designed based on two factors, the accumulated knowledge how to design an \acrshort{ips} based on performed research analysis, and the requirements from the research analysis.}
 See appendix \ref{appendix:requirements} for the resulting requirement's specification.
 
 
@@ -22,13 +22,13 @@ It's also easier to implement and together with the benefits it was the best cho
 
 
 \subsubsection{Fingerprint structure}\label{sec:methodSoftwareDesignFingerprint}
-In the conducted literature study presented in \cref{sec:theoryRelatedWork} all the reviewed papers used \acrfull{rssi} based fingerprints to position the devices.
-This together with its high accuracy in an \acrshort{ips} the choice in this project fell on \acrshort{rssi} fingerprints.
+\mt{In the conducted literature review  all the reviewed papers used \acrfull{rssi} based fingerprints to position the devices.
+This together with its relative high accuracy in an \acrshort{ips}, and the way the system is designed in this thesis, the choice fell on \acrshort{rssi} fingerprints.}
 
 
 \subsubsection{Mobile platform}\label{sec:methodSoftwareDesignMobilePlatform}
-The choice of mobile platform to develop the \acrfull{poc} application was Apple iPhone.
-This because the company the case study was being performed at (LKAB) uses iPhone's in their business.
+\mt{LKAB uses the Apple iPhone as their mobile platform.
+To develop an \acrfull{poc} application that can be used in LKAB's system the chosen platform therefore fell on Apple iPhone.}
 
 
 \subsubsection{Database}\label{sec:methodSoftwareDesignDatabase}
@@ -58,7 +58,7 @@ This opens up for a more flexible system since the server takes care of the data
 
 
 \subsubsection{Transmitters}\label{sec:methodSoftwareDesignTransmitters}
-The transmitting technique chosen in this work was \acrfull{ble} beacons where the beacons had support for Apple's iBeacon protocol (see \cref{sec:theoryBleiBeacons}).
+The transmitting technique chosen in this work was \acrfull{ble} beacons where the beacons had support for Apple's iBeacon protocol.
 This choice depended on two different factors.
 
 \bigskip
@@ -73,7 +73,7 @@ With this hardware limitation the transmitting choice fell on \acrshort{ble} bea
 
 \bigskip
 
-The other reason was the availability of a solid and large enough WiFi-network to perform the software tests (\cref{sec:methodSoftwareTests}).
+\mt{The second reason was that there was no access to a sufficiently large WiFi network to perform the software tests.}
 A \acrshort{ble} Beacon network is easy and fairly cheep to implement and has a large flexibility on how to position the beacons.
 WiFi \acrshort{ap}'s is often permanent mounted and is therefore hard to move.
 It's also hard to expand the network if needed.

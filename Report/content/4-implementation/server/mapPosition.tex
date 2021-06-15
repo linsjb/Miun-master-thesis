@@ -5,8 +5,7 @@ A position is set when a call is made to the server HTTPs POST API endpoint \tex
 \fig{Flow chart of the process to set a position and return the corresponding machines}{serverSetPositionFlowChart}{1.0}{flowCharts/serverSetPosition}
 
 \subsubsection{Data processing}\label{sec:implServerSetPosDataProcessing}
-As mentioned in \cref{sec:implAppSetPos}, the application collects all nearby iBeacon signals.
-These signals are being sent to the server when above mentioned API endpoint is called, where the body of the request contain the signal's data.
+\mt{The collected \acrshort{rssi} values from the device is being sent to the server via the above mentioned API endpoint.}
 Before this data can be used to classify the position with help of \acrfull{knn}, it needs to be prepared.
 In this preparation the data is being transformed to match the style of the offline stored fingerprints.
 \Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
@@ -31,7 +30,7 @@ In \Cref{fig:knnTestingFlowChart} the process of testing a \acrshort{knn} classi
 
 \bigskip
 
-First the data is being collected from the Azure Cosmos Database \cite{IntroductionAzureCosmos} group container. 
+First the data is being collected from the Azure Cosmos Database group container. 
 After this the data is prepared, so it can be used in the \acrshort{knn} testing.
 For every fingerprint the corresponding group ID and the fingerprint itself is being stored in an array, illustrated in \Cref{fig:illustratedKnnTrainingData}.
 
@@ -49,10 +48,10 @@ From the classification, the offline fingerprints that is closest to the online 
 The prediction then returns the ID of the group.
 
 \subsubsection{Filter machines}\label{sec:implServerSetPosFilterMachines}
-First, all machines are being collected from an Azure Cosmos Database container \cite{IntroductionAzureCosmos}.
+First, all machines are being collected from an Azure Cosmos Database container.
 After this, all machines are being filtered on the resulting group ID from the \acrshort{knn} prediction.
 
 \subsubsection{Response data}\label{sec:implServerSetPosResponse}
 When all machines are filtered a collection of the data is being sent back to the application, which is  done in the HTTPs POST response.
-The application then takes care of the data presentation, described in \cref{sec:implAppSetPos}.
+The application then takes care of the data presentation to the user. 
 

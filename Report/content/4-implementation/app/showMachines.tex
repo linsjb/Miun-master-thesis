@@ -7,7 +7,7 @@ This section describes how the application takes the current position and displa
 
 \subsubsection{Reading of nearby beacons}\label{sec:implAppSetPosReadBeacons}
 As illustrated in \Cref{fig:clientGetMachines} the first part to get the machines for the current position is to read the nearby iBeacons.
-This is done with help of the iOS \textit{CoreLocation} API \cite{CoreLocationApple}.
+This is done with help of the iOS \textit{CoreLocation} API.
 The application constant read all nearby iBeacons, but it's a user decision when to manually map against a position.
 
 \bigskip
@@ -15,13 +15,13 @@ The application constant read all nearby iBeacons, but it's a user decision when
 The mapped fingerprints stored in the groups is made on the values from three iBeacons.
 Because of this, the application needs to control that at least three iBeacons are in range.
 If the condition is not met a modal will be shown to the user and the scanning for nearby iBeacon will continue.
-If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
-In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, just like \Cref{listing:beaconFingerprint} described in \cref{sec:implAppNewGroup} above.
+\mt{If the condition is met all the data for the nearby iBeacons will be collected and cleaned.
+In this cleaning step the \acrshort{rssi} and minor values is being stored in a \acrshort{json} formatted array, at the same format as \Cref{listing:beaconFingerprint} above.}
 
 
 \subsubsection{Send and retrieve data}\label{sec:implAppSetPosSendRetreiveData}
-When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS \textit{ResourceUrl} API \cite{ResourceURLAppleDeveloper}, where the \acrshort{json} data is stored in the body of the request.
-The server is processing the data, which is explained in \cref{sec:implServerSetPos} and then returning the machines for the positioned group in the response message of the HTTPs POST request.
+When the data is cleaned it will be sent to the server with a HTTPs POST request controlled with the iOS \textit{ResourceUrl} API, where the \acrshort{json} data is stored in the body of the request.
+\mt{The server is processing the data, and then returning the machines for the positioned group in the response message of the HTTPs POST request.}
 A list presentation of these machines is then being presented to the user.
 
 
