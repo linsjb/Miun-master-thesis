@@ -13,8 +13,13 @@ It's shown that the collected \acrshort{rssi} values that form's the fingerprint
 
 Apart from \acrshort{rssi}, fingerprints can be built with \acrfull{pdr} traces.
 \acrshort{pdr} uses the accelerometer and the compass in the mobile phone.
-With this the number of walked steps can be counted and then position the device.
+With this the number of walked steps can be counted from a starting point and then position the device.
 \cite{AutomaticConstructionRadio2018, NoNeedWardrive2012}
+\mt{With \acrshort{pdr} the system has a high error propagation, which is a result from relative movements.
+Different step lengths and that each step often have a different direction will make the system to take approximations of the position.
+To solve this, the \acrshort{ips} need to be recalibrated at a fixed set of intervals.
+For a \acrshort{pdr} system to be more precise it needs to be combined with other techniques such as \acrshort{rssi} or regular GPS.
+\cite{RSSIPDRBasedProbabilistic2018}}
 
 \bigskip
 
