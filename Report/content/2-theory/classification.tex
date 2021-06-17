@@ -1,6 +1,6 @@
 \section{Instance-based learning}\label{sec:theoryInstanceLearning}
-Instance-based learning is a set of algorithms within data mining and machine learning and is often referred as lazy classification.
-In the training phase the algorithms does not require much work since it is being trained on already stored instances.
+Instance-based learning is a set of algorithms within data mining and machine learning and is often referred to as lazy classification.
+In the training phase the algorithms do not require much work since it is being trained on already stored instances.
 \cite[p. 78]{DataMiningPractical2011} 
 
 \bigskip
@@ -13,19 +13,19 @@ This classification method is called nearest-neighbour classification, and when 
 
 \bigskip
 
-With instance-based learning new examples can be inserted into the training set at any time.
-Which means that the training set can be extended with new data as the number of data points groves larger.
-\cite[p. 135]{DataMiningPractical2011} 
+\mt{With instance-based learning, new examples can be inserted into the training set at any time, which is possible thanks to the low training time of the algorithm.
+This means that the set easily can be extended with new data as the number of data points increases.
+\cite[p. 135]{DataMiningPractical2011}}
 
 
 \subsection{K-Nearest Neighbour}\label{sec:theoryUnClassKnn}
 In \acrfull{knn} classification a data instance is being compared to a set $k$ of its nearest neighbours.
 These neighbours are like in general instance-based learning previously stored instance that are being used to compare against.
-The method is perfectly suited when this new instance need to be classified \cite[p. 77-79]{DataMiningPractical2011}
+The method is perfectly suited when this new instance needs to be classified \cite[p. 77-79]{DataMiningPractical2011}
 
 \bigskip
 
-If a set of one numeric values are compared the computation of the distance between the two points are trivial. 
+If a set of  numeric values is compared, the computation of the distance between the two points are trivial. 
 It only computes the difference between these two values.
 With two or more values the computation is almost as straightforward.
 In these cases, the Euclidean Distance method (which is the default) is used to make the computation and comparison of the values.
@@ -39,11 +39,4 @@ One of the problems in the learning phase is to determine the important values.
 The green and red dots are already existing instanced, and the blue dot is new and is going to be classified.
 In this case the new instance is going to be classified as red, if $k=3$.
 
-\fig{KNN classification of a new instance where $k=3$}{knnIllustration}{0.3}{knnClassification}
-
-% \bigskip
-
-% The K-value need to be uneven to make the classification as good as possible. 
-% In cases where $k$ is even a condition where the new instance is equally between two areas can occur.
-% Which will lead up to a lower accuracy, since one of the areas need to be chosen.
-
+\fig{K-NN classification of a new instance where $k=3$}{knnIllustration}{0.3}{knnClassification}

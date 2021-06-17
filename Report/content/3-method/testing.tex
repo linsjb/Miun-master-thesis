@@ -22,12 +22,15 @@ A stronger signal means fewer beacons to place out which in turn means less hard
 
 The apartment used in testing was not large enough to conduct a full-scale test and the beacons was therefore places closer to each other than they would normally be to maximize the area.
 The number of used beacons opened up for more signal variance in the layout, which in turn creates fingerprints based on different beacons for each group.
-The height for the beacons in the test was set to around 1 meter.
+\mt{It's also shown in \cite[Sec. 4.3]{ProbabilityBasedIndoorPositioning2019}, where the test areas were around the same size as the apartment, that more than five beacons had a low impact on the positioning accuracy.
+\cite{LocationFingerprintingBluetooth2015} does show the same result with the number of beacons. 
+They cut the number of beacons down by around 40\% and got an error from 2.5 meters to around 5.5 meters.
+Their result also showed that with more than 8-10 beacons the positioning accuracy did not get better.}
 
 \bigskip
 
-The beacons was arranged in two rows where the first row of four beacons was placed 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
-The two rows was spaced 6 meters apart.
+The beacons were arranged in two rows where the first row of four beacons was placed 4 meters apart, and the second row with three beacons was spaced 5 meters apart.
+The two rows were spaced 6 meters apart.
 
 \bigskip
 
@@ -40,20 +43,20 @@ The numbers represent the point name for each group.
 \fig{Estimated test setup with iBeacons placement and areas to test against}{testSetup}{1}{testSetup}
 
 Another layout where the beacons were placed around the marked groups was considered.
-A layout like this would benefit in a real scenario if the groups is created before the hardware is being placed.
+A layout like this would benefit in a real scenario if the groups are created before the transmitters is being installed.
 This would create a wider signal coverage around the created groups.
-But, it would require more hardware to cover the whole hall since more obstacles would weaken the signals.
+Thus, it would require more hardware to cover the whole hall since more obstacles would weaken the signals.
 Due to the limited space in testing this approach was not the chosen one since it wouldn't make any difference of the number of beacons in range, because of the small area.
 
 \newpage
 
 \subsection{Test parameters}\label{sec:methodTestParameters}
-The following parameters was set to be tested;
+The following parameters was set to be tested.
 
 \begin{itemize}
 \item Number of mapped offline fingerprints per location point
 	\begin{itemize}
-		\item 1 fingerprints per point
+		\item 1 fingerprint per point
 		\item 4 fingerprints per point
 	\end{itemize}
 \end{itemize}
@@ -65,3 +68,8 @@ A result from this means that the position of the user can make the prediction h
 With four fingerprints per point the fingerprints would be scanned 360 degrees around the point. 
 This prevents the human body to interfere the signal in a negative way and therefore increase the positioning accuracy.
 It would also give more fingerprints to predict against.
+
+\bigskip
+
+\mt{Because of the limited space and low number of collected fingerprints for each group the number of neighbours in the \acrshort{knn} classification was set to $k=3$ and did not change.
+This means that in the testing only one parameter was being changed, and not multiple.}

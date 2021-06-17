@@ -11,9 +11,8 @@ A \acrfull{uuid} is created by the server when the API endpoint mentioned above 
 
 
 \subsubsection{Fingerprint processing}\label{sec:implServerGroupCreationFingerprint}
-\mt{In the iBeacon data that comes from the application the data it not formatted in the right way, and looks like the example presented in \Cref{listing:beaconFingerprint}.
-This data is cleaned and formatted as presented in \Cref{listing:deviceRawBeaconData}.}
-But to form a fingerprint this data need further processing where it's being cleaned and sorted into an integer array with the format presented in \Cref{fig:fingerprintIllustration}.
+\mt{In the iBeacon data that comes from the application the data it not formatted in the right way and looks like the example presented in \Cref{listing:groupFingerprints}.
+To form a fingerprint this data need further processing where it's being cleaned and sorted into an integer array with the format presented in \Cref{fig:fingerprintIllustration}}.
 
 \fig{Format of group fingerprint}{fingerprintIllustration}{0.4}{fingerprintIllustration}
 
@@ -32,4 +31,4 @@ These fingerprints are being stored for later use in the online phase of the sys
 
 \subsubsection{Database}\label{sec:implServerGroupCreationDatabase}
 When all data is being prepared and processed it's inserted into the Azure Cosmos Database as a new record.
-How the data is formatted when it's being sent to the server see appendix \ref{appendix:newGroupData}, that present a whole group data object.
+How the data is formatted when it's being sent to the server, see appendix \ref{appendix:newGroupData}, that present a whole group data object.

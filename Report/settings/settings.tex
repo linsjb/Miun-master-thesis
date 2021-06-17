@@ -107,6 +107,9 @@ headheight=50pt
 % Glossaries
 % ---------------------------
 \usepackage[acronym, nopostdot, section]{glossaries}
+\renewcommand{\glsnamefont}[1]{\textsf{#1}} %Change acronym name font   
+\renewcommand{\glossarypreamble}{\begin{sffamily}}
+\renewcommand{\glossarypostamble}{\end{sffamily}}
 \makeglossaries
 \input{glossary.tex}
 

@@ -10,12 +10,12 @@ When a new group is being created a set of machines should be selectable and dif
 To be able to choose machines for a new group they first need to be grabbed from an Azure Cosmos database container.
 The server is taking care of the database handling, which means the application will get the machines from the server with a HTTPs GET request.
 The API endpoint that is being called is \textit{.../api/machines/all}.
-In the application these request is handled with the iOS \textit{ResourceUrl} API.
+In the application this request is handled with the iOS \textit{ResourceUrl} API.
 
 \bigskip
 
 On a successful request all machines are loaded into the application.
-These machines is then being presented to the user in a list.
+These machines are then being presented to the user in a list.
 The entries in the list is selectable via a touch action, where the selected machines is mapped to the group.
 A machine can be used in several groups, so the machines' IDs are stored in the group. 
 
@@ -27,13 +27,12 @@ In the application a text field is filled with the name and then being sent to t
 
 \subsubsection{Map position}\label{sec:implAppNewGroupMapPos}
 A group is the part of the system that is being identified as a position in the undefined space and need position fingerprints tied to it.
-This mapping is the offline phase in a fingerprint based system.
+This mapping is the offline phase in a fingerprint-based system.
 Nearby \acrfull{ble} iBeacon signals is picked up in the application with the iOS \textit{CoreLocation} API.
-
 
 \bigskip
 
-The positions is being manually mapped within the application's user interface.
+The positions are being manually mapped within the application's user interface.
 Since the fingerprints that being used by the server are based on three \acrshort{rssi} values, a criterion is set where at least three iBeacons must be in range to be able to map a new position to the group.
 If this condition is not met, a warning modal is being showed to the user and the data will not be collected.
 When the condition is met a snapshot of the nearby iBeacons is collected and the data is being cleaned.

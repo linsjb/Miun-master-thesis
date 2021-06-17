@@ -1,25 +1,32 @@
 \section{Bluetooth Low Energy}\label{sec:theoryBle}
 The wireless technology \acrfull{ble} is part of the core specifications of Bluetooth 4.0 and is also referred to as Bluetooth Smart.
 \acrshort{ble} focuses on short-range communication where the transmission strength often is measured in dBm.
-A closer distance between the receiver and transmitter means a lower dBm-value, which typically range between around -30 dBm to 0 dBm.
+A closer distance between the receiver and transmitter means a higher dBm-value, which typically range between around -30 dBm to 0 dBm.
 \cite{DevelopmentMobileIndoor2017} 
 
 \bigskip
 
-\acrshort{ble} technology is designed to be used where the devices don't need to transmit a lot of data.
+\mt{The \acrshort{ble} protocol is designed to send messages with a short duration.
 With this comes a low-power consumption and often low cost, which makes \acrshort{ble} a good candidate for various different tasks.
-\cite{PracticalFingerprintingLocalization2017} 
+\cite{PracticalFingerprintingLocalization2017, LocationFingerprintingBluetooth2015}}
+
+\bigskip
+
+\mt{WiFi and \acrshort{ble} is working in the same radio frequencies, but \acrshort{ble} does not suffers from the same problems as WiFi does.
+WiFi has a passive scan, which lowers the update rate and make the positioning harder because of fewer updates.
+Also, WiFi wasn't designed to broadcast the signal strength in any specific unit.
+\cite{LocationFingerprintingBluetooth2015}}
 
 
 \subsection{iBeacons}\label{sec:theoryBleiBeacons}
 iBeacon are small battery powered devices developed by Apple that is based on the existing \acrshort{ble} technology.
-Using the iBeacon technology together with the Apple iOS platform open up for a variety of opportunities when in comes to implementing position based applications.
-Because of the small footprint and low cost of these devices they are easy to deploy in an environment where they can be used together with a smartphone application.
+Using the iBeacon technology together with the Apple iOS platform open up for a variety of opportunities when it comes to implementing position-based applications.
+Because of the small footprint and low cost of these devices, they are easy to deploy in an environment where they can be used together with a smartphone application.
 \cite{BluetoothLowEnergy2018} 
 
 \bigskip
 
-The iBeacon is sending out an advertisement signal that consists of three parts \cite{GettingStartedIBeacon2014};
+The iBeacon is sending out an advertisement signal that consists of three parts \cite{GettingStartedIBeacon2014}.
 \begin{itemize}
 \item 16-byte UUID
 \item 2-byte major value

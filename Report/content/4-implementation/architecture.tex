@@ -4,9 +4,9 @@ This section will present different techniques and architectures used in this im
 
 
 \subsection{Machine}\label{sec:implArchitectureMachine}
-A machine is being defines as some kind of equipment places around a industrial hall in an manufacturing environment.
-This could for example be a waterpump or electrical engine that drives a stone crusher.
-A machine in this work it only a set of data collections in a database and not a real physical machine.
+A machine is being defines as some kind of equipment places around an industrial hall in a manufacturing environment.
+This could for example be a water pump or electrical engine that drives a stone crusher.
+\mt{A machine in this thesis project is only a set of data collections in a database and not a real physical machine.}
 
 
 \subsection{Group}\label{sec:implArchitectureGroup}
@@ -17,23 +17,24 @@ Machines are tied to these created groups where the machines data will be shown 
 
 
 \subsection{Device}\label{sec:implArchitectureDevice}
-A device refer to a mobile hand held device that's in this work is an Apple iPhone 12 pro.
+A device refers to a mobile hand held device that's in this work is an Apple iPhone 12 pro.
 This device is running the developed application.
 
 
 \subsection{Beacons}\label{sec:implArchitectureBeacons}
-A beacon, also mentioned as iBeacon is the transmitting hardware used to position a device with the developed system.
+A beacon, also mentioned as iBeacon, is the transmitting hardware used to position a device with the developed system.
 
 
 \subsection{Server}\label{sec:implArchitectureServer}
 All calculations are being taken care of by a server.
-This server is not being hosted to any cloud service or a physical server in a data centre, instead it is running on a local computer where the device will communicate with the server only in the same LAN.
+This server is not being hosted to any cloud service or a physical server in a data centre.
+Instead, it's running on a local computer where the device will communicate with the server only in the same LAN.
 
 
 \subsection{Frontend vs. backend}\label{sec:implArchitectureFrontBack}
 In the developed \acrfull{ips} there are two major parts, a front- and backend.
-The application is defined as the frontend of the system since this is the part that a user will interact with and get data presented to it. 
-The backend is the developed server software that takes care of all calculations and data predictions, and delivers this to the frontend.
+The application is defined as the frontend of the system, since this is the part that a user will interact with and get data presented to it. 
+The backend is the developed server software that takes care of all calculations and data predictions and delivers this to the frontend.
 
 
 \subsection{API}\label{sec:implArchitectureApi}
@@ -49,5 +50,5 @@ When the server is done processing a response is being yield back to the device 
 \bigskip
 
 In a GET request the server is only asked to give data back to the device without any data being sent to the server.
-When these different endpoints is being called from the device the server will perform various processes depending on how the API is developed.
+When these different endpoints are being called from the device the server will perform various processes depending on how the API is developed.
 

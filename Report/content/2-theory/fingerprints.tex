@@ -5,6 +5,12 @@ These fingerprints are often based on \acrshort{rssi} values collected from the 
 
 \bigskip
 
+\mt{However, a system that use fingerprints can run into problems.
+It's shown that the collected \acrshort{rssi} values that form's the fingerprints can vary between different devices, even if the devices are of the exact same model.
+\cite{WhyFingerprintbasedIndoor2014}}
+
+\bigskip
+
 Apart from \acrshort{rssi}, fingerprints can be built with \acrfull{pdr} traces.
 \acrshort{pdr} uses the accelerometer and the compass in the mobile phone.
 With this the number of walked steps can be counted and then position the device.
@@ -25,8 +31,8 @@ also be used with other hardware, such as \acrlong{ble} Beacons.
 
 \bigskip
 
-A fingerprint positioning system is built up in a two phase process.  An offline
-and online phase.\cite{IndoorFingerprintPositioning2017} 
+A fingerprint positioning system is built up in a two-phase process.
+An offline and online phase.\cite{IndoorFingerprintPositioning2017} 
 
 
 \subsection{Offline phase}\label{sec:theoryFingerprintOffline}
@@ -34,7 +40,6 @@ In the offline phase (also called observation phase) the fingerprints are being 
 mapped to a location in the environment.
 The mapped fingerprints are then being stored in a radio map database.
 \Cref{fig:fingerprintOfflinePhaseIllustration} shows the flow for collecting the \acrshort{rssi} signals, mapping them to a location and storing them in the database.
-% This is often an time consuming part since all positions need to be manually scanned.
 \cite{IndoorFingerprintPositioning2017} 
 
 \fig{Fingerprint offline phase flow \cite{IndoorFingerprintPositioning2017}}{fingerprintOfflinePhaseIllustration}{0.9}{fingerprintOfflinePhase}
@@ -42,7 +47,7 @@ The mapped fingerprints are then being stored in a radio map database.
 
 \subsection{Online phase}\label{sec:theoryFingerprintOnline} The online phase
 is the part where a user is interacting with the stored fingerprints.
-A device is collecting \acrshort{rssi} values from nearby senders in real time.
+A device is collecting \acrshort{rssi} values from nearby senders in real-time.
 These collected values is then being compared with the fingerprints in the database.
 If a match between the real-time \acrshort{rssi} values and the radio map occur the location is being yield back and the device can be positioned.
 \Cref{fig:fingerprintOnlinePhaseIllustration} show an illustration of the

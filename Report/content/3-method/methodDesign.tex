@@ -1,11 +1,18 @@
 \section{Method framework motivation}\label{sec:methodFramework}
 In the literature review presented in \cref{sec:theoryRelatedWork} it was showed that  all papers, which implemented an \acrfull{ips}, has no clear method but was all following the same structure.
-They all started with a problem formulation followed by the software design, implementation, testing and finally an evaluation.
+They all started with a problem formulation followed by the software design, implementation, testing and an evaluation.
 \mt{Software project does often use this kind of structure, and since the method was being used in the reviewed papers a similar method structure was used in this thesis project.}
 The used method structure is being presented in \Cref{fig:methodOverview}.
 
-\fig{Overview of the used method based on \cite{SecretsSuccessfulSimulation1995} }{methodOverview}{1}{methodFlow}
+\fig{Overview of the used method framework}{methodOverview}{1}{methodFlow}
 
 A method framework that is well-defined is presented in the paper \textit{Secrets of successful simulation projects} \cite{SecretsSuccessfulSimulation1995}.
-The paper describes how a simulation based project should be performed for a successful result.
+The paper describes how a simulation-based project should be performed for a successful result.
 This thesis project is not a simulation project, but the proposed method framework can still verify that the method structure in this thesis is relevant.
+
+\bigskip
+
+\mt{Another well-known model framework is the CRISP-DM framework \cite{CRISPDMStandardProcess} used in data mining projects.
+The methods used in the reviewed papers, and in this thesis, can also be referred to this model. It contains of six parts, which is business understanding, data understanding, data preparation, modelling, evaluation and deployment.
+As presented in \Cref{fig:methodOverview}, the used method framework could be matched with the Crisp-DM model, where the modelling is divided into software design and implementation.
+Also, the data understanding, and deployment parts of CRISP-DM is not needed since there is no data to understand nor any deployment, because this thesis just implements a \acrshort{poc} system.}

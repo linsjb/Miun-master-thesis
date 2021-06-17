@@ -2,13 +2,13 @@
 \acrfull{rssi} is an indication of the signal strength between a sender and receiver.
 It's a less complex method than other technologies such as Time of Arrival, Time Difference of Arrival or
 Angle of Arrival that require a proper time synchronization between the sender and receiver.
-The benefits with \acrshort{rssi} based measurements is that it will reduce the complexity of the signal measurement, and opens up for easier software implementations.
+The benefits with \acrshort{rssi} based measurements is that it will reduce the complexity of the signal measurement and opens up for easier software implementations.
 It does also have a high accuracy, low power consumption and a low cost due to the less complex systems required.
-It became a popular choice to use in non GPS-based positioning because of these benefits.\cite{IndoorFingerprintPositioning2017} 
+It became a popular choice to use in non-GPS based positioning because of these benefits.\cite{IndoorFingerprintPositioning2017, PerformanceAnalysisDiverse2013}
 
 \bigskip
 
-\acrshort{rssi} measurements can be divided into three different categories;
+\acrshort{rssi} measurements can be divided into three different categories.
 
 \begin{itemize}
 	\item Trilateration
@@ -17,7 +17,7 @@ It became a popular choice to use in non GPS-based positioning because of these 
 \end{itemize}
 
 \subsection{Trilateration}\label{sec:theoryRssiTrilateration} Trilateration
-is a positioning technique where three or more senders and receivers converts the signals
+is a positioning technique where three or more senders and receivers convert the signals
 into spatial distances.  This is used to create radius of circles and where all
 the circles intersect with each other is where the device is located.
 \cite{IndoorFingerprintPositioning2017} 
@@ -27,20 +27,20 @@ the circles intersect with each other is where the device is located.
 The radio frequency can easily be affected because of the complexity of the indoor space, which will impact the signals from the transmitters.
 In the conversion from signal strength to spatial distances it can therefore introduce errors that will lower the accuracy of the positioning.
 A solution to assist the technique is path loss models that will increase the accuracy.
-Since spatial distances is used to position a device, the exact position of the WiFi \acrfull{ap} need to be known. 
+Since spatial distances are used to position a device, the exact position of the WiFi \acrfull{ap} need to be known.
 Together with this exact position and the path loss models the technique is not practical to use, and also has a low positioning accuracy of around 40 meters.\cite{IndoorFingerprintPositioning2017}
 
 
 \subsection{Approximate Perception}\label{sec:theoryRssiApproxPerception}
 In approximate perception the signal from the strongest base station is the positioning criterion.
 Positioning with this technique requires information of the base stations location as well as the area they cover. 
-This technique has a low positioning accuracy, of around 100 meters, and to make it more precise researchers has used a cluster of antennas.
-This cluster is then placed at a know location and will improve the accuracy.
+This technique has a low positioning accuracy, of around 100 meters, and to make it more precise researchers have used a cluster of antennas.
+This cluster is then placed at a known location and will improve the accuracy.
 \cite{IndoorFingerprintPositioning2017} 
 
 \subsection{Scene Analysis}\label{sec:theoryRssiSceneAnalysis}
 Scene analysis is the most used technique for indoor positioning.
-It uses fingerprint matching (\cref{sec:theoryFingerprint}) and does not require any information of where the base stations is located, which is needed in both trilateration and approximate perception.
+It uses fingerprint matching and does not require any information of where the base stations are located, which is needed in both trilateration and approximate perception.
 The positioning is done with the signal strength from multiple base stations at a given reference point.
 Together with a fingerprint data structure, the reference point will act as a localization point for the positioning system.\cite{IndoorFingerprintPositioning2017} 
 

@@ -1,12 +1,18 @@
 \section{Positioning}\label{sec:resultPos}
-The positioning test is conducted in two steps and the condition for these are being explained in \cref{sec:methodSoftwareTests}.
+\mt{The positioning test is conducted for three different groups, blue, yellow and brown, that was set to be created.
+Each of these groups has a total of nine fixed points.
+The groups are being created with two different numbers of mapped fingerprints per point.
+First one fingerprint and later four fingerprints per each of the nine points.
+The created groups are then used to position in which group the device is being located in.
+For each point in each group ten measurements are taken when the device is being positioned.
+Each group is then tested three times.
+The result for each point  is the majority predicted group from the ten measurements and three test runs.}
+
 
 
 \subsection{Measurement results per point}\label{sec:resultsPosOneFingerprint}
 \mt{This sub-section presents to which group each point measurement has been classified.
-Each point is being classified by the majority result from ten measurements per point.
-Three rounds has been conducted for each group.
-In the presented results the measurements for one fingerprint per point and four fingerprints per point is being compared.}
+In the presented results the measurements for one fingerprint and four fingerprints per point is being compared.}
 
 
 \subsubsection{\mt{Blue group}}\label{sec:resultsPerPointBlue}
@@ -18,7 +24,7 @@ Beacons far away would be more affected by going through this wall than nearby b
 
 \fig{Measurement result per point for blue group}{bluePointsResult}{1}{results/pointsBlue}
 
-In the cases where the yellow group is being predicted it can be explained by the beacons placement.
+In the cases where the yellow group is being predicted it can be explained by the beacon's placement.
 At certain points beacons far away from the blue group, and closer to the yellow groups, has a clear line of sight.
 A result from this is that nearby beacons have a weaker signal than beacons far away.
 This explanation is true for both one and four points since the beacons has the same arrangement.
@@ -39,7 +45,7 @@ Since the brown and yellow group is close to each other minor fluctuations in th
 
 
 \subsubsection{\mt{Brown group}}\label{sec:resultsPerPointBrown}
-In the predicted points for the brown group presented in \Cref{fig:brownPointsResult} the result is not as self explaining.
+In the predicted points for the brown group presented in \Cref{fig:brownPointsResult} the result is not as self-explaining.
 As seen in the figure, the blue group get predicted at two points.
 This has to do with similar \acrshort{rssi} values of the beacons, where beacons near the blue group, and beacons in or near the brown group has similar values.
 A result from this makes the prediction more unstable with the different mapped fingerprints in the groups.

@@ -5,7 +5,7 @@ A position is set when a call is made to the server HTTPs POST API endpoint \tex
 \fig{Flow chart of the process to set a position and return the corresponding machines}{serverSetPositionFlowChart}{1.0}{flowCharts/serverSetPosition}
 
 \subsubsection{Data processing}\label{sec:implServerSetPosDataProcessing}
-\mt{The collected \acrshort{rssi} values from the device is being sent to the server via the above mentioned API endpoint.}
+\mt{The collected \acrshort{rssi} values from the device is being sent to the server via the above mention API endpoint.}
 Before this data can be used to classify the position with help of \acrfull{knn}, it needs to be prepared.
 In this preparation the data is being transformed to match the style of the offline stored fingerprints.
 \Cref{listing:deviceRawBeaconData} show the raw data that is being delivered from the application and \Cref{listing:processedBeaconData} show the processed data.
@@ -22,13 +22,11 @@ This formatted data is now the online fingerprints that will be classified with 
 
 
 \subsubsection{KNN testing}\label{sec:implServerSetPosKnnTesting}
-\fig{K-NN testing flow chart}{knnTestingFlowChart}{1.0}{flowCharts/serverTrainKnn}
-
 \Acrshort{knn} need to test on already existing data before it can predict any groups. 
 This data is all mapped fingerprints in every created group.
 In \Cref{fig:knnTestingFlowChart} the process of testing a \acrshort{knn} classifier with the correct data is presented.
 
-\bigskip
+\fig{K-NN testing flow chart}{knnTestingFlowChart}{1.0}{flowCharts/serverTrainKnn}
 
 First the data is being collected from the Azure Cosmos Database group container. 
 After this the data is prepared, so it can be used in the \acrshort{knn} testing.
