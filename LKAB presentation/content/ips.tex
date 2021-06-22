@@ -1,0 +1,68 @@
+\section{Inomhuspositionering}
+
+
+\begin{notedFrame}{Tekniker}{ips/systems.tex}
+	\begin{itemize}
+		\item Sändare
+			\begin{itemize}
+				\item WiFi Access Punkter
+				\item Bluetooth Beacons
+			\end{itemize}
+
+		\item Signalstyrka (RSSI-värde)
+
+		\item Fingeravtryck
+			\begin{itemize}
+				\item Samling av signalstyrkor
+			\end{itemize}
+
+		\item Klassificering
+	\end{itemize}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Positionering med fingeravtryck}{}
+	\begin{itemize}
+		\item Två faser
+			\begin{enumerate}
+				\item Observationsfas - offline
+				\item Positioneringsfas - online
+			\end{enumerate}
+	\end{itemize}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Fas 1 - Observation}{ips/how.tex}
+	\begin{itemize}
+		\item Avläsning av närliggande sändarsignaler
+		\item Mappa och lagra fingeravtryck
+	\end{itemize}
+
+	\figNoCap{1.0}{fingerprintOffline}
+\end{notedFrame}
+
+
+\begin{notedFrame}{Fas 2 - Positionering}{ips/how.tex}
+	\begin{itemize}
+		\item Avläsning av signalerna i realtid
+		\item Jämförelse med lagrade fingeravtryck
+	\end{itemize}
+
+	\figNoCap{1.0}{fingerprintOnline}
+\end{notedFrame}
+
+
+\begin{frame}{Klassificering}
+	\begin{columns}[T, onlytextwidth]
+		\column{0.5 \textwidth}
+			\begin{itemize}
+				\item K-Nearest Neighbour
+				\item Vad är mina närmsta grannar?
+			\end{itemize}
+		
+		\column{0.5 \textwidth}
+			\figNoCap{.6}{knnClassification}
+	\end{columns}
+\end{frame}
+
+

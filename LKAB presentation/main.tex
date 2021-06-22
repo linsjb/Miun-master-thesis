@@ -1,0 +1,44 @@
+\documentclass{beamer}
+\usetheme[progressbar=frametitle]{metropolis} 
+
+\input{settings/settings.tex}
+
+\setbeamertemplate{note page} 
+{ 
+\insertslideintonotes{0.01} 
+\rule{\textwidth}{0.1pt} 
+\insertnote 
+}
+
+% \showNotes
+
+\title{Automatic retrieval of data for industrial machines with handheld devices \\
+  \large{Positioning in indoor environments using iBeacons}}
+\date{22 juni 2021}
+\author{Linus Sjöbro \\ \tiny{lisj1502@student.miun.se}}
+\institute{Mittuniversitetet Sundsvall \figNoCap{0.3}{miunLogo}}
+
+\begin{document}
+  \maketitle
+  
+  \begin{frame}{Innehåll}
+    \tableofcontents 
+  \end{frame}
+
+  \input{content/intro.tex}
+  \input{content/ips.tex}
+  \input{content/implementation.tex}
+  \input{content/testing.tex}
+  \input{content/results.tex}
+  \input{content/conclusion.tex}
+
+  \begin{frame}[standout]
+    Tack för att ni lyssnat!
+    
+    Frågor?
+
+    \small{Linus Sjöbro\\lisj1502@student.miun.se}
+  \end{frame}
+
+
+\end{document}

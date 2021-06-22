@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+
+\input{settings/settings.tex}
+
+\graphicspath{{./attachments/figures/images/}}
+\newcommand{\tikzPath}{./attachments/figures/tikz/}
+\newcommand{\codePath}{./attachments/code/}
+\newcommand{\tablePath}{./attachments/tables/}
+
+\title{Planning report}
+\author{Linus Sjöbro}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Preliminary title}
+Positioning in indoor industrial environments and visual data presentation with augmented reality
+
+\section{Background}
+LKAB has a smartphone application that will help their mechanics and technicians to show information for a certain type of machinery out in their production plants.
+To get real time process data for a machine an onsite OCR code need to be manually scanned in the application.
+When the correct code is scanned the application presents the data in plain text.
+Due to the harsh and dirty environment in LKAB's mining production plants the application could face difficulties with the reading of these codes.
+The manual scanning also means that the user must know the location of the code, which sometimes could be hard to find.
+A better way to get the information for a machine is to automatically fetch the process data.
+This could be done by knowing the users position in the production plants.
+Since this is indoor environments with no access to GPS signal the users placement must be done with other techniques such as WiFi or BLE Beacons.
+
+\section{Purpose}
+This thesis will present a solution how to overcome indoor positioning obstacles in environments like LKAB's mining production plants.
+The positioning open up to skip the OCR code reading part.
+Research done in this area mostly aim for indoor map positioning where the users position is being displayed on a map.
+In some cases the indoor position is being translated to real latitude and longitude positions that can be displayed on Google Maps \cite{DevelopmentMobileIndoor2017}.
+The research is also mostly made in either office buildings or markets.
+That differs from the aim of this project that only need the indoor position at the production plant itself.
+
+\bigskip
+
+Although plain text presentation of the data is a suitable solution, it might cause confusion which machine the data belongst to if a lot of machines is located in a small area.
+Automatic data presentation will make the confusion even bigger since the OCR code no longer need to be manually scanned.
+With the help of Augmented Reality (AR) the data presentation for a certain machine could be displayed in a visual way.
+This could help the users to easier identify which machine the data belongs to.
+It could also give a visual presentation of important parts of the data, such as critical alarms.
+Furthermore new inovative AR solutions could help the users to perform various complex tasks and repairs.
+\cite{SystematicDesignMethod2020} does adopt AR to visually help with the disassembly and assembly of complex mechanical parts.
+This AR implementation does give instructions along the way if needed by the user.
+AR could also be used in the traning of the staff as mentioned in \cite{AdoptingAugmentedReality2020}.
+
+\bigskip
+
+To be able to verify and create measurable results a proof of cocept (PoC) Apple iOS application will be developed where the choosen positioning technique is being implemented.
+The application will also implement AR to show how it could facilitate the usage of the application.
+
+\section{Goals}
+With the above purpose a set of goals can be stated;
+
+\begin{enumerate}
+  \item Propose a indoor, no GPS, positioning solution adapted for LKAB's specific production plants environments where WiFi-networks has not yet been well deployed. The solution should include;
+  \begin{itemize}
+    \item How to acheive as high resolution as possible with the propsed technique.
+    \item Data on how many devices of the proposed technique that is needed to create the suitable resolution.
+  \end{itemize}
+\item Investigate and propose how Augmented Reality (AR) in the industry can facilitate for the users when being presented with real time data. This should include;
+    \begin{itemize}
+      \item How AR interfaces can be designen to help the users.
+      \item How the data can be presented in a clear and innovative way.
+    \end{itemize}
+  \item Develope a proof of concept Apple iOS application that does implement the results from the investigation in above goals. The application should, at least, include;
+  \begin{itemize}
+    \item Different real time data realative to the users position.
+    \item Present the AR result that can help the users to read important data.
+  \end{itemize}
+\end{enumerate}
+
+\section{Literature review}
+A shallow literature review has been done on the areas around non GPS positioning and Augmented Reality in the industry.
+This literature review has set the base for the project planning and involning a deeper dive into the literature \cite{AutonomousSmartphoneBasedWiFi2015, AutomaticConstructionRadio2018, WiFiFingerprintIndoor2012, PracticalFingerprintingLocalization2017} about WiFi and BLE Beacon positioning.
+
+\bigskip
+
+The literature \cite{AdoptingAugmentedReality2020, SystematicDesignMethod2020} will be part of the deeper literature review that is testing implementations for AR in industrial environments.
+
+
+\section{Time plan}
+See link for up to date Notion Gantt time plan.
+
+Link: \href{https://www.notion.so/8a79758540934203ab65633360c26e38?v=030857f20c6349c09f2894d37717f17f}{Time plan}
+
+\newpage
+\printbibliography
+\end{document}
